@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://optjhhdpek3c"]
+
+[ext_resource type="Script" uid="uid://bccd1dirt4kia" path="res://Code-y Bits/factory_room.gd" id="1_1daii"]
+[ext_resource type="Texture2D" uid="uid://dkeri6jbh726r" path="res://Sprites and Shid/icon.svg" id="1_dhrwc"]
+
+[node name="Factory Room" type="Node2D" unique_id=156863892]
+script = ExtResource("1_1daii")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2145963005]
+scale = Vector2(5, 5)
+texture = ExtResource("1_dhrwc")
