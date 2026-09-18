@@ -14,8 +14,8 @@ func _process(_delta: float) -> void:
 	pass
 
 func SpawnFactory():
-	var x_diff: int = x_size / 2
-	var y_diff: int = y_size / 2
+	var x_diff: int = roundi(x_size / 2)
+	var y_diff: int = roundi(y_size / 2)
 	for x in range(x_size):
 		for y in range(y_size):
 			var current_room = factory_room.instantiate()
