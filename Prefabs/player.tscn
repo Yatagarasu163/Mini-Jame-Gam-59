@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dytw8ksyhuym"]
+
+[ext_resource type="Script" uid="uid://btfpctxdvtv5u" path="res://Code-y Bits/player_script.gd" id="1_y6xdh"]
+[ext_resource type="Texture2D" uid="uid://dkeri6jbh726r" path="res://Sprites and Shid/icon.svg" id="2_5wxv7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_op1xx"]
+
+[node name="Player" type="CharacterBody2D" unique_id=1723161328]
+script = ExtResource("1_y6xdh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1723264578]
+shape = SubResource("CircleShape2D_op1xx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1345090974]
+texture = ExtResource("2_5wxv7")
