@@ -3,17 +3,12 @@
 [ext_resource type="Script" uid="uid://bgovbshf1om1s" path="res://Code-y Bits/factory_spawner.gd" id="1_l756w"]
 [ext_resource type="PackedScene" uid="uid://optjhhdpek3c" path="res://Prefabs/factory_room.tscn" id="2_pu3va"]
 [ext_resource type="PackedScene" uid="uid://dytw8ksyhuym" path="res://Prefabs/player.tscn" id="3_0e3vx"]
-[ext_resource type="Texture2D" uid="uid://dkeri6jbh726r" path="res://Sprites and Shid/icon.svg" id="4_6j5ir"]
 
 [node name="Main Game" type="Node2D" unique_id=425826221]
 
 [node name="Factory Spawner" type="Node2D" parent="." unique_id=65925981]
 script = ExtResource("1_l756w")
-factory_room = ExtResource("2_pu3va")
+factory_room_prefab = ExtResource("2_pu3va")
 
 [node name="Player" parent="." unique_id=1723161328 instance=ExtResource("3_0e3vx")]
 position = Vector2(-6, -12)
-
-[node name="Icon" type="Sprite2D" parent="." unique_id=1199589798]
-position = Vector2(-208, -57)
-texture = ExtResource("4_6j5ir")
