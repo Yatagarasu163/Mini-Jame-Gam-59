@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dh5oplfvsftmm"]
+
+[node name="Main" type="Node2D" unique_id=6932720]
+
+[node name="Label" type="Label" parent="." unique_id=2142070242]
+offset_left = 319.99997
+offset_top = 167.99998
+offset_right = 445.99997
+offset_bottom = 190.99998
+scale = Vector2(3.8301926, 3.8301926)
+text = "Fari is a coconut"
