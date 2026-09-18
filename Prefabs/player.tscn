@@ -16,6 +16,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5wxv7"]
+size = Vector2(128, 129)
+
 [node name="Player" type="CharacterBody2D" unique_id=1723161328]
 script = ExtResource("1_y6xdh")
 
@@ -26,3 +29,11 @@ shape = SubResource("CircleShape2D_op1xx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=868950767]
 sprite_frames = SubResource("SpriteFrames_op1xx")
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=491952855]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1743369485]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_5wxv7")
+
+[connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
