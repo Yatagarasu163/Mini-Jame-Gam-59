@@ -9,3 +9,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func generate():
+	print("Room (" + str(position.x / 640) + ", " + str(position.y / 640) + ") Generated")
+	pass

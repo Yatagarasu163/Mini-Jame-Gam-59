@@ -22,4 +22,5 @@ func SpawnFactory():
 			var new_x = x - x_diff
 			var new_y = y - y_diff
 			current_room.position = Vector2(new_x * x_multiplier, new_y * y_multiplier)
+			current_room.generate()
 			add_child(current_room)
