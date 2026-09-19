@@ -7,6 +7,11 @@ class_name factory_spawner
 @export var x_multiplier: float = 640
 @export var y_multiplier: float = 640
 
+@onready var world_border_x_neg: StaticBody2D = $"World Border Left"
+@onready var world_border_x_pos: StaticBody2D = $"World Border Right"
+@onready var world_border_y_neg: StaticBody2D = $"World Border Top"
+@onready var world_border_y_pos: StaticBody2D = $"World Border Bottom"
+
 func _ready() -> void:
 	SpawnFactory()
 
@@ -17,6 +22,10 @@ func SpawnFactory():
 	var rooms: Array[factory_room]
 	var x_diff: int = roundi(x_size / 2)
 	var y_diff: int = roundi(y_size / 2)
+	world_border_x_neg.position.x = -(x_diff * x_multiplier) - (x_multiplier / 2)
+	world_border_x_pos.position.x = (x_diff * x_multiplier) + (x_multiplier / 2)
+	world_border_y_neg.position.y = -(y_diff * y_multiplier) - (y_multiplier / 2)
+	world_border_y_pos.position.y = (y_diff * y_multiplier) + (y_multiplier / 2)
 	for x in range(x_size):
 		for y in range(y_size):
 			var current_room = factory_room_prefab.instantiate()

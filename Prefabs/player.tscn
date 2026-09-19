@@ -78,10 +78,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D" unique_id=1723161328 node_paths=PackedStringArray("_sprite")]
+[node name="Player" type="CharacterBody2D" unique_id=1723161328 node_paths=PackedStringArray("_sprite", "_camera")]
 script = ExtResource("1_y6xdh")
 _speed = 1000.0
+_camera_interact_zoom = Vector2(1.5, 1.5)
 _sprite = NodePath("AnimatedSprite2D")
+_camera = NodePath("Camera2D")
 
 [node name="Interaction Area" type="Area2D" parent="." unique_id=1620972331]
 
@@ -99,3 +101,6 @@ position = Vector2(0, -22)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_op1xx")
 animation = &"Idle_Right"
+
+[connection signal="body_entered" from="Interaction Area" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="Interaction Area" to="." method="_on_interaction_area_body_exited"]

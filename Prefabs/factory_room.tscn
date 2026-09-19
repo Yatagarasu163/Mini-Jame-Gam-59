@@ -2,13 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bccd1dirt4kia" path="res://Code-y Bits/factory_room.gd" id="1_1daii"]
 [ext_resource type="Texture2D" uid="uid://dkeri6jbh726r" path="res://Sprites and Shid/icon.svg" id="1_dhrwc"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_op1xx"]
-size = Vector2(130, 130)
+[ext_resource type="PackedScene" uid="uid://b6or2p7f8mvuo" path="res://Prefabs/factory_machine.tscn" id="3_7uf2n"]
 
 [node name="Factory Room" type="Node2D" unique_id=156863892 node_paths=PackedStringArray("room_station")]
 script = ExtResource("1_1daii")
-room_station = [NodePath("Blender"), NodePath("Cutter"), NodePath("Cooking"), NodePath("Deposit")]
+room_station = [NodePath("Blender"), NodePath("Cutter"), NodePath("Cooking and Bottler"), NodePath("Source and Deposit")]
 
 [node name="Base" type="Sprite2D" parent="." unique_id=2145963005]
 scale = Vector2(5, 5)
@@ -16,55 +14,30 @@ texture = ExtResource("1_dhrwc")
 
 [node name="Blender" type="Node2D" parent="." unique_id=1719363010]
 
-[node name="Sprite2D" type="Sprite2D" parent="Blender" unique_id=1587914251]
-self_modulate = Color(1, 0, 1, 1)
-texture = ExtResource("1_dhrwc")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Blender/Sprite2D" unique_id=683720747]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Blender/Sprite2D/StaticBody2D" unique_id=2072595525]
-shape = SubResource("RectangleShape2D_op1xx")
+[node name="Blender" parent="Blender" unique_id=729833297 instance=ExtResource("3_7uf2n")]
+type = 1
 
 [node name="Cutter" type="Node2D" parent="." unique_id=1687882660]
 
-[node name="Sprite2D" type="Sprite2D" parent="Cutter" unique_id=985416278]
-self_modulate = Color(0, 1, 1, 1)
-texture = ExtResource("1_dhrwc")
+[node name="Cutter" parent="Cutter" unique_id=1231129212 instance=ExtResource("3_7uf2n")]
+type = 2
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Cutter/Sprite2D" unique_id=672590179]
+[node name="Cooking and Bottler" type="Node2D" parent="." unique_id=1951326870]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cutter/Sprite2D/StaticBody2D" unique_id=1966627481]
-shape = SubResource("RectangleShape2D_op1xx")
-
-[node name="Cooking" type="Node2D" parent="." unique_id=1951326870]
-
-[node name="Sprite2D" type="Sprite2D" parent="Cooking" unique_id=770774123]
-self_modulate = Color(1, 1, 0, 1)
+[node name="Cooking" parent="Cooking and Bottler" unique_id=2144186114 instance=ExtResource("3_7uf2n")]
 position = Vector2(-128, 0)
-texture = ExtResource("1_dhrwc")
+type = 3
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Cooking/Sprite2D" unique_id=861227508]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cooking/Sprite2D/StaticBody2D" unique_id=1313083334]
-shape = SubResource("RectangleShape2D_op1xx")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Cooking" unique_id=1559527092]
-self_modulate = Color(1, 1, 0, 1)
+[node name="Bottler" parent="Cooking and Bottler" unique_id=491824412 instance=ExtResource("3_7uf2n")]
 position = Vector2(128, 0)
-texture = ExtResource("1_dhrwc")
+type = 4
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Cooking/Sprite2D2" unique_id=27050748]
+[node name="Source and Deposit" type="Node2D" parent="." unique_id=1995106631]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cooking/Sprite2D2/StaticBody2D" unique_id=1667801517]
-shape = SubResource("RectangleShape2D_op1xx")
+[node name="Source" parent="Source and Deposit" unique_id=1452218416 instance=ExtResource("3_7uf2n")]
+position = Vector2(-128, 0)
+timer_duration = 0.1
 
-[node name="Deposit" type="Node2D" parent="." unique_id=1995106631]
-
-[node name="Sprite2D" type="Sprite2D" parent="Deposit" unique_id=143961369]
-self_modulate = Color(0, 0, 0, 1)
-texture = ExtResource("1_dhrwc")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Deposit/Sprite2D" unique_id=1686931255]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Deposit/Sprite2D/StaticBody2D" unique_id=958283022]
-shape = SubResource("RectangleShape2D_op1xx")
+[node name="Deposit" parent="Source and Deposit" unique_id=1996376123 instance=ExtResource("3_7uf2n")]
+position = Vector2(128, 0)
+type = 5

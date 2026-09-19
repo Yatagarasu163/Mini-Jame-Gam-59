@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://bnaa0wb0yxviv"]
+
+[ext_resource type="Texture2D" uid="uid://dkeri6jbh726r" path="res://Sprites and Shid/icon.svg" id="1_tmv0i"]
+
+[node name="Player UI" type="Control" unique_id=960774583]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=274010363]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -200.0
+grow_horizontal = 0
+grow_vertical = 0
+alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1749867115]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer" unique_id=207078228]
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("1_tmv0i")
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/VBoxContainer" unique_id=952625358]
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("1_tmv0i")
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer/VBoxContainer" unique_id=1312924027]
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("1_tmv0i")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer" unique_id=92326429]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer2" unique_id=1083699706]
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("1_tmv0i")
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/VBoxContainer2" unique_id=128112889]
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("1_tmv0i")
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer/VBoxContainer2" unique_id=955346390]
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("1_tmv0i")

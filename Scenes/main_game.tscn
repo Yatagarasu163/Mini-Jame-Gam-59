@@ -4,11 +4,42 @@
 [ext_resource type="PackedScene" uid="uid://optjhhdpek3c" path="res://Prefabs/factory_room.tscn" id="2_pu3va"]
 [ext_resource type="PackedScene" uid="uid://dytw8ksyhuym" path="res://Prefabs/player.tscn" id="3_0e3vx"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0e3vx"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6j5ir"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mgc0q"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_op1xx"]
+
 [node name="Main Game" type="Node2D" unique_id=425826221]
 
 [node name="Factory Spawner" type="Node2D" parent="." unique_id=65925981]
 script = ExtResource("1_l756w")
 factory_room_prefab = ExtResource("2_pu3va")
+
+[node name="World Border Left" type="StaticBody2D" parent="Factory Spawner" unique_id=830655008]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Factory Spawner/World Border Left" unique_id=1994964923]
+shape = SubResource("WorldBoundaryShape2D_0e3vx")
+
+[node name="World Border Right" type="StaticBody2D" parent="Factory Spawner" unique_id=1682900954]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Factory Spawner/World Border Right" unique_id=743444774]
+shape = SubResource("WorldBoundaryShape2D_6j5ir")
+
+[node name="World Border Top" type="StaticBody2D" parent="Factory Spawner" unique_id=1080897492]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Factory Spawner/World Border Top" unique_id=823947733]
+shape = SubResource("WorldBoundaryShape2D_mgc0q")
+
+[node name="World Border Bottom" type="StaticBody2D" parent="Factory Spawner" unique_id=77218979]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Factory Spawner/World Border Bottom" unique_id=687578443]
+shape = SubResource("WorldBoundaryShape2D_op1xx")
 
 [node name="Player" parent="." unique_id=1723161328 instance=ExtResource("3_0e3vx")]
 position = Vector2(-6, -12)
