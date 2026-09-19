@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f6npk"]
 size = Vector2(127, 128)
 
-[node name="Big_T" type="CharacterBody2D" unique_id=1200286190]
+[node name="Enemy" type="CharacterBody2D" unique_id=1200286190]
 script = ExtResource("1_dk6jp")
 quota = 10
 level = 2
@@ -15,8 +15,9 @@ level = 2
 modulate = Color(0.86782765, 0, 0.11770063, 1)
 texture = ExtResource("2_k2lau")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1405162466]
+[node name="AngryTomatoHitBox" type="CollisionShape2D" parent="." unique_id=1405162466]
 position = Vector2(-0.5, 0)
+scale = Vector2(0.5799633, 0.5799633)
 shape = SubResource("RectangleShape2D_f6npk")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=683632267]
@@ -24,3 +25,7 @@ debug_enabled = true
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1438382110]
 target_position = Vector2(500, 0)
+
+[node name="Timer" type="Timer" parent="." unique_id=1099619199]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

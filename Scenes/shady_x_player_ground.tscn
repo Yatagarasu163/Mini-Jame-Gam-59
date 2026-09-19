@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bq7lo17qeskbl"]
 
 [ext_resource type="Script" uid="uid://7xchu1g3p2fo" path="res://Scripts/CX_player.gd" id="1_tl2vr"]
+[ext_resource type="PackedScene" uid="uid://r7ogd04ro4av" path="res://Prefabs/big_t.tscn" id="2_ucydm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bhunq"]
 
@@ -8,10 +9,11 @@
 
 [node name="ShadyX_PlayerGround" type="Node2D" unique_id=264330969]
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=1218947983]
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1218947983 node_paths=PackedStringArray("enemy")]
 position = Vector2(147, 98)
 scale = Vector2(3.3184402, 3.3184402)
 script = ExtResource("1_tl2vr")
+enemy = NodePath("../big_t")
 
 [node name="PlayerSprite" type="Sprite2D" parent="Player" unique_id=227132120]
 
@@ -23,6 +25,11 @@ scale = Vector2(2.3527832, 2.3527832)
 
 [node name="HurtBoxCollision" type="CollisionShape2D" parent="Player/HurtBox" unique_id=1805587010]
 shape = SubResource("CircleShape2D_riqys")
-disabled = true
+
+[node name="big_t" parent="." unique_id=1200286190 node_paths=PackedStringArray("target") instance=ExtResource("2_ucydm")]
+position = Vector2(254, 392)
+scale = Vector2(0.71872896, 0.71872896)
+target = NodePath("../Player")
 
 [connection signal="body_entered" from="Player/HurtBox" to="Player" method="_on_hurt_box_body_entered"]
+[connection signal="body_exited" from="Player/HurtBox" to="Player" method="_on_hurt_box_body_exited"]

@@ -9,9 +9,12 @@ extends CharacterBody2D
 @export var size_scale = 0.05
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var big_t: CharacterBody2D = $"."
+@onready var timer: Timer = $Timer
 var speed = 150
 var last_known_position: Vector2 = Vector2.ZERO
 var is_searching_last_location: bool = false
+var pushback_velocity := Vector2.ZERO
+var gotStun = false
 
 #LOS check range requires manual changing of the Raycast2D x value in its prefab
 #Currently LOS checks a circle around BIG T can change if needed
@@ -36,6 +39,9 @@ func _physics_process(_delta: float) -> void:
 	if is_searching_last_location:
 		search_last_location()
 	
+	position += pushback_velocity;
+	pushback_velocity = Vector2.ZERO
+
 func move_towards_target(target_pos):
 	#part of code that moves BIG T to the last known player location/POI
 	navigation_agent.target_position = target_pos
@@ -47,7 +53,7 @@ func search_last_location():
 	move_towards_target(last_known_position)
 	
 	# Check if the enemy has arrived close enough to the last known location
-	if global_position.distance_to(last_known_position) < 10.0:
+	if (global_position.distance_to(last_known_position) < 10.0 && gotStun):
 		is_searching_last_location = false
 		velocity = Vector2.ZERO
 		# IDLE ANIMATION AND PATROL CODE NOT ADDED YET
@@ -57,3 +63,14 @@ func _process(delta: float) -> void:
 	var size = 1 + ((quota + level) * size_scale)
 	var target_scale = Vector2(size, size)
 	big_t.scale = big_t.scale.lerp(target_scale,5.0 * delta)
+
+func Stun():
+	gotStun = true;
+	print("Enemy got stun");
+	timer.start(Global.PlayerAttack);
+
+func _on_timer_timeout() -> void:
+	gotStun = false;
+	search_last_location();
+	print("Enemy is now free to go")
+	timer.stop();
