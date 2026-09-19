@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b6or2p7f8mvuo"]
+
+[ext_resource type="Script" uid="uid://fc2oghhxxq87" path="res://Prefabs/factory_machine.gd" id="1_ahaoe"]
+[ext_resource type="Texture2D" uid="uid://dkeri6jbh726r" path="res://Sprites and Shid/icon.svg" id="1_xbnvb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ahaoe"]
+size = Vector2(130, 130)
+
+[node name="FactoryMachine" type="Node2D" unique_id=2144186114]
+script = ExtResource("1_ahaoe")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1149162874]
+self_modulate = Color(1, 1, 0, 1)
+texture = ExtResource("1_xbnvb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1656126007]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=455522568]
+shape = SubResource("RectangleShape2D_ahaoe")

@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://btfpctxdvtv5u" path="res://Code-y Bits/player_script.gd" id="1_y6xdh"]
 [ext_resource type="Texture2D" uid="uid://dfv4n3ggs7582" path="res://Sprites and Shid/Buff Miaw Sprite Sheet.png" id="2_5wxv7"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_kmatr"]
+radius = 100.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_op1xx"]
 radius = 60.0
 
@@ -80,7 +83,13 @@ script = ExtResource("1_y6xdh")
 _speed = 1000.0
 _sprite = NodePath("AnimatedSprite2D")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1723264578]
+[node name="Interaction Area" type="Area2D" parent="." unique_id=1620972331]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction Area" unique_id=993626578]
+shape = SubResource("CircleShape2D_kmatr")
+debug_color = Color(0.64156085, 0.5245124, 0, 0.41960785)
+
+[node name="Collision Area" type="CollisionShape2D" parent="." unique_id=1723264578]
 shape = SubResource("CircleShape2D_op1xx")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=65481844]

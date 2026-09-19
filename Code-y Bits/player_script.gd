@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name player_script
 
 @export var _speed: float = 500.0
 @export var _sprite: AnimatedSprite2D
