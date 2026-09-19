@@ -5,13 +5,24 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_op1xx"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_op1xx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5wxv7")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Player" type="CharacterBody2D" unique_id=1723161328]
 script = ExtResource("1_y6xdh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1723264578]
 shape = SubResource("CircleShape2D_op1xx")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1345090974]
-texture = ExtResource("2_5wxv7")
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=65481844]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=868950767]
+sprite_frames = SubResource("SpriteFrames_op1xx")
