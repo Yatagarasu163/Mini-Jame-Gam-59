@@ -1,6 +1,5 @@
 extends HSlider
 
-
 func _ready() -> void:
 	value = GlobalWorldEnvironment.environment.adjustment_brightness
 

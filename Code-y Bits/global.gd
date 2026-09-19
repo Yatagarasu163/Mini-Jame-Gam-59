@@ -7,7 +7,6 @@ const OPTIONS_MENU_SCENE = preload("res://Scenes/options_menu.tscn")
 
 
 func _ready() -> void:
-	# Allow ESC to work while the game is paused
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
 
@@ -17,7 +16,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	if current_scene == null:
 		return
 	
-	# Only allow the options menu in main.tscn
 	if current_scene.scene_file_path != "res://Scenes/main.tscn":
 		return
 	
