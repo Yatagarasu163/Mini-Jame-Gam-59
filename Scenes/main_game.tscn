@@ -40,7 +40,60 @@ texture = ExtResource("4_6j5ir")
 [node name="TestEnemy" parent="." unique_id=1308011806 instance=ExtResource("7_6y7pd")]
 position = Vector2(205, -9)
 
-[node name="TestMachine" parent="." unique_id=1877580678 instance=ExtResource("8_73nn6")]
+[node name="TestMachine" parent="." unique_id=1877580678 node_paths=PackedStringArray("cuttingProgressBar", "keyIndicator", "keyLabel", "instructionText") instance=ExtResource("8_73nn6")]
 position = Vector2(0, -335)
+cuttingProgressBar = NodePath("../MiniGameUI/CuttingProgressBar")
+keyIndicator = NodePath("../MiniGameUI/KeyIndicator")
+keyLabel = NodePath("../MiniGameUI/KeyIndicator/KeyLabel")
+instructionText = NodePath("../MiniGameUI/instruction")
+
+[node name="MiniGameUI" type="CanvasLayer" parent="." unique_id=506482632]
+
+[node name="CuttingProgressBar" type="ProgressBar" parent="MiniGameUI" unique_id=1105275255]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 35.0
+offset_right = 150.0
+offset_bottom = 65.0
+grow_horizontal = 2
+max_value = 10.0
+value = 10.0
+
+[node name="KeyIndicator" type="Panel" parent="MiniGameUI" unique_id=820640185]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -198.0
+offset_right = 20.0
+offset_bottom = -158.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="KeyLabel" type="Label" parent="MiniGameUI/KeyIndicator" unique_id=313729067]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "F"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="instruction" type="Label" parent="MiniGameUI" unique_id=756164104]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -132.5
+offset_top = 5.0
+offset_right = 132.5
+offset_bottom = 28.0
+grow_horizontal = 2
+text = "Press the button repeatedly to cut the tomato"
 
 [connection signal="body_entered" from="Player/HurtBox" to="Player" method="_on_hurt_box_body_entered"]
