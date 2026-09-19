@@ -61,5 +61,5 @@ func end_shift_manually() -> void:
 	
 func lose() -> void:
 	#if player gets hit by tomato
-	print("You lost.")
+	print("You got lost in the sauce.")
 	#ui pop up to retry or back to main menu
