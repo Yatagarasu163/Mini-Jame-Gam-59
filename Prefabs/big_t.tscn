@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://r7ogd04ro4av"]
+
+[ext_resource type="Script" uid="uid://biwiqo0hvptkd" path="res://Prefabs/big_t.gd" id="1_dk6jp"]
+[ext_resource type="Texture2D" uid="uid://dkeri6jbh726r" path="res://Sprites and Shid/icon.svg" id="2_k2lau"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f6npk"]
+size = Vector2(127, 128)
+
+[node name="Big_T" type="CharacterBody2D" unique_id=1200286190]
+script = ExtResource("1_dk6jp")
+quota = 10
+level = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1355679159]
+modulate = Color(0.86782765, 0, 0.11770063, 1)
+texture = ExtResource("2_k2lau")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1405162466]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_f6npk")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=683632267]
+debug_enabled = true
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1438382110]
+target_position = Vector2(500, 0)
