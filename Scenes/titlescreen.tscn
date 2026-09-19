@@ -1,0 +1,119 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhmd2e67in41m"]
+
+[ext_resource type="Script" uid="uid://btybivgqu4r71" path="res://Code-y Bits/titlescreen.gd" id="1_3lblr"]
+[ext_resource type="Script" uid="uid://dl4dfpw8eeoa8" path="res://Code-y Bits/audio_control.gd" id="3_h87bp"]
+[ext_resource type="Script" uid="uid://dwo4x2kxaemqi" path="res://Code-y Bits/brightness_control.gd" id="3_wshof"]
+
+[node name="Titlescreen" type="CanvasLayer"]
+layer = 5
+script = ExtResource("1_3lblr")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+autoplay = true
+bus = &"Music"
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+autoplay = true
+bus = &"SFX"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenu" type="VBoxContainer" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = -85.0
+offset_right = 86.0
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
+alignment = 2
+
+[node name="Logo" type="Control" parent="Control/MainMenu"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="StartGame" type="Button" parent="Control/MainMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Start Game"
+
+[node name="SettingButton" type="Button" parent="Control/MainMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Setting"
+
+[node name="Exit" type="Button" parent="Control/MainMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Exit"
+
+[node name="SettingsMenu" type="VBoxContainer" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = -106.0
+offset_right = 86.0
+offset_bottom = 94.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="Music" type="Label" parent="Control/SettingsMenu"]
+layout_mode = 2
+text = "Music"
+
+[node name="MusicControl" type="HSlider" parent="Control/SettingsMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = -80.0
+max_value = 0.0
+script = ExtResource("3_h87bp")
+audio_bus_name = "Music"
+
+[node name="Sfx" type="Label" parent="Control/SettingsMenu"]
+layout_mode = 2
+text = "SFX"
+
+[node name="SfxControl" type="HSlider" parent="Control/SettingsMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = -80.0
+max_value = 0.0
+script = ExtResource("3_h87bp")
+audio_bus_name = "SFX"
+
+[node name="Brightness" type="Label" parent="Control/SettingsMenu"]
+layout_mode = 2
+text = "Brightness"
+
+[node name="BrightnessControl" type="HSlider" parent="Control/SettingsMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 0.5
+max_value = 3.0
+step = 0.1
+value = 1.0
+script = ExtResource("3_wshof")
+
+[connection signal="value_changed" from="Control/SettingsMenu/MusicControl" to="Control/SettingsMenu/MusicControl" method="_on_value_changed"]
+[connection signal="value_changed" from="Control/SettingsMenu/SfxControl" to="Control/SettingsMenu/SfxControl" method="_on_value_changed"]
+[connection signal="value_changed" from="Control/SettingsMenu/BrightnessControl" to="Control/SettingsMenu/BrightnessControl" method="_on_value_changed"]

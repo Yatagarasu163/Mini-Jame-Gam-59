@@ -1,0 +1,98 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhmd2e67in41m"]
+
+[ext_resource type="Script" uid="uid://btybivgqu4r71" path="res://Scenes/titlescreen.gd" id="1_3lblr"]
+[ext_resource type="AudioStream" uid="uid://b8vpngm18qt7r" path="res://Sprites and Shid/Johny Grimes - The Return Of The King (freetouse.com).mp3" id="2_u4xby"]
+
+[node name="Titlescreen" type="CanvasLayer"]
+layer = 5
+script = ExtResource("1_3lblr")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_u4xby")
+autoplay = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenu" type="VBoxContainer" parent="Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = -85.0
+offset_right = 86.0
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
+alignment = 2
+
+[node name="Logo" type="Control" parent="Control/MainMenu"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="StartGame" type="Button" parent="Control/MainMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Start Game"
+
+[node name="SettingButton" type="Button" parent="Control/MainMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Setting"
+
+[node name="Exit" type="Button" parent="Control/MainMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Exit"
+
+[node name="SettingsMenu" type="VBoxContainer" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = -106.0
+offset_right = 86.0
+offset_bottom = 94.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="Music" type="Label" parent="Control/SettingsMenu"]
+layout_mode = 2
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="Control/SettingsMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Sfx" type="Label" parent="Control/SettingsMenu"]
+layout_mode = 2
+text = "SFX"
+
+[node name="SfxSlider" type="HSlider" parent="Control/SettingsMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Brightness" type="Label" parent="Control/SettingsMenu"]
+layout_mode = 2
+text = "Brightness"
+
+[node name="BrightnessSlider" type="HSlider" parent="Control/SettingsMenu"]
+unique_name_in_owner = true
+layout_mode = 2
