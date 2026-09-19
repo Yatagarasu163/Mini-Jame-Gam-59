@@ -3,7 +3,7 @@ extends Node
 var is_menu_open: bool = false
 var options_menu_instance: Node = null
 
-const OPTIONS_MENU_SCENE = preload("res://options_menu.tscn")
+const OPTIONS_MENU_SCENE = preload("res://Scenes/options_menu.tscn")
 
 
 func _ready() -> void:

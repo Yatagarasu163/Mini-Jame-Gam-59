@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bhmd2e67in41m"]
 
 [ext_resource type="Script" uid="uid://btybivgqu4r71" path="res://Code-y Bits/titlescreen.gd" id="1_3lblr"]
-[ext_resource type="PackedScene" uid="uid://b8p1hu5dl20wa" path="res://options_menu.tscn" id="2_u4xby"]
+[ext_resource type="PackedScene" uid="uid://b8p1hu5dl20wa" path="res://Scenes/options_menu.tscn" id="2_u4xby"]
 [ext_resource type="AudioStream" uid="uid://btgp0hlupepva" path="res://Johny Grimes - The Return Of The King (freetouse.com).mp3" id="3_h87bp"]
 
 [node name="Titlescreen" type="CanvasLayer" unique_id=1839207005]
