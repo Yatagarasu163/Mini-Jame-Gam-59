@@ -41,7 +41,7 @@ func add_progress(amount: float) -> void:
 	
 	current_progress += earned_points
 	total_score += earned_points
-	
+	#everytime the progress goes up the size of the tomato gets bigger and if limit hit increase speed
 	# Check if quota is hit to trigger Overtime state
 	if not is_in_overtime and current_progress >= target_quota:
 		enter_overtime()
@@ -50,6 +50,7 @@ func enter_overtime() -> void:
 	is_in_overtime = true
 	print("Quota met! Head to the exfil room to clock out OR keep working for more points.")
 	# Reveal the exfil room/door and activate its interaction area
+	#change the state of the tomato
 	if exfil_node:
 		exfil_node.visible = true
 	#if player clock out in exfil room go to end_shift_manually()
