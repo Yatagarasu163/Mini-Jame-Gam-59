@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://nwbor2efjgho"]
+
+[ext_resource type="Script" uid="uid://dvo2tatodna1t" path="res://Code-y Bits/factory_machine.gd" id="1_o1jb7"]
+[ext_resource type="Texture2D" uid="uid://dkeri6jbh726r" path="res://Sprites and Shid/icon.svg" id="2_bj6cu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b1lj4"]
+size = Vector2(391.19083, 22.353018)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_njqwk"]
+size = Vector2(482, 299)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xrivr"]
+
+[node name="TestMachine" type="StaticBody2D" unique_id=1877580678 node_paths=PackedStringArray("outputItem")]
+script = ExtResource("1_o1jb7")
+outputItem = NodePath("OutputPoint/OutputItem")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1522078674]
+scale = Vector2(2.5, 1)
+texture = ExtResource("2_bj6cu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2018362269]
+position = Vector2(-1, -1.5)
+scale = Vector2(0.80778986, 5.6815586)
+shape = SubResource("RectangleShape2D_b1lj4")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=970127621]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1205405099]
+position = Vector2(3, 11.5)
+shape = SubResource("RectangleShape2D_njqwk")
+
+[node name="OutputPoint" type="Node2D" parent="." unique_id=634750472]
+position = Vector2(-191, 3)
+
+[node name="OutputItem" type="Area2D" parent="OutputPoint" unique_id=1068318048]
+visible = false
+modulate = Color(0.9935445, 0.36186796, 0.1403706, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="OutputPoint/OutputItem" unique_id=1620921805]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_bj6cu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutputPoint/OutputItem" unique_id=1556947714]
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_xrivr")
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]
+[connection signal="body_entered" from="OutputPoint/OutputItem" to="." method="_on_output_item_body_entered"]
+[connection signal="body_exited" from="OutputPoint/OutputItem" to="." method="_on_output_item_body_exited"]

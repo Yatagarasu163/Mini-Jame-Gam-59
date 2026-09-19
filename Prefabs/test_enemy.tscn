@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cvrejer7q53ep"]
+
+[ext_resource type="Script" uid="uid://b4rh6tqc0bnwu" path="res://Code-y Bits/tomato_damage.gd" id="1_kq84e"]
+[ext_resource type="Texture2D" uid="uid://dkeri6jbh726r" path="res://Sprites and Shid/icon.svg" id="2_vf5t3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13qdw"]
+size = Vector2(126, 119)
+
+[node name="TestEnemy" type="CharacterBody2D" unique_id=1308011806]
+script = ExtResource("1_kq84e")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2146619512]
+texture = ExtResource("2_vf5t3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1640632865]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_13qdw")
