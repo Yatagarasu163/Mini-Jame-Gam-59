@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://wvrul5mdgnfg"]
+
+[ext_resource type="Script" uid="uid://bgovbshf1om1s" path="res://Code-y Bits/factory_spawner.gd" id="1_l756w"]
+[ext_resource type="PackedScene" uid="uid://optjhhdpek3c" path="res://Prefabs/factory_room.tscn" id="2_pu3va"]
+[ext_resource type="PackedScene" uid="uid://dytw8ksyhuym" path="res://Prefabs/player.tscn" id="3_0e3vx"]
+[ext_resource type="Texture2D" uid="uid://dkeri6jbh726r" path="res://Sprites and Shid/icon.svg" id="4_6j5ir"]
+[ext_resource type="Script" uid="uid://brw3klbb2dtxv" path="res://Code-y Bits/Health.gd" id="4_mgc0q"]
+[ext_resource type="Script" uid="uid://b4rh6tqc0bnwu" path="res://Code-y Bits/tomato_damage.gd" id="6_bb2iq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13qdw"]
+size = Vector2(126, 119)
+
+[node name="Main Game" type="Node2D" unique_id=425826221]
+
+[node name="Factory Spawner" type="Node2D" parent="." unique_id=65925981]
+script = ExtResource("1_l756w")
+factory_room = ExtResource("2_pu3va")
+
+[node name="Player" parent="." unique_id=1723161328 instance=ExtResource("3_0e3vx")]
+position = Vector2(-6, -12)
+
+[node name="Health" type="Node" parent="Player" unique_id=2145005945]
+script = ExtResource("4_mgc0q")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1199589798]
+position = Vector2(-208, -57)
+texture = ExtResource("4_6j5ir")
+
+[node name="TestEnemy" type="CharacterBody2D" parent="." unique_id=1272107695]
+position = Vector2(205, -9)
+script = ExtResource("6_bb2iq")
+
+[node name="Sprite2D" type="Sprite2D" parent="TestEnemy" unique_id=240021324]
+texture = ExtResource("4_6j5ir")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestEnemy" unique_id=376085876]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_13qdw")
