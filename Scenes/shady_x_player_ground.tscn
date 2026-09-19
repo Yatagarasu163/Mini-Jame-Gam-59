@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bq7lo17qeskbl"]
+
+[ext_resource type="Script" uid="uid://7xchu1g3p2fo" path="res://Scripts/CX_player.gd" id="1_tl2vr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bhunq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_riqys"]
+
+[node name="ShadyX_PlayerGround" type="Node2D" unique_id=264330969]
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1218947983]
+position = Vector2(147, 98)
+scale = Vector2(3.3184402, 3.3184402)
+script = ExtResource("1_tl2vr")
+
+[node name="PlayerSprite" type="Sprite2D" parent="Player" unique_id=227132120]
+
+[node name="PlayerBodyCollision" type="CollisionShape2D" parent="Player" unique_id=532478542]
+shape = SubResource("CapsuleShape2D_bhunq")
+
+[node name="HurtBox" type="Area2D" parent="Player" unique_id=1157714550]
+scale = Vector2(2.3527832, 2.3527832)
+
+[node name="HurtBoxCollision" type="CollisionShape2D" parent="Player/HurtBox" unique_id=1805587010]
+shape = SubResource("CircleShape2D_riqys")
+disabled = true
+
+[connection signal="body_entered" from="Player/HurtBox" to="Player" method="_on_hurt_box_body_entered"]
