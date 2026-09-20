@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://brw3klbb2dtxv" path="res://Code-y Bits/Health.gd" id="4_mgc0q"]
 [ext_resource type="Script" uid="uid://bij4x7ec50bix" path="res://Code-y Bits/machineInteraction.gd" id="5_6y7pd"]
 [ext_resource type="PackedScene" uid="uid://cvrejer7q53ep" path="res://Prefabs/test_enemy.tscn" id="7_6y7pd"]
-[ext_resource type="AudioStream" uid="uid://btgp0hlupepva" path="res://Johny Grimes - The Return Of The King (freetouse.com).mp3" id="8_6y7pd"]
+[ext_resource type="AudioStream" uid="uid://cg8vhn45pf6q2" path="res://Can You Ketchup Theme Song.mp3" id="8_6y7pd"]
 
 [node name="Main Game" type="Node2D" unique_id=425826221]
 

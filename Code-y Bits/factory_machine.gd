@@ -58,7 +58,6 @@ enum MachineType { CUTTER,COOKING,BLENDER,BOTTLING}
 @export var cookingUI: Control
 @export var temperatureIndicator: Sprite2D
 @export var temperatureBar: Sprite2D
-@export var temperatureLabel: Label
 @export var cookingProgressBar: ProgressBar
 
 #Blending Mini Games UI References
@@ -172,7 +171,6 @@ func startCookingGame():
 	temperature = 20.0
 	cookingProgress = 0.0
 	cookingUI.visible = true
-	temperatureLabel.text = str(int(temperature)) + "°C"
 	cookingProgressBar.max_value = cookingTime
 	cookingProgressBar.value = 0
 	updateTemperatureIndicator()
@@ -274,13 +272,12 @@ func updateCuttingGame():
 			
 func updateCookingGame(delta):
 	if Input.is_action_pressed("mash_space"):
-		GameManager.camera_shake.emit(0.01)
+		GameManager.camera_shake.emit(0.02)
 		temperature += heatingSpeed * delta
 	else:
 		temperature -= coolingSpeed * delta
 	
 	temperature = clamp(temperature, 8.0, 100.0)
-	temperatureLabel.text = str(int(temperature)) + "°C"
 	updateTemperatureIndicator()
 	
 	if temperature >= minTemperature and temperature <= maxTemperature:
@@ -300,7 +297,6 @@ func updateBlendingGame(delta):
 	
 	if blendingStarted == false:
 		if Input.is_action_just_pressed ("mash_space") and playerInRange:
-			GameManager.camera_shake.emit(0.01)
 			blendingStarted = true
 			blendingLabel.text = "BLENDING....."
 			print(("Blending Started"))
@@ -314,7 +310,6 @@ func updateBlendingGame(delta):
 
 func updateBottlingGame(delta):
 	if Input.is_key_pressed(KEY_SPACE):
-		GameManager.camera_shake.emit(0.01)
 		bottleFill += bottleFillSpeed * delta
 		bottleFill = clamp(bottleFill, 0.0, 100.0)
 		ketchupFillBar.value = bottleFill
