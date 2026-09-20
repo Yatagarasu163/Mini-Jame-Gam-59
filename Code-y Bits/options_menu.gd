@@ -1,5 +1,5 @@
 class_name OptionsMenu
-extends Control
+extends CanvasLayer
 
 @onready var exit_button: Button = %ExitButton
 

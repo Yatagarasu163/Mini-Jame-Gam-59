@@ -4,17 +4,11 @@
 [ext_resource type="Script" uid="uid://dl4dfpw8eeoa8" path="res://Code-y Bits/audio_control.gd" id="2_inh3s"]
 [ext_resource type="Script" uid="uid://dwo4x2kxaemqi" path="res://Code-y Bits/brightness_control.gd" id="3_m6e8v"]
 
-[node name="Options_Menu" type="Control" unique_id=1637527544]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Options_Menu" type="CanvasLayer" unique_id=175230531]
 script = ExtResource("1_l1wg4")
 
 [node name="Control" type="Control" parent="." unique_id=351704060]
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
