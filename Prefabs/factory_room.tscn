@@ -6,56 +6,20 @@
 [ext_resource type="Texture2D" uid="uid://byhctff70fcey" path="res://Sprites and Shid/Key Press Sprite.png" id="4_o7em3"]
 [ext_resource type="Texture2D" uid="uid://bshqkhaufs6h6" path="res://Sprites and Shid/TemperatureBar(Thermometer).png" id="5_hktsf"]
 [ext_resource type="Texture2D" uid="uid://by0krry537rax" path="res://Sprites and Shid/TemperatureIndicator.png" id="6_0fg35"]
+[ext_resource type="Script" uid="uid://lvcpmi2l4wa3" path="res://Code-y Bits/tomato_collection.gd" id="7_o7em3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hktsf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0fg35"]
+size = Vector2(148, 127)
 
 [node name="Factory Room" type="Node2D" unique_id=156863892 node_paths=PackedStringArray("_machines")]
 script = ExtResource("1_1daii")
-_machines = [NodePath("CutterMachine"), NodePath("CookingMachine"), NodePath("BlenderMachine"), NodePath("BottlingMachine")]
+_machines = [NodePath("CutterMachine"), NodePath("CookingMachine"), NodePath("BlenderMachine"), NodePath("BottlingMachine"), NodePath("TomatoCollection")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2145963005]
 scale = Vector2(5, 5)
 texture = ExtResource("1_dhrwc")
-
-[node name="CutterMachine" parent="." unique_id=1877580678 node_paths=PackedStringArray("cuttingProgressBar", "keyIndicator", "keyLabel", "instructionText", "buttonGlow") instance=ExtResource("3_25cia")]
-cuttingProgressBar = NodePath("../MiniGameUI/CuttingProgressBar")
-keyIndicator = NodePath("../MiniGameUI/KeyIndicator")
-keyLabel = NodePath("../MiniGameUI/KeyIndicator/KeyLabel")
-instructionText = NodePath("../MiniGameUI/instruction")
-buttonGlow = NodePath("../MiniGameUI/KeyIndicator/SmallKeyCapGlow")
-
-[node name="CookingMachine" parent="." unique_id=760379608 node_paths=PackedStringArray("cookingUI", "temperatureIndicator", "temperatureBar", "temperatureLabel", "cookingProgressBar") instance=ExtResource("3_25cia")]
-machineType = 1
-cookingUI = NodePath("../MiniGameUI/CookingUI")
-temperatureIndicator = NodePath("../MiniGameUI/CookingUI/TemperatureIndicator")
-temperatureBar = NodePath("../MiniGameUI/CookingUI/TemparatureBarImage")
-temperatureLabel = NodePath("../MiniGameUI/CookingUI/TemperatureBarText")
-cookingProgressBar = NodePath("../MiniGameUI/CookingUI/CookingProgressBar")
-
-[node name="Sprite2D" parent="CookingMachine" index="0" unique_id=1522078674]
-modulate = Color(4.813075e-08, 0.5721783, 0.18850693, 1)
-
-[node name="CollisionShape2D" parent="CookingMachine/InteractionArea" parent_id_path=PackedInt32Array(760379608, 970127621) index="0" unique_id=1205405099]
-position = Vector2(3, 19)
-
-[node name="Sprite2D" parent="CookingMachine/OutputPoint/OutputItem" parent_id_path=PackedInt32Array(760379608, 1068318048) index="0" unique_id=1620921805]
-modulate = Color(0, 0, 0, 1)
-
-[node name="BlenderMachine" parent="." unique_id=2051678513 node_paths=PackedStringArray("blenderUI", "blendingProgressBar", "blendingLabel") instance=ExtResource("3_25cia")]
-machineType = 2
-blenderUI = NodePath("../MiniGameUI/BlenderUI")
-blendingProgressBar = NodePath("../MiniGameUI/BlenderUI/BlenderProgressbar")
-blendingLabel = NodePath("../MiniGameUI/BlenderUI/BlendingInstruction")
-
-[node name="Sprite2D" parent="BlenderMachine" index="0" unique_id=1522078674]
-modulate = Color(4.813075e-08, 0.5721783, 0.18850693, 1)
-
-[node name="Sprite2D" parent="BlenderMachine/OutputPoint/OutputItem" parent_id_path=PackedInt32Array(2051678513, 1068318048) index="0" unique_id=1620921805]
-modulate = Color(0.48133707, 0.4813372, 2.8878452e-07, 1)
-
-[node name="BottlingMachine" parent="." unique_id=650750150 instance=ExtResource("3_25cia")]
-machineType = 3
-
-[node name="Sprite2D" parent="BottlingMachine" index="0" unique_id=1522078674]
-modulate = Color(4.813075e-08, 0.5721783, 0.18850693, 1)
 
 [node name="MiniGameUI" type="CanvasLayer" parent="." unique_id=1706181536]
 
@@ -318,6 +282,95 @@ grow_vertical = 2
 text = "SPACE"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CutterMachine" parent="." unique_id=1877580678 node_paths=PackedStringArray("cuttingProgressBar", "keyIndicator", "keyLabel", "instructionText", "buttonGlow") instance=ExtResource("3_25cia")]
+cuttingProgressBar = NodePath("../MiniGameUI/CuttingProgressBar")
+keyIndicator = NodePath("../MiniGameUI/KeyIndicator")
+keyLabel = NodePath("../MiniGameUI/KeyIndicator/KeyLabel")
+instructionText = NodePath("../MiniGameUI/instruction")
+buttonGlow = NodePath("../MiniGameUI/KeyIndicator/SmallKeyCapGlow")
+
+[node name="CookingMachine" parent="." unique_id=760379608 node_paths=PackedStringArray("cookingUI", "temperatureIndicator", "temperatureBar", "temperatureLabel", "cookingProgressBar") instance=ExtResource("3_25cia")]
+machineType = 1
+cookingUI = NodePath("../MiniGameUI/CookingUI")
+temperatureIndicator = NodePath("../MiniGameUI/CookingUI/TemperatureIndicator")
+temperatureBar = NodePath("../MiniGameUI/CookingUI/TemparatureBarImage")
+temperatureLabel = NodePath("../MiniGameUI/CookingUI/TemperatureBarText")
+cookingProgressBar = NodePath("../MiniGameUI/CookingUI/CookingProgressBar")
+
+[node name="Sprite2D" parent="CookingMachine" index="0" unique_id=1522078674]
+modulate = Color(4.813075e-08, 0.5721783, 0.18850693, 1)
+
+[node name="CollisionShape2D" parent="CookingMachine/InteractionArea" parent_id_path=PackedInt32Array(760379608, 970127621) index="0" unique_id=1205405099]
+position = Vector2(3, 19)
+
+[node name="Sprite2D" parent="CookingMachine/OutputPoint/OutputItem" parent_id_path=PackedInt32Array(760379608, 1068318048) index="0" unique_id=1620921805]
+modulate = Color(0, 0, 0, 1)
+
+[node name="BlenderMachine" parent="." unique_id=2051678513 node_paths=PackedStringArray("blenderUI", "blendingProgressBar", "blendingLabel") instance=ExtResource("3_25cia")]
+machineType = 2
+blenderUI = NodePath("../MiniGameUI/BlenderUI")
+blendingProgressBar = NodePath("../MiniGameUI/BlenderUI/BlenderProgressbar")
+blendingLabel = NodePath("../MiniGameUI/BlenderUI/BlendingInstruction")
+
+[node name="Sprite2D" parent="BlenderMachine" index="0" unique_id=1522078674]
+modulate = Color(4.813075e-08, 0.5721783, 0.18850693, 1)
+
+[node name="Sprite2D" parent="BlenderMachine/OutputPoint/OutputItem" parent_id_path=PackedInt32Array(2051678513, 1068318048) index="0" unique_id=1620921805]
+modulate = Color(0.48133707, 0.4813372, 2.8878452e-07, 1)
+
+[node name="BottlingMachine" parent="." unique_id=650750150 instance=ExtResource("3_25cia")]
+machineType = 3
+
+[node name="Sprite2D" parent="BottlingMachine" index="0" unique_id=1522078674]
+modulate = Color(4.813075e-08, 0.5721783, 0.18850693, 1)
+
+[node name="TomatoCollection" type="Node2D" parent="." unique_id=596292704 node_paths=PackedStringArray("collectionProgressBar", "freshTomato")]
+script = ExtResource("7_o7em3")
+collectionTime = 1.0
+collectionProgressBar = NodePath("TomatoCollectionProgressBar")
+freshTomato = NodePath("OutputPoint/FreshTomato")
+
+[node name="Sprite2D" type="Sprite2D" parent="TomatoCollection" unique_id=1128077118]
+modulate = Color(0.7051975, 0.09830607, 0.22591418, 1)
+texture = ExtResource("1_dhrwc")
+
+[node name="TomatoCollectionProgressBar" type="ProgressBar" parent="TomatoCollection" unique_id=1256123724]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_top = -100.0
+offset_right = 70.0
+offset_bottom = -73.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OutputPoint" type="Node2D" parent="TomatoCollection" unique_id=734386440]
+position = Vector2(-87, -4)
+
+[node name="FreshTomato" type="Area2D" parent="TomatoCollection/OutputPoint" unique_id=960998429]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="TomatoCollection/OutputPoint/FreshTomato" unique_id=1199676047]
+modulate = Color(0.703298, 0.08088096, 0.23440266, 1)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_dhrwc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TomatoCollection/OutputPoint/FreshTomato" unique_id=38774585]
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_hktsf")
+
+[node name="InteractionArea" type="Area2D" parent="TomatoCollection" unique_id=270821915]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TomatoCollection/InteractionArea" unique_id=2113964362]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_0fg35")
+
+[connection signal="body_entered" from="TomatoCollection/OutputPoint/FreshTomato" to="TomatoCollection" method="_on_fresh_tomato_body_entered"]
+[connection signal="body_exited" from="TomatoCollection/OutputPoint/FreshTomato" to="TomatoCollection" method="_on_fresh_tomato_body_exited"]
+[connection signal="body_entered" from="TomatoCollection/InteractionArea" to="TomatoCollection" method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="TomatoCollection/InteractionArea" to="TomatoCollection" method="_on_interaction_area_body_exited"]
 
 [editable path="CookingMachine"]
 [editable path="BlenderMachine"]
