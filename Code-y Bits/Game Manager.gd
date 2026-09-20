@@ -1,5 +1,6 @@
 extends Node
 
+@export var exfil_node: Node2D
 # Quota Parameters
 var shift_number: int = 1
 var base_quota: float = 100.0
@@ -29,6 +30,9 @@ func start_new_shift() -> void:
 	# Calculate dynamic quota exponentially based on shift number
 	target_quota = floor(base_quota * pow(growth_rate, shift_number - 1))
 	print("Shift %d Started. Goal: %d" % [shift_number, target_quota])
+	# Hide the Exfil node at the start of every new shift
+	if exfil_node:
+		exfil_node.visible = false
 	#start to procedurally generate the rooms
 
 func add_progress(amount: float) -> void:
@@ -37,7 +41,7 @@ func add_progress(amount: float) -> void:
 	
 	current_progress += earned_points
 	total_score += earned_points
-	
+	#everytime the progress goes up the size of the tomato gets bigger and if limit hit increase speed
 	# Check if quota is hit to trigger Overtime state
 	if not is_in_overtime and current_progress >= target_quota:
 		enter_overtime()
@@ -45,7 +49,10 @@ func add_progress(amount: float) -> void:
 func enter_overtime() -> void:
 	is_in_overtime = true
 	print("Quota met! Head to the exfil room to clock out OR keep working for more points.")
-	#make exfil room visible
+	# Reveal the exfil room/door and activate its interaction area
+	#change the state of the tomato
+	if exfil_node:
+		exfil_node.visible = true
 	#if player clock out in exfil room go to end_shift_manually()
 
 func get_current_multiplier() -> float:
