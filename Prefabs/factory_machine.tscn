@@ -2,19 +2,22 @@
 
 [ext_resource type="Script" uid="uid://fc2oghhxxq87" path="res://Code-y Bits/factory_machine.gd" id="1_ahaoe"]
 [ext_resource type="Texture2D" uid="uid://dkeri6jbh726r" path="res://Sprites and Shid/icon.svg" id="1_xbnvb"]
+[ext_resource type="Texture2D" uid="uid://bvp5ubiuhdx88" path="res://Sprites and Shid/Blue Base.png" id="2_lhx25"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ahaoe"]
 size = Vector2(130, 130)
 
 [node name="Factory Machine" type="StaticBody2D" unique_id=729833297]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_ahaoe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=837962624]
 shape = SubResource("RectangleShape2D_ahaoe")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1104584438]
-self_modulate = Color(1, 1, 0, 1)
-texture = ExtResource("1_xbnvb")
+[node name="Machine Sprite" type="Sprite2D" parent="." unique_id=1104584438]
+scale = Vector2(2, 2)
+texture = ExtResource("2_lhx25")
 
 [node name="Indicator" type="Sprite2D" parent="." unique_id=540357177]
 position = Vector2(0, 70)

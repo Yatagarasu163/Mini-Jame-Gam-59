@@ -3,10 +3,12 @@ class_name factory_machine
 
 enum machine_type {source, blender, cutter, cooking, bottler, deposit}
 @export var type: machine_type
+@export var machine_sprite: Texture
 @export var input_sprite: Texture
 @export var output_sprite: Texture
 @export var timer_duration: float = 1
 
+@onready var machine_renderer: Sprite2D = $"Machine Sprite"
 @onready var indicator: Node2D = $Indicator
 @onready var timer: Timer = $Timer
 @onready var progress_bar: ProgressBar = $ProgressBar
@@ -23,6 +25,8 @@ var output_amt: int
 var player: player_script
 
 func _ready() -> void:
+	if machine_sprite != null:
+		machine_renderer.texture = machine_sprite
 	match type:
 		machine_type.source:
 			input_type = 0
