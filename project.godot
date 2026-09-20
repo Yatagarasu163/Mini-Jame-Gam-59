@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Mini Jame Gam 59"
-run/main_scene="uid://wvrul5mdgnfg"
+run/main_scene="uid://bhmd2e67in41m"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://Sprites and Shid/icon.svg"
 
 [autoload]
 
 GameManager="*uid://cyejorknxrv5a"
+GlobalWorldEnvironment="*uid://c1mxsmvbxpo7"
 
 [display]
 

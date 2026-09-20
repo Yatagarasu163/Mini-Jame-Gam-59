@@ -10,9 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://nwbor2efjgho" path="res://Prefabs/test_machine.tscn" id="8_73nn6"]
 [ext_resource type="Script" uid="uid://lvcpmi2l4wa3" path="res://Code-y Bits/tomato_collection.gd" id="9_73nn6"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
-size = Vector2(128, 129)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_njqwk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_13qdw"]
@@ -29,12 +26,6 @@ position = Vector2(-6, -12)
 
 [node name="Health" type="Node" parent="Player" unique_id=2145005945]
 script = ExtResource("4_mgc0q")
-
-[node name="HurtBox" type="Area2D" parent="Player" unique_id=1753241642]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/HurtBox" unique_id=161778912]
-position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_xrivr")
 
 [node name="Interaction" type="Node" parent="Player" unique_id=191862313]
 script = ExtResource("5_6y7pd")
@@ -190,7 +181,6 @@ instructionText = NodePath("../MiniGameUI/instruction")
 [node name="Sprite2D" parent="BottlingrMachine" index="0" unique_id=1522078674]
 modulate = Color(4.813075e-08, 0.5721783, 0.18850693, 1)
 
-[connection signal="body_entered" from="Player/HurtBox" to="Player" method="_on_hurt_box_body_entered"]
 [connection signal="body_entered" from="TomatoCollection/OutputPoint/FreshTomato" to="TomatoCollection" method="_on_fresh_tomato_body_entered"]
 [connection signal="body_exited" from="TomatoCollection/OutputPoint/FreshTomato" to="TomatoCollection" method="_on_fresh_tomato_body_exited"]
 [connection signal="body_entered" from="TomatoCollection/InteractionArea" to="TomatoCollection" method="_on_interaction_area_body_entered"]
