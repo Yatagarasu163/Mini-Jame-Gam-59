@@ -8,11 +8,42 @@
 [ext_resource type="PackedScene" uid="uid://cvrejer7q53ep" path="res://Prefabs/test_enemy.tscn" id="7_6y7pd"]
 [ext_resource type="AudioStream" uid="uid://cg8vhn45pf6q2" path="res://Can You Ketchup Theme Song.mp3" id="8_6y7pd"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_18r40"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6y7pd"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_73nn6"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_r0mdn"]
+
 [node name="Main Game" type="Node2D" unique_id=425826221]
 
 [node name="Factory Spawner" type="Node2D" parent="." unique_id=65925981]
 script = ExtResource("1_l756w")
 factory_room_prefab = ExtResource("2_pu3va")
+
+[node name="WorldBorder_left" type="StaticBody2D" parent="Factory Spawner" unique_id=29229669]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Factory Spawner/WorldBorder_left" unique_id=32604892]
+shape = SubResource("WorldBoundaryShape2D_18r40")
+
+[node name="WorldBorder_right" type="StaticBody2D" parent="Factory Spawner" unique_id=1411784059]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Factory Spawner/WorldBorder_right" unique_id=245882287]
+shape = SubResource("WorldBoundaryShape2D_6y7pd")
+
+[node name="WorldBorder_top" type="StaticBody2D" parent="Factory Spawner" unique_id=1877088652]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Factory Spawner/WorldBorder_top" unique_id=276122955]
+shape = SubResource("WorldBoundaryShape2D_73nn6")
+
+[node name="WorldBorder_bottom" type="StaticBody2D" parent="Factory Spawner" unique_id=566223586]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Factory Spawner/WorldBorder_bottom" unique_id=1331567991]
+shape = SubResource("WorldBoundaryShape2D_r0mdn")
 
 [node name="Player" parent="." unique_id=1723161328 instance=ExtResource("3_0e3vx")]
 position = Vector2(-6, -12)
@@ -24,6 +55,7 @@ script = ExtResource("4_mgc0q")
 script = ExtResource("5_6y7pd")
 
 [node name="CarryPoint" type="Node2D" parent="Player" unique_id=1909432068]
+position = Vector2(0, -75)
 
 [node name="TestEnemy" parent="." unique_id=1308011806 instance=ExtResource("7_6y7pd")]
 position = Vector2(205, -9)

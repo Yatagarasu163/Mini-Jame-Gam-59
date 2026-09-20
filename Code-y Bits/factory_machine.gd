@@ -70,7 +70,6 @@ enum MachineType { CUTTER,COOKING,BLENDER,BOTTLING}
 @export var bottlingUI: Panel
 @export var ketchupFillBar: TextureProgressBar
 
-
 func _ready():
 	
 	if machineType == MachineType.CUTTER:
