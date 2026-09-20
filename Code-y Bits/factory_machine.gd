@@ -54,6 +54,7 @@ enum MachineType { CUTTER,COOKING,BLENDER,BOTTLING}
 @export var bottlingSpaceGlow: Sprite2D
 @export var outputItem: Area2D
 
+
 # Cooking Mini Games UI References
 @export var cookingUI: Control
 @export var temperatureIndicator: Sprite2D
@@ -104,31 +105,26 @@ func interact():
 		if machineType == MachineType.COOKING:
 			if player.enough_cut_tomatoes():
 				var carriedItem = player.get_node("CarryPoint/OutputItem")
-				carriedItem.reparent(get_parent().get_node("CutterMachine/OutputPoint"))
-				carriedItem.visible = false
+				
+				carriedItem.queue_free()
 				startMiniGame()
 			else:
 				print("You need a Cut Tomato!")
-		
+			
 		if machineType == MachineType.BLENDER:
 			if player.enough_cooked_tomatoes():
 				var carriedItem = player.get_node("CarryPoint/OutputItem")
 				
-				print("Removing item: ", carriedItem)
-				print("Children inside item: ", carriedItem.get_children())
-				print("Item position: ", carriedItem.global_position)
-				
-				carriedItem.reparent(get_parent().get_node("CookingMachine/OutputPoint"))
-				carriedItem.visible = false
+				carriedItem.queue_free()
 				startMiniGame()
 			else:
 				print("You need a Cooked Tomato!")
-		
+			
 		if machineType == MachineType.BOTTLING:
 			if player.enough_blended_tomatoes():
 				var carriedItem = player.get_node("CarryPoint/OutputItem")
-				carriedItem.reparent(get_parent().get_node("BlenderMachine/OutputPoint"))
-				carriedItem.visible = false
+				
+				carriedItem.queue_free()
 				startMiniGame()
 			else:
 				print("You need a Blended Tomato!")
