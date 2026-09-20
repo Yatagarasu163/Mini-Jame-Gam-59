@@ -30,15 +30,7 @@ var bottleFill: float = 0.0
 
 @export var minPresses: int = 10
 @export var maxPresses: int = 20
-var possibleKeys = ["mash_f","mash_r","mash_space","mash_q","mash_v","mash_z"]
-var keyDisplayNames = {
-	"mash_f": "F",
-	"mash_r": "R",
-	"mash_space": "SPACE",
-	"mash_q": "Q",
-	"mash_v": "V",
-	"mash_z": "Z"
-}
+var possibleKeys = [ "Q", "E", "R", "T", "Y", "U", "I", "O", "P", "F", "G", "H", "J", "K", "L","Z", "X", "C", "V", "B", "N", "M"]
 var selectedKeys = ""
 enum MachineType { CUTTER,COOKING,BLENDER,BOTTLING}
 @export var machineType : MachineType
@@ -158,7 +150,7 @@ func startCuttingGame():
 	
 	cuttingProgressBar.max_value = requiredPress
 	cuttingProgressBar.value = currentPress
-	keyLabel.text = keyDisplayNames[selectedKeys]
+	keyLabel.text = selectedKeys
 	
 	print("Machine Started")
 	print("Required Presses: ", requiredPress)
@@ -259,14 +251,29 @@ func pickupOutput():
 	print("Output Picked Up")
 	
 func updateCuttingGame():
-	if Input.is_action_just_pressed(selectedKeys):
-		currentPress += 1
-		cuttingProgressBar.value = currentPress
-		print(currentPress, "/", requiredPress)
-
-		if currentPress >= requiredPress:
-			completeMiniGame()
+	pass
+	
+func _input(event):
+	if machineType != MachineType.CUTTER:
+		return
+	
+	if machineActive == false:
+		return
+	
+	if playerInRange == false:
+		return
+	
+	if event is InputEventKey and event.pressed and not event.echo:
+		var pressedKey = OS.get_keycode_string(event.keycode)
+		
+		if pressedKey == selectedKeys:
+			currentPress += 1
+			cuttingProgressBar.value = currentPress
+			print(currentPress, "/", requiredPress)
 			
+			if currentPress >= requiredPress:
+				completeMiniGame()
+				
 func updateCookingGame(delta):
 	if Input.is_action_pressed("mash_space"):
 		temperature += heatingSpeed * delta

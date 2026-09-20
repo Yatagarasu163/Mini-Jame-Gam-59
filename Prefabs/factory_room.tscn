@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bccd1dirt4kia" path="res://Code-y Bits/factory_room.gd" id="1_1daii"]
 [ext_resource type="Texture2D" uid="uid://dkeri6jbh726r" path="res://Sprites and Shid/icon.svg" id="1_dhrwc"]
 [ext_resource type="PackedScene" uid="uid://nwbor2efjgho" path="res://Prefabs/test_machine.tscn" id="3_25cia"]
+[ext_resource type="FontFile" uid="uid://ddu3nk32psljp" path="res://Font/Sauce Tomato.otf" id="4_d5jih"]
 [ext_resource type="Texture2D" uid="uid://byhctff70fcey" path="res://Sprites and Shid/Key Press Sprite.png" id="4_o7em3"]
 [ext_resource type="Texture2D" uid="uid://bshqkhaufs6h6" path="res://Sprites and Shid/TemperatureBar(Thermometer).png" id="5_hktsf"]
 [ext_resource type="Texture2D" uid="uid://by0krry537rax" path="res://Sprites and Shid/TemperatureIndicator.png" id="6_0fg35"]
@@ -27,7 +28,6 @@ texture = ExtResource("1_dhrwc")
 [node name="MiniGameUI" type="CanvasLayer" parent="." unique_id=1706181536]
 
 [node name="CuttingProgressBar" type="ProgressBar" parent="MiniGameUI" unique_id=1301459880]
-modulate = Color(0.7607843, 0.16078432, 0.14117648, 1)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -41,7 +41,6 @@ value = 10.0
 show_percentage = false
 
 [node name="KeyIndicator" type="Panel" parent="MiniGameUI" unique_id=1259957165]
-visible = false
 self_modulate = Color(1, 1, 1, 0)
 anchors_preset = 7
 anchor_left = 0.5
@@ -68,23 +67,25 @@ region_enabled = true
 region_rect = Rect2(41, 11, 485, 413)
 
 [node name="KeyLabel" type="Label" parent="MiniGameUI/KeyIndicator" unique_id=1949583430]
+modulate = Color(0.95686275, 1, 0.85882354, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -41.0
-offset_right = -40.0
-offset_bottom = -41.0
+offset_left = -30.0
+offset_top = -27.0
+offset_right = -30.0
+offset_bottom = -27.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
+theme_override_fonts/font = ExtResource("4_d5jih")
 text = "F"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="instruction" type="Label" parent="MiniGameUI" unique_id=1033486597]
-visible = false
+modulate = Color(0.95686275, 1, 0.85882354, 1)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -93,10 +94,10 @@ offset_top = 5.0
 offset_right = 132.5
 offset_bottom = 28.0
 grow_horizontal = 2
-text = "Press the button repeatedly to cut the tomato"
+theme_override_fonts/font = ExtResource("4_d5jih")
+text = "PRESS THE BUTTON REPEATEDLY TO CUT THE TOMATO"
 
 [node name="CookingUI" type="Panel" parent="MiniGameUI" unique_id=2002826898]
-visible = false
 self_modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
@@ -105,6 +106,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TemperatureBarText" type="Label" parent="MiniGameUI/CookingUI" unique_id=1247867870]
+modulate = Color(0.95686275, 1, 0.85882354, 1)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -114,6 +116,7 @@ offset_top = 93.0
 offset_right = 97.00116
 offset_bottom = 116.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_d5jih")
 text = "Temperature Bar"
 horizontal_alignment = 1
 
@@ -163,6 +166,7 @@ grow_horizontal = 2
 grow_vertical = 0
 max_value = 10.0
 value = 10.0
+show_percentage = false
 
 [node name="KeyIndicator" type="Panel" parent="MiniGameUI/CookingUI" unique_id=1544697383]
 visible = false
@@ -186,11 +190,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_d5jih")
 text = "SPACE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TemperatureBarText2" type="Label" parent="MiniGameUI/CookingUI" unique_id=894860380]
+modulate = Color(0.95686275, 1, 0.85882354, 1)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -200,12 +206,14 @@ offset_top = 568.0
 offset_right = 106.0
 offset_bottom = 617.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_d5jih")
 text = " HOLD → HEAT
  RELEASE → COOL"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CookinginstructionText" type="Label" parent="MiniGameUI/CookingUI" unique_id=1371674026]
+modulate = Color(0.95686275, 1, 0.85882354, 1)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -215,6 +223,7 @@ offset_top = 10.0
 offset_right = 205.00098
 offset_bottom = 33.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_d5jih")
 text = "KEEP THE TEMPERATURE IN THE GREEN ZONE"
 horizontal_alignment = 1
 
@@ -272,12 +281,12 @@ offset_right = -17.0
 offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_d5jih")
 text = "SPACE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="BlenderUI" type="Panel" parent="MiniGameUI" unique_id=952020352]
-visible = false
 self_modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
@@ -297,8 +306,10 @@ offset_bottom = 71.0
 grow_horizontal = 2
 max_value = 10.0
 value = 10.0
+show_percentage = false
 
 [node name="BlendingInstruction" type="Label" parent="MiniGameUI/BlenderUI" unique_id=927070899]
+modulate = Color(0.95686275, 1, 0.85882354, 1)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -308,6 +319,7 @@ offset_top = 10.0
 offset_right = 178.0
 offset_bottom = 33.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_d5jih")
 text = "BLENDING"
 horizontal_alignment = 1
 
@@ -333,6 +345,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_d5jih")
 text = "SPACE"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -377,6 +390,7 @@ offset_right = -17.0
 offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_d5jih")
 text = "SPACE"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -416,6 +430,7 @@ texture_over = ExtResource("9_krrug")
 texture_progress = ExtResource("10_d5jih")
 
 [node name="BottlingInstruction" type="Label" parent="MiniGameUI/BottlingUI" unique_id=1039435429]
+modulate = Color(0.95686275, 1, 0.85882354, 1)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -425,6 +440,7 @@ offset_top = 10.0
 offset_right = 178.0
 offset_bottom = 33.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_d5jih")
 text = "FILL THE KETCHUP BOTTLE"
 horizontal_alignment = 1
 
@@ -440,6 +456,7 @@ offset_right = -575.0
 offset_bottom = -325.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_d5jih")
 text = "SPACE"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -484,6 +501,7 @@ offset_right = -17.0
 offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_d5jih")
 text = "SPACE"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -558,6 +576,7 @@ offset_right = 70.0
 offset_bottom = -73.0
 grow_horizontal = 2
 grow_vertical = 2
+show_percentage = false
 
 [node name="OutputPoint" type="Node2D" parent="TomatoCollection" unique_id=837437288]
 position = Vector2(-87, -4)
