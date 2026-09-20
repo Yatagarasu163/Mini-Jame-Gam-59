@@ -3,7 +3,7 @@ extends CanvasLayer
 #region /// on ready variable
 
 #container
-@onready var main_menu: VBoxContainer = %MainMenu
+@onready var main_menu: Control = %MainMenu
 @onready var settings_menu: SettingsMenu = $Settings_menu
 
 #buttons

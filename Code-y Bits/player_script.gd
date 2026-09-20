@@ -12,15 +12,22 @@ var _tomato_blended: int = 0
 var _tomato_bottled: int = 0
 
 var _max_tomatoes: int = 5
+var _anim_string_state: String = "Idle"
+var _anim_string_direction: String = "front"
 
 func _physics_process(_delta: float) -> void:
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = direction * _speed
 	
-	#if direction != Vector2.ZERO:
-		#_anim.play("Walk")
-	#else:
-		#_anim.play("Idle")
+	if direction == Vector2.ZERO:
+		_anim_string_state = "Idle"
+	else:
+		_anim_string_state = "Walk"
+	if direction.y > 0:
+		_anim_string_direction = "front"
+	if direction.y < 0:
+		_anim_string_direction = "back"
+	_anim.play(_anim_string_state + "_" + _anim_string_direction)
 	
 	move_and_slide()
 	

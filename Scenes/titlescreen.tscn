@@ -3,12 +3,19 @@
 [ext_resource type="Script" uid="uid://btybivgqu4r71" path="res://Code-y Bits/titlescreen.gd" id="1_3lblr"]
 [ext_resource type="PackedScene" uid="uid://bwm8bp8h8ycux" path="res://Scenes/setting_menu.tscn" id="2_h87bp"]
 [ext_resource type="AudioStream" uid="uid://cg8vhn45pf6q2" path="res://Can You Ketchup Theme Song.mp3" id="3_h87bp"]
+[ext_resource type="FontFile" uid="uid://b5y2yvatlbk0e" path="res://Sauce Tomato.otf" id="3_qf0g6"]
+[ext_resource type="Texture2D" uid="uid://mdu2gk30berh" path="res://Sprites and Shid/ketchup title.png" id="4_wshof"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wshof"]
+font = ExtResource("3_qf0g6")
+font_size = 32
 
 [node name="Titlescreen" type="CanvasLayer" unique_id=1839207005]
 layer = 5
 script = ExtResource("1_3lblr")
 
-[node name="Control" type="Control" parent="." unique_id=354664391]
+[node name="MainMenu" type="Control" parent="." unique_id=354664391]
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,37 +23,133 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MainMenu" type="VBoxContainer" parent="Control" unique_id=945154649]
-unique_name_in_owner = true
+[node name="ColorRect" type="ColorRect" parent="MainMenu" unique_id=320862578]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3372549, 0.31764707, 0.3254902, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="MainMenu/ColorRect" unique_id=1308961262]
+custom_minimum_size = Vector2(1101, 598)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -86.0
-offset_top = -51.5
-offset_right = 86.0
-offset_bottom = 51.5
+offset_left = -550.5
+offset_top = -299.0
+offset_right = 550.5
+offset_bottom = 299.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 4
-alignment = 2
+color = Color(0.9647059, 0.9529412, 0.93333334, 1)
 
-[node name="StartGame" type="Button" parent="Control/MainMenu" unique_id=887719845]
+[node name="TextureRect" type="TextureRect" parent="MainMenu/ColorRect/ColorRect2" unique_id=903123675]
+layout_mode = 1
+offset_right = 2000.0
+offset_bottom = 1500.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_wshof")
+
+[node name="StartGame" type="Button" parent="MainMenu" unique_id=887719845]
 unique_name_in_owner = true
-layout_mode = 2
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 0
+offset_left = 831.0
+offset_top = 200.0
+offset_right = 1081.0
+offset_bottom = 290.0
 text = "Start Game"
 
-[node name="SettingButton" type="Button" parent="Control/MainMenu" unique_id=1002223999]
+[node name="ColorRect" type="ColorRect" parent="MainMenu/StartGame" unique_id=864655436]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.72156864, 0.21568628, 0.21960784, 1)
+
+[node name="Label" type="Label" parent="MainMenu/StartGame" unique_id=55266072]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start"
+label_settings = SubResource("LabelSettings_wshof")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SettingButton" type="Button" parent="MainMenu" unique_id=1002223999]
 unique_name_in_owner = true
-layout_mode = 2
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 0
+offset_left = 831.0
+offset_top = 300.0
+offset_right = 1081.0
+offset_bottom = 390.0
 text = "Setting"
 
-[node name="ExitButton" type="Button" parent="Control/MainMenu" unique_id=1492505558]
+[node name="ColorRect" type="ColorRect" parent="MainMenu/SettingButton" unique_id=1705126139]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.72156864, 0.21568628, 0.21960784, 1)
+
+[node name="Label" type="Label" parent="MainMenu/SettingButton" unique_id=1386235972]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Setting"
+label_settings = SubResource("LabelSettings_wshof")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitButton" type="Button" parent="MainMenu" unique_id=1492505558]
 unique_name_in_owner = true
-layout_mode = 2
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 0
+offset_left = 831.0
+offset_top = 400.0
+offset_right = 1081.0
+offset_bottom = 490.0
 text = "Exit"
+
+[node name="ColorRect" type="ColorRect" parent="MainMenu/ExitButton" unique_id=81727076]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.72156864, 0.21568628, 0.21960784, 1)
+
+[node name="Label" type="Label" parent="MainMenu/ExitButton" unique_id=1697044222]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit"
+label_settings = SubResource("LabelSettings_wshof")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Settings_menu" parent="." unique_id=983423667 instance=ExtResource("2_h87bp")]
 visible = false

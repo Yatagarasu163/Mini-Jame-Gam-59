@@ -56,7 +56,7 @@ func _physics_process(_delta: float) -> void:
 func move_towards_target(target_pos):
 	#part of code that moves BIG T to the last known player location/POI
 	navigation_agent.target_position = target_pos
-	velocity = global_position.direction_to(navigation_agent.get_next_path_position()) * (speed * ((GameManager.current_progress/2 + GameManager.shift_number) * speed_scale))
+	velocity = global_position.direction_to(navigation_agent.get_next_path_position()) * (speed * (GameManager.get_current_multiplier() * speed_scale))
 	move_and_slide()
 
 func search_last_location():
@@ -89,3 +89,13 @@ func _process(delta: float) -> void:
 	var size = 1 + ((GameManager.current_progress + GameManager.shift_number) * size_scale)
 	var target_scale = Vector2(size, size)
 	big_t.scale = big_t.scale.lerp(target_scale,5.0 * delta)
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.name != "Player":
+		return
+	
+	GameManager.player_living = false
+	GameManager.end_shift_manually()
+	await get_tree().create_timer(0.1).timeout
+	get_tree().change_scene_to_file("res://Scenes/End Screen.tscn")

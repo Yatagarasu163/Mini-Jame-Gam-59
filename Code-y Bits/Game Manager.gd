@@ -28,14 +28,12 @@ var has_submitted_ketchup: bool = false
 
 var player_living: bool = true
 
-func _ready() -> void:
-	start_new_shift()
-
 func _process(delta: float) -> void:
 	if is_in_overtime:
 		overtime_seconds += delta
 
 func start_new_shift() -> void:
+	player_living = true
 	current_progress = 0.0
 	is_in_overtime = false
 	overtime_seconds = 0.0

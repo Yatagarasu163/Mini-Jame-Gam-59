@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bwm8bp8h8ycux"]
 
 [ext_resource type="Script" uid="uid://cel5vcjrxr5tq" path="res://Code-y Bits/settings_menu.gd" id="1_x21jp"]
+[ext_resource type="Texture2D" uid="uid://mdu2gk30berh" path="res://Sprites and Shid/ketchup title.png" id="2_7mqo8"]
 [ext_resource type="Script" uid="uid://dl4dfpw8eeoa8" path="res://Code-y Bits/audio_control.gd" id="2_v6htu"]
 [ext_resource type="Script" uid="uid://dwo4x2kxaemqi" path="res://Code-y Bits/brightness_control.gd" id="3_7mqo8"]
 
@@ -13,6 +14,40 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_x21jp")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1372049751]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3372549, 0.31764707, 0.3254902, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect" unique_id=1741022049]
+custom_minimum_size = Vector2(1101, 598)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -550.5
+offset_top = -299.0
+offset_right = 550.5
+offset_bottom = 299.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.9647059, 0.9529412, 0.93333334, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/ColorRect2" unique_id=939305936]
+layout_mode = 1
+offset_left = 79.49999
+offset_top = -0.99999994
+offset_right = 2079.5
+offset_bottom = 1499.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_7mqo8")
+
 [node name="Control" type="Control" parent="." unique_id=351704060]
 layout_mode = 1
 anchors_preset = 15
@@ -21,6 +56,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1363128186]
+layout_mode = 0
+offset_left = 565.5
+offset_top = 82.0
+offset_right = 965.5
+offset_bottom = 582.0
+color = Color(0.5484664, 0.3594249, 0.3073237, 1)
+
 [node name="Settings" type="VBoxContainer" parent="Control" unique_id=1624136274]
 layout_mode = 1
 anchors_preset = 8
@@ -28,10 +71,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -147.5
-offset_top = -90.75
-offset_right = 147.5
-offset_bottom = 90.75
+offset_left = 46.0
+offset_top = -15.0
+offset_right = 341.0
+offset_bottom = 193.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
@@ -86,9 +129,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -290.5
-offset_right = 290.5
-offset_bottom = 86.0
+offset_left = -97.0
+offset_top = 89.0
+offset_right = 484.0
+offset_bottom = 175.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 42
 text = "Settings"

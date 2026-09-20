@@ -1,0 +1,197 @@
+[gd_scene format=3 uid="uid://drc1twe2ke7yy"]
+
+[ext_resource type="Script" uid="uid://d4f1oxw1lcipu" path="res://Code-y Bits/end_screen.gd" id="1_rq740"]
+[ext_resource type="Texture2D" uid="uid://b2qouw3bbpvxh" path="res://Sprites and Shid/death screen.png" id="2_hkati"]
+[ext_resource type="Texture2D" uid="uid://mdu2gk30berh" path="res://Sprites and Shid/ketchup title.png" id="3_k40uc"]
+[ext_resource type="FontFile" uid="uid://b5y2yvatlbk0e" path="res://Sauce Tomato.otf" id="4_tkjuj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hhlou"]
+font = ExtResource("4_tkjuj")
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_tkjuj"]
+font = ExtResource("4_tkjuj")
+font_size = 32
+font_color = Color(0.72156864, 0.21568628, 0.21960784, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1740329429]
+script = ExtResource("1_rq740")
+
+[node name="Panel" type="Panel" parent="." unique_id=176012136]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fail Screen" type="Control" parent="." unique_id=83087807]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Fail Screen" unique_id=285605449]
+layout_mode = 0
+offset_left = 885.0
+offset_top = 375.0
+offset_right = 972.0
+offset_bottom = 432.0
+
+[node name="TextureRect" type="TextureRect" parent="Fail Screen" unique_id=573485406]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_hkati")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="Fail Screen" unique_id=159641467]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -98.0
+offset_right = 125.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Home"
+
+[node name="Next Shift Screen" type="Control" parent="." unique_id=578757062]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Next Shift Screen" unique_id=1096529650]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3372549, 0.31764707, 0.3254902, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Next Shift Screen/ColorRect" unique_id=1615745388]
+custom_minimum_size = Vector2(1101, 598)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -550.5
+offset_top = -299.0
+offset_right = 550.5
+offset_bottom = 299.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.9647059, 0.9529412, 0.93333334, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Next Shift Screen/ColorRect/ColorRect2" unique_id=1655956684]
+layout_mode = 1
+offset_right = 2000.0
+offset_bottom = 1500.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_k40uc")
+
+[node name="Next Shift" type="Button" parent="Next Shift Screen" unique_id=1419837107]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 251.0
+offset_top = -187.0
+offset_right = 501.0
+offset_bottom = -137.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Next Shift"
+
+[node name="ColorRect" type="ColorRect" parent="Next Shift Screen/Next Shift" unique_id=1484929462]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.72156864, 0.21568628, 0.21960784, 1)
+
+[node name="Label" type="Label" parent="Next Shift Screen/Next Shift" unique_id=1803300375]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Next Shift"
+label_settings = SubResource("LabelSettings_hhlou")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="End Here" type="Button" parent="Next Shift Screen" unique_id=918242748]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 251.0
+offset_top = -125.0
+offset_right = 501.0
+offset_bottom = -75.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "End Here"
+
+[node name="ColorRect" type="ColorRect" parent="Next Shift Screen/End Here" unique_id=162613170]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.72156864, 0.21568628, 0.21960784, 1)
+
+[node name="Label" type="Label" parent="Next Shift Screen/End Here" unique_id=1048150088]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "End  Here"
+label_settings = SubResource("LabelSettings_hhlou")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Next Shift Screen" unique_id=1007965455]
+layout_mode = 0
+offset_left = 828.0
+offset_top = 400.0
+offset_right = 1036.0
+offset_bottom = 474.0
+text = "Continue...?"
+label_settings = SubResource("LabelSettings_tkjuj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Fail Screen/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Next Shift Screen/Next Shift" to="." method="_on_next_shift_pressed"]
+[connection signal="pressed" from="Next Shift Screen/End Here" to="." method="_on_end_here_pressed"]

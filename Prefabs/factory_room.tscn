@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bccd1dirt4kia" path="res://Code-y Bits/factory_room.gd" id="1_1daii"]
 [ext_resource type="Texture2D" uid="uid://dkeri6jbh726r" path="res://Sprites and Shid/icon.svg" id="1_dhrwc"]
+[ext_resource type="Texture2D" uid="uid://dne0xkkafxaqm" path="res://Sprites and Shid/factory tileset no bg.png" id="2_6gddi"]
 [ext_resource type="PackedScene" uid="uid://nwbor2efjgho" path="res://Prefabs/test_machine.tscn" id="3_25cia"]
 [ext_resource type="Texture2D" uid="uid://byhctff70fcey" path="res://Sprites and Shid/UI/Key Press Sprite.png" id="4_o7em3"]
 [ext_resource type="Texture2D" uid="uid://bshqkhaufs6h6" path="res://Sprites and Shid/UI/TemperatureBar(Thermometer).png" id="5_hktsf"]
@@ -16,6 +17,23 @@
 [ext_resource type="Script" uid="uid://bwm044qe4ym54" path="res://Code-y Bits/deposit.gd" id="14_id3ko"]
 [ext_resource type="Script" uid="uid://cuj74ddjsul6b" path="res://Code-y Bits/exit.gd" id="15_qkbv4"]
 [ext_resource type="Texture2D" uid="uid://dbjm7gugwuc5y" path="res://Sprites and Shid/Stations/Disposing the Ketchup Station in This.png" id="16_6bhtk"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6bhtk"]
+texture = ExtResource("2_6gddi")
+texture_region_size = Vector2i(128, 128)
+2:2/0 = 0
+2:3/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+4:3/0 = 0
+4:2/0 = 0
+3:2/0 = 0
+3:3/0 = 0
+8:5/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_op1xx"]
+sources/1 = SubResource("TileSetAtlasSource_6bhtk")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rjtnv"]
 load_path = "res://.godot/imported/Cooking Station .png-ba150024fd503ad71354065016be256b.ctex"
@@ -35,7 +53,14 @@ size = Vector2(250, 250)
 script = ExtResource("1_1daii")
 _machines = [NodePath("CutterMachine"), NodePath("CookingMachine"), NodePath("BlenderMachine"), NodePath("BottlingMachine"), NodePath("TomatoCollection"), NodePath("Deposit"), NodePath("Exit")]
 
+[node name="TileMap" type="TileMap" parent="." unique_id=1340662518]
+tile_set = SubResource("TileSet_op1xx")
+rendering_quadrant_size = 128
+format = 2
+layer_0/tile_data = PackedInt32Array(-1048593, 131073, 2, -1048585, 131073, 2, -1048577, 131073, 2, -1114105, 131073, 2, -1114097, 131073, 2, -589809, 131073, 2, -589817, 131073, 2, -524289, 131073, 2, -524297, 131073, 2, -524305, 131073, 2, -17, 131073, 2, 524271, 131073, 2, 1048559, 131073, 2, 1048567, 131073, 2, 1048575, 131073, 2, 983047, 131073, 2, 983055, 131073, 2, 458767, 131073, 2, -65521, 131073, 2, -65529, 131073, 2, -1, 131073, 2, -9, 131073, 2, 524279, 131073, 2, 524287, 131073, 2, 458759, 131073, 2)
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2145963005]
+visible = false
 scale = Vector2(5, 5)
 texture = ExtResource("1_dhrwc")
 

@@ -14,6 +14,7 @@ class_name factory_spawner
 @onready var nav_polygon: NavigationRegion2D = $NavigationRegion2D
 
 func _ready() -> void:
+	GameManager.start_new_shift()
 	SpawnFactory()
 	call_deferred("bake_with_aidan")
 
