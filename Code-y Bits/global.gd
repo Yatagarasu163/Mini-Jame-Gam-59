@@ -14,7 +14,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if current_scene == null:
 		return
 
-	if current_scene.scene_file_path != "res://Scenes/main_game.tscn":
+	if current_scene.scene_file_path != "res://Scenes/main_game.tscn": #make sure to match this to the game_scene, same thing as u did in the titlescreen script
 		return
 
 	if event.is_action_pressed("ui_cancel"):
