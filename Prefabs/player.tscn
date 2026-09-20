@@ -83,7 +83,9 @@ collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_y6xdh")
 _speed = 1000.0
+_camera_normal_zoom = null
 _camera_interact_zoom = Vector2(1.5, 1.5)
+_camera_zoom_speed = null
 _sprite = NodePath("AnimatedSprite2D")
 _camera = NodePath("Camera2D")
 

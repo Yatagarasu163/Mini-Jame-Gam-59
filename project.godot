@@ -18,6 +18,7 @@ config/icon="res://Sprites and Shid/icon.svg"
 [autoload]
 
 Global="*uid://5cek5fpvm1ov"
+ThemeSong="*uid://kfgqto7q42pg"
 
 [display]
 

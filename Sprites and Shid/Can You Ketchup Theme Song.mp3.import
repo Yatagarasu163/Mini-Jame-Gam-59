@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dxps0r0c40rn0"
+path="res://.godot/imported/Can You Ketchup Theme Song.mp3-dcbb238c7d5a1c9a42c2de44b0f4d898.mp3str"
+
+[deps]
+
+source_file="res://Sprites and Shid/Can You Ketchup Theme Song.mp3"
+dest_files=["res://.godot/imported/Can You Ketchup Theme Song.mp3-dcbb238c7d5a1c9a42c2de44b0f4d898.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

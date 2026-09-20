@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://b4nam07r734y1"]
+
+[ext_resource type="Script" uid="uid://njqi4ma7x4mt" path="res://Code-y Bits/SkillTreeButton.gd" id="1_dvvf0"]
+[ext_resource type="Script" uid="uid://cmd65k6rch7po" path="res://Code-y Bits/player_point.gd" id="2_xdebh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvvf0"]
+bg_color = Color(0.31775188, 0.62614423, 0.88208103, 1)
+
+[node name="Skill tree" type="Control" unique_id=1632538818]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=138699329]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=2023614813]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -88.00003
+offset_right = -18.0
+offset_bottom = 23.0
+grow_horizontal = 2
+scale = Vector2(2.4308047, 2.4308047)
+text = "Skill Tree"
+
+[node name="Speed_Up_1" type="Button" parent="." unique_id=995920094]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 231.0
+offset_right = 116.0
+offset_bottom = 239.0
+scale = Vector2(6.10912, 6.10912)
+theme_override_styles/normal = SubResource("StyleBoxFlat_dvvf0")
+script = ExtResource("1_dvvf0")
+point_Needed = 5
+
+[node name="Speed_Up_2" type="Button" parent="." unique_id=2102601690 node_paths=PackedStringArray("previous_Skill")]
+layout_mode = 0
+offset_left = 237.0
+offset_top = 158.0
+offset_right = 245.0
+offset_bottom = 166.0
+scale = Vector2(6.10912, 6.10912)
+theme_override_styles/normal = SubResource("StyleBoxFlat_dvvf0")
+script = ExtResource("1_dvvf0")
+previous_Skill = NodePath("../Speed_Up_1")
+point_Needed = 10
+
+[node name="PlayerPoint" type="Label" parent="." unique_id=2000111159]
+layout_mode = 0
+offset_left = 24.0
+offset_top = -2.0
+offset_right = 64.0
+offset_bottom = 21.0
+scale = Vector2(2.339521, 2.339521)
+script = ExtResource("2_xdebh")
+
+[connection signal="pressed" from="Speed_Up_1" to="Speed_Up_1" method="_on_pressed"]
+[connection signal="pressed" from="Speed_Up_2" to="Speed_Up_2" method="_on_pressed"]

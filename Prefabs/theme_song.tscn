@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://kfgqto7q42pg"]
+
+[ext_resource type="AudioStream" uid="uid://dxps0r0c40rn0" path="res://Sprites and Shid/Can You Ketchup Theme Song.mp3" id="1_4ejup"]
+
+[node name="Theme Song" type="AudioStreamPlayer2D" unique_id=1728527264]
+stream = ExtResource("1_4ejup")

@@ -1,6 +1,7 @@
 extends CharacterBody2D
 class_name player_script
 
+
 @export var _speed: float = 500.0
 @export var _camera_normal_zoom: Vector2 = Vector2.ONE
 @export var _camera_interact_zoom: Vector2 = Vector2.ONE
