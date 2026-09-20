@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://dh5oplfvsftmm"]
 
+[ext_resource type="AudioStream" uid="uid://btgp0hlupepva" path="res://Johny Grimes - The Return Of The King (freetouse.com).mp3" id="1_jjgbg"]
+
 [node name="Main" type="Node2D" unique_id=6932720]
 
 [node name="Label" type="Label" parent="." unique_id=2142070242]
@@ -9,3 +11,13 @@ offset_right = 445.99997
 offset_bottom = 190.99998
 scale = Vector2(3.8301926, 3.8301926)
 text = "Fari is a coconut"
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=327198993]
+stream = ExtResource("1_jjgbg")
+autoplay = true
+bus = &"Music"
+
+[node name="Sfx" type="AudioStreamPlayer" parent="." unique_id=1481658418]
+stream = ExtResource("1_jjgbg")
+autoplay = true
+bus = &"SFX"

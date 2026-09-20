@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://btgp0hlupepva"
+path="res://.godot/imported/Johny Grimes - The Return Of The King (freetouse.com).mp3-0aca8668158f7190c0dafe547ca24060.mp3str"
+
+[deps]
+
+source_file="res://Johny Grimes - The Return Of The King (freetouse.com).mp3"
+dest_files=["res://.godot/imported/Johny Grimes - The Return Of The King (freetouse.com).mp3-0aca8668158f7190c0dafe547ca24060.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
