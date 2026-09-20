@@ -35,6 +35,7 @@ shape = SubResource("RectangleShape2D_njqwk")
 position = Vector2(-130, 0)
 
 [node name="OutputItem" type="Area2D" parent="OutputPoint" unique_id=1068318048]
+visible = false
 modulate = Color(0.9935445, 0.36186796, 0.1403706, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="OutputPoint/OutputItem" unique_id=1620921805]

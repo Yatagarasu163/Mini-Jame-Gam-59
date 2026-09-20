@@ -16,10 +16,10 @@ func _physics_process(_delta: float) -> void:
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = direction * _speed
 	
-	if direction != Vector2.ZERO:
-		_anim.play("Walk")
-	else:
-		_anim.play("Idle")
+	#if direction != Vector2.ZERO:
+		#_anim.play("Walk")
+	#else:
+		#_anim.play("Idle")
 	
 	move_and_slide()
 	
