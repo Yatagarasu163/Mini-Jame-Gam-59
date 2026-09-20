@@ -7,6 +7,16 @@ var player = null
 var currentPress = 0
 var requiredPress = 0
 
+var temperature: float = 20.0
+var cookingProgress:float = 0.0
+
+#Cooking Mini Game Reference
+@export var minTemperature: float = 40.0
+@export var maxTemperature: float = 80.0
+@export var cookingTime: float = 5.0
+@export var heatingSpeed: float = 25.0
+@export var coolingSpeed: float = 10.0
+
 @export var minPresses: int = 10
 @export var maxPresses: int = 20
 var possibleKeys = ["mash_f","mash_r","mash_space","mash_q","mash_v","mash_z"]
@@ -22,17 +32,30 @@ var selectedKeys = ""
 enum MachineType { CUTTER,COOKING,BLENDER,BOTTLING}
 @export var machineType : MachineType
 
+# Cutting Mini Games References 
 @export var cuttingProgressBar: ProgressBar
 @export var keyIndicator: Panel
 @export var keyLabel: Label
 @export var instructionText: Label
 @export var outputItem: Area2D
 
+# Cooking Mini Games References
+@export var cookingUI: Control
+@export var temperatureIndicator: Sprite2D
+@export var temperatureBar: Sprite2D
+@export var temperatureLabel: Label
+@export var cookingProgressBar: ProgressBar
+
+
 func _ready():
 	cuttingProgressBar.visible = false
 	keyIndicator.visible = false
 	instructionText.visible = false
 	
+	if machineType == MachineType.COOKING:
+		cookingUI.visible = false
+		
+		
 func interact():
 	if machineActive == false:
 		
@@ -103,7 +126,13 @@ func startCuttingGame():
 	print("Selected Key: ", selectedKeys)
 	
 func startCookingGame():
-	completeMiniGame()
+	temperature = 20.0
+	cookingProgress = 0.0
+	cookingUI.visible = true
+	temperatureLabel.text = str(int(temperature)) + "°C"
+	cookingProgressBar.max_value = cookingTime
+	cookingProgressBar.value = 0
+	updateTemperatureIndicator()
 	
 func startBlenderGame():
 	completeMiniGame()
@@ -169,8 +198,28 @@ func updateCuttingGame():
 			completeMiniGame()
 			
 func updateCookingGame(delta):
-	pass
+	if Input.is_action_pressed("mash_space"):
+		temperature += heatingSpeed * delta
+	else:
+		temperature -= coolingSpeed * delta
 	
+	temperature = clamp(temperature, 8.0, 100.0)
+	temperatureLabel.text = str(int(temperature)) + "°C"
+	updateTemperatureIndicator()
+	
+	if temperature >= minTemperature and temperature <= maxTemperature:
+		cookingProgress += delta
+		cookingProgressBar.value = cookingProgress
+		
+		if cookingProgress >= cookingTime:
+			completeMiniGame()
+
+func updateTemperatureIndicator():
+	var startX = 430.0
+	var moveDistance = 300.0
+	
+	temperatureIndicator.position.x = startX + ((temperature / 100.0) * moveDistance)
+			
 func updateBlendingGame(delta):
 	pass
 
@@ -189,6 +238,7 @@ func completeMiniGame():
 		
 	if machineType == MachineType.COOKING:
 		player.finish_cooking()
+		cookingUI.visible = false
 		print("Cooking Completed")
 		
 	if machineType == MachineType.BLENDER:
@@ -211,12 +261,18 @@ func showMiniGameUI():
 		cuttingProgressBar.visible = true
 		keyIndicator.visible = true
 		instructionText.visible = true
+		
+	if machineType == MachineType.COOKING:
+		cookingUI.visible = true
 
 func hideMiniGameUI():
 	if machineType == MachineType.CUTTER:
 		cuttingProgressBar.visible = false
 		keyIndicator.visible = false
 		instructionText.visible = false
+	
+	if machineType == MachineType.COOKING:
+		cookingUI.visible = false 
 
 func _on_interaction_area_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
