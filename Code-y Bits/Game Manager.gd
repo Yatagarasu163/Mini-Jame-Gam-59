@@ -26,6 +26,8 @@ var has_blended_tomato: bool = false
 var has_bottled_tomato: bool = false
 var has_submitted_ketchup: bool = false
 
+var player_living: bool = true
+
 func _ready() -> void:
 	start_new_shift()
 
@@ -73,4 +75,6 @@ func get_current_multiplier() -> float:
 func end_shift_manually() -> void:
 	is_in_overtime = false
 	shift_number += 1
-	start_new_shift()
+
+func lost() -> void:
+	player_living = false

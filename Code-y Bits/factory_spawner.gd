@@ -36,7 +36,7 @@ func SpawnFactory():
 			current_room.position = Vector2(new_x * x_multiplier, new_y * y_multiplier)
 			all_rooms.append(current_room)
 			nav_polygon.add_child(current_room)
-	for i in range(5):
+	for i in range(7):
 		var selected_room_index = randi() % len(all_rooms)
 		all_rooms[selected_room_index].generate(i)
 		all_rooms.remove_at(selected_room_index)
