@@ -3,12 +3,6 @@
 [ext_resource type="Script" uid="uid://bccd1dirt4kia" path="res://Code-y Bits/factory_room.gd" id="1_1daii"]
 [ext_resource type="Texture2D" uid="uid://dkeri6jbh726r" path="res://Sprites and Shid/icon.svg" id="1_dhrwc"]
 [ext_resource type="PackedScene" uid="uid://b6or2p7f8mvuo" path="res://Prefabs/factory_machine.tscn" id="3_7uf2n"]
-[ext_resource type="Texture2D" uid="uid://bvp5ubiuhdx88" path="res://Sprites and Shid/Blue Base.png" id="4_0fg35"]
-[ext_resource type="Texture2D" uid="uid://b3t7txuqlhrga" path="res://Sprites and Shid/Debug Cards.png" id="5_krrug"]
-[ext_resource type="Texture2D" uid="uid://cwnb2em6xwm3x" path="res://Sprites and Shid/Green Base.png" id="6_d5jih"]
-[ext_resource type="Texture2D" uid="uid://ciqlvvc00daex" path="res://Sprites and Shid/Purple Base.png" id="7_u31tl"]
-[ext_resource type="Texture2D" uid="uid://c73n6fkfhjtlw" path="res://Sprites and Shid/Red Base.png" id="8_g0utl"]
-[ext_resource type="Texture2D" uid="uid://demuq0lp012d1" path="res://Sprites and Shid/Yellow Base.png" id="9_id3ko"]
 
 [node name="Factory Room" type="Node2D" unique_id=156863892 node_paths=PackedStringArray("room_station")]
 script = ExtResource("1_1daii")
@@ -22,34 +16,28 @@ texture = ExtResource("1_dhrwc")
 
 [node name="Blender" parent="Blender" unique_id=729833297 instance=ExtResource("3_7uf2n")]
 type = 1
-machine_sprite = ExtResource("4_0fg35")
 
 [node name="Cutter" type="Node2D" parent="." unique_id=1687882660]
 
 [node name="Cutter" parent="Cutter" unique_id=1231129212 instance=ExtResource("3_7uf2n")]
 type = 2
-machine_sprite = ExtResource("5_krrug")
 
 [node name="Cooking" type="Node2D" parent="." unique_id=1951326870]
 
 [node name="Cooking" parent="Cooking" unique_id=2144186114 instance=ExtResource("3_7uf2n")]
 type = 3
-machine_sprite = ExtResource("6_d5jih")
 
 [node name="Bottler" type="Node2D" parent="." unique_id=467755918]
 
 [node name="Bottler" parent="Bottler" unique_id=1854220024 instance=ExtResource("3_7uf2n")]
 type = 4
-machine_sprite = ExtResource("7_u31tl")
 
 [node name="Source" type="Node2D" parent="." unique_id=1995106631]
 
 [node name="Source" parent="Source" unique_id=1452218416 instance=ExtResource("3_7uf2n")]
-machine_sprite = ExtResource("8_g0utl")
 timer_duration = 0.1
 
 [node name="Deposit" type="Node2D" parent="." unique_id=1440150145]
 
 [node name="Deposit" parent="Deposit" unique_id=1553738157 instance=ExtResource("3_7uf2n")]
 type = 5
-machine_sprite = ExtResource("9_id3ko")
