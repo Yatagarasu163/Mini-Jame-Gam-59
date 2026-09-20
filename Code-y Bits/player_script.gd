@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @export var _speed: float = 500.0
 
+@onready var _anim: AnimatedSprite2D = $AnimatedSprite2D
+
 var _tomato_fresh: int = 0
 var _tomato_cut: int = 0
 var _tomato_cooked: int = 0
@@ -13,6 +15,12 @@ var _max_tomatoes: int = 5
 func _physics_process(_delta: float) -> void:
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = direction * _speed
+	
+	if direction != Vector2.ZERO:
+		_anim.play("Walk")
+	else:
+		_anim.play("Idle")
+	
 	move_and_slide()
 	
 func can_collect_fresh_tomato():

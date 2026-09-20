@@ -468,7 +468,7 @@ collectionProgressBar = NodePath("TomatoCollectionProgressBar")
 freshTomato = NodePath("OutputPoint/FreshTomato")
 
 [node name="Sprite2D" type="Sprite2D" parent="TomatoCollection" unique_id=360887388]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("13_g0utl")
 offset = Vector2(600, 550)
 
