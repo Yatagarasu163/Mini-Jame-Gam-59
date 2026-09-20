@@ -7,12 +7,6 @@
 [ext_resource type="Script" uid="uid://brw3klbb2dtxv" path="res://Code-y Bits/Health.gd" id="4_mgc0q"]
 [ext_resource type="Script" uid="uid://bij4x7ec50bix" path="res://Code-y Bits/machineInteraction.gd" id="5_6y7pd"]
 [ext_resource type="PackedScene" uid="uid://cvrejer7q53ep" path="res://Prefabs/test_enemy.tscn" id="7_6y7pd"]
-[ext_resource type="Script" uid="uid://lvcpmi2l4wa3" path="res://Code-y Bits/tomato_collection.gd" id="9_73nn6"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_njqwk"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_13qdw"]
-size = Vector2(148, 127)
 
 [node name="Main Game" type="Node2D" unique_id=425826221]
 
@@ -37,51 +31,3 @@ texture = ExtResource("4_6j5ir")
 
 [node name="TestEnemy" parent="." unique_id=1308011806 instance=ExtResource("7_6y7pd")]
 position = Vector2(205, -9)
-
-[node name="TomatoCollection" type="Node2D" parent="." unique_id=1576988108 node_paths=PackedStringArray("collectionProgressBar", "freshTomato")]
-position = Vector2(-405, 199)
-script = ExtResource("9_73nn6")
-collectionTime = 1.0
-collectionProgressBar = NodePath("TomatoCollectionProgressBar")
-freshTomato = NodePath("OutputPoint/FreshTomato")
-
-[node name="Sprite2D" type="Sprite2D" parent="TomatoCollection" unique_id=296930026]
-modulate = Color(0.7051975, 0.09830607, 0.22591418, 1)
-texture = ExtResource("4_6j5ir")
-
-[node name="TomatoCollectionProgressBar" type="ProgressBar" parent="TomatoCollection" unique_id=1895463317]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -60.0
-offset_top = -100.0
-offset_right = 70.0
-offset_bottom = -73.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="OutputPoint" type="Node2D" parent="TomatoCollection" unique_id=331756793]
-position = Vector2(-87, -4)
-
-[node name="FreshTomato" type="Area2D" parent="TomatoCollection/OutputPoint" unique_id=154625256]
-visible = false
-
-[node name="Sprite2D" type="Sprite2D" parent="TomatoCollection/OutputPoint/FreshTomato" unique_id=2137454391]
-modulate = Color(0.703298, 0.08088096, 0.23440266, 1)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("4_6j5ir")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TomatoCollection/OutputPoint/FreshTomato" unique_id=366727308]
-scale = Vector2(3, 3)
-shape = SubResource("CircleShape2D_njqwk")
-
-[node name="InteractionArea" type="Area2D" parent="TomatoCollection" unique_id=489097844]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TomatoCollection/InteractionArea" unique_id=433711561]
-scale = Vector2(2, 2)
-shape = SubResource("RectangleShape2D_13qdw")
-
-[connection signal="body_entered" from="TomatoCollection/OutputPoint/FreshTomato" to="TomatoCollection" method="_on_fresh_tomato_body_entered"]
-[connection signal="body_exited" from="TomatoCollection/OutputPoint/FreshTomato" to="TomatoCollection" method="_on_fresh_tomato_body_exited"]
-[connection signal="body_entered" from="TomatoCollection/InteractionArea" to="TomatoCollection" method="_on_interaction_area_body_entered"]
-[connection signal="body_exited" from="TomatoCollection/InteractionArea" to="TomatoCollection" method="_on_interaction_area_body_exited"]
