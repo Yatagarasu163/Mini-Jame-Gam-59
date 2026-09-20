@@ -1,15 +1,16 @@
 extends Node2D
+class_name factory_room
+
+@export var _machines: Array[Node2D]
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func generate(type: int):
+	for i in range(len(_machines)):
+		print("Room at " + str(position.x) + ", " + str(position.y) + " : " + str(i) + " --> " + str(type))
+		if i != type:
+			_machines[i].queue_free()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-func generate():
-	print("Room (" + str(position.x / 640) + ", " + str(position.y / 640) + ") Generated")
-	pass
+func clear_all():
+	for machine in _machines:
+		machine.queue_free()
+	print("Room at " + str(position.x) + ", " + str(position.y) + " : cleared")

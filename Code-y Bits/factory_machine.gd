@@ -6,9 +6,16 @@ var playerNearOutput = false
 var player = null
 var currentPress = 0
 var requiredPress = 0
+var glowTween: Tween
 
+# Cooking Values
 var temperature: float = 20.0
 var cookingProgress:float = 0.0
+
+# Blending Values
+var blendingProgress: float = 0.0
+@export var blendingTime: float = 5.0
+var blendingStarted = false
 
 #Cooking Mini Game Reference
 @export var minTemperature: float = 40.0
@@ -32,28 +39,42 @@ var selectedKeys = ""
 enum MachineType { CUTTER,COOKING,BLENDER,BOTTLING}
 @export var machineType : MachineType
 
-# Cutting Mini Games References 
+# Cutting Mini Games UI References 
 @export var cuttingProgressBar: ProgressBar
 @export var keyIndicator: Panel
 @export var keyLabel: Label
 @export var instructionText: Label
+@export var buttonGlow: Sprite2D
 @export var outputItem: Area2D
 
-# Cooking Mini Games References
+# Cooking Mini Games UI References
 @export var cookingUI: Control
 @export var temperatureIndicator: Sprite2D
 @export var temperatureBar: Sprite2D
 @export var temperatureLabel: Label
 @export var cookingProgressBar: ProgressBar
 
+#Blending Minin Games UI References
+@export var blenderUI: Control
+@export var blendingProgressBar: ProgressBar
+@export var  blendingLabel: Label
+
 
 func _ready():
-	cuttingProgressBar.visible = false
-	keyIndicator.visible = false
-	instructionText.visible = false
+	
+	if machineType == MachineType.CUTTER:
+		cuttingProgressBar.visible = false
+		keyIndicator.visible = false
+		instructionText.visible = false
+		buttonGlow.visible = false
+		
 	
 	if machineType == MachineType.COOKING:
 		cookingUI.visible = false
+		
+	if machineType == MachineType.BLENDER:
+		blenderUI.visible = false
+		
 		
 		
 func interact():
@@ -116,6 +137,8 @@ func startCuttingGame():
 	cuttingProgressBar.visible = true
 	keyIndicator.visible = true
 	instructionText.visible = true
+	startGlowAnimation()
+	buttonGlow.visible = true
 	
 	cuttingProgressBar.max_value = requiredPress
 	cuttingProgressBar.value = currentPress
@@ -135,13 +158,31 @@ func startCookingGame():
 	updateTemperatureIndicator()
 	
 func startBlenderGame():
-	completeMiniGame()
+	blendingProgress = 0.0
+	blendingStarted = false
+	
+	blenderUI.visible = true
+	blendingProgressBar.max_value =  blendingTime
+	blendingProgressBar.value = 0
+	print("Press SPACE to start blending")
 	
 func startBottlingGame():
 	completeMiniGame()
 
 func chooseRandomKey():
 	selectedKeys = possibleKeys.pick_random()
+	
+func startGlowAnimation():
+	if glowTween:
+		glowTween.kill()
+	
+	buttonGlow.modulate.a = 1.0
+	
+	glowTween = create_tween()
+	glowTween.set_loops()
+	
+	glowTween.tween_property(buttonGlow, "modulate:a", 0.2, 0.5)
+	glowTween.tween_property(buttonGlow, "modulate:a", 1.0, 0.5)
 	
 func _process(delta: float) -> void:
 	if playerNearOutput and outputItem.visible:
@@ -151,7 +192,7 @@ func _process(delta: float) -> void:
 	if machineActive == false:
 		return
 	
-	if playerInRange == false:
+	if machineType != MachineType.BLENDER and playerInRange == false:
 		return
 	
 	match machineType:
@@ -191,7 +232,6 @@ func updateCuttingGame():
 	if Input.is_action_just_pressed(selectedKeys):
 		currentPress += 1
 		cuttingProgressBar.value = currentPress
-
 		print(currentPress, "/", requiredPress)
 
 		if currentPress >= requiredPress:
@@ -221,7 +261,19 @@ func updateTemperatureIndicator():
 	temperatureIndicator.position.x = startX + ((temperature / 100.0) * moveDistance)
 			
 func updateBlendingGame(delta):
-	pass
+	
+	if blendingStarted == false:
+		if Input.is_action_just_pressed ("mash_space") and playerInRange:
+			blendingStarted = true
+			blendingLabel.text = "BLENDING....."
+			print(("Blending Started"))
+		return
+		
+	blendingProgress += delta
+	blendingProgressBar.value = blendingProgress
+	
+	if blendingProgress >= blendingTime:
+		completeMiniGame()
 
 func updateBottlingGame(delta):
 	pass
@@ -234,6 +286,10 @@ func completeMiniGame():
 		cuttingProgressBar.visible = false
 		keyIndicator.visible = false
 		instructionText.visible = false
+		
+		if glowTween:
+			glowTween.kill()
+		buttonGlow.visible = false
 		print("Cutting Complete")
 		
 	if machineType == MachineType.COOKING:
@@ -243,6 +299,7 @@ func completeMiniGame():
 		
 	if machineType == MachineType.BLENDER:
 		player.finish_blending()
+		blenderUI.visible = false
 		print("Blending Complete")
 		
 	if machineType == MachineType.BOTTLING:

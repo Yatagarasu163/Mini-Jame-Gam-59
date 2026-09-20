@@ -2,10 +2,323 @@
 
 [ext_resource type="Script" uid="uid://bccd1dirt4kia" path="res://Code-y Bits/factory_room.gd" id="1_1daii"]
 [ext_resource type="Texture2D" uid="uid://dkeri6jbh726r" path="res://Sprites and Shid/icon.svg" id="1_dhrwc"]
+[ext_resource type="PackedScene" uid="uid://nwbor2efjgho" path="res://Prefabs/test_machine.tscn" id="3_25cia"]
+[ext_resource type="Texture2D" uid="uid://byhctff70fcey" path="res://Sprites and Shid/Key Press Sprite.png" id="4_o7em3"]
+[ext_resource type="Texture2D" uid="uid://bshqkhaufs6h6" path="res://Sprites and Shid/TemperatureBar(Thermometer).png" id="5_hktsf"]
+[ext_resource type="Texture2D" uid="uid://by0krry537rax" path="res://Sprites and Shid/TemperatureIndicator.png" id="6_0fg35"]
 
-[node name="Factory Room" type="Node2D" unique_id=156863892]
+[node name="Factory Room" type="Node2D" unique_id=156863892 node_paths=PackedStringArray("_machines")]
 script = ExtResource("1_1daii")
+_machines = [NodePath("CutterMachine"), NodePath("CookingMachine"), NodePath("BlenderMachine"), NodePath("BottlingMachine")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2145963005]
 scale = Vector2(5, 5)
 texture = ExtResource("1_dhrwc")
+
+[node name="CutterMachine" parent="." unique_id=1877580678 node_paths=PackedStringArray("cuttingProgressBar", "keyIndicator", "keyLabel", "instructionText", "buttonGlow") instance=ExtResource("3_25cia")]
+cuttingProgressBar = NodePath("../MiniGameUI/CuttingProgressBar")
+keyIndicator = NodePath("../MiniGameUI/KeyIndicator")
+keyLabel = NodePath("../MiniGameUI/KeyIndicator/KeyLabel")
+instructionText = NodePath("../MiniGameUI/instruction")
+buttonGlow = NodePath("../MiniGameUI/KeyIndicator/SmallKeyCapGlow")
+
+[node name="CookingMachine" parent="." unique_id=760379608 node_paths=PackedStringArray("cookingUI", "temperatureIndicator", "temperatureBar", "temperatureLabel", "cookingProgressBar") instance=ExtResource("3_25cia")]
+machineType = 1
+cookingUI = NodePath("../MiniGameUI/CookingUI")
+temperatureIndicator = NodePath("../MiniGameUI/CookingUI/TemperatureIndicator")
+temperatureBar = NodePath("../MiniGameUI/CookingUI/TemparatureBarImage")
+temperatureLabel = NodePath("../MiniGameUI/CookingUI/TemperatureBarText")
+cookingProgressBar = NodePath("../MiniGameUI/CookingUI/CookingProgressBar")
+
+[node name="Sprite2D" parent="CookingMachine" index="0" unique_id=1522078674]
+modulate = Color(4.813075e-08, 0.5721783, 0.18850693, 1)
+
+[node name="CollisionShape2D" parent="CookingMachine/InteractionArea" parent_id_path=PackedInt32Array(760379608, 970127621) index="0" unique_id=1205405099]
+position = Vector2(3, 19)
+
+[node name="Sprite2D" parent="CookingMachine/OutputPoint/OutputItem" parent_id_path=PackedInt32Array(760379608, 1068318048) index="0" unique_id=1620921805]
+modulate = Color(0, 0, 0, 1)
+
+[node name="BlenderMachine" parent="." unique_id=2051678513 node_paths=PackedStringArray("blenderUI", "blendingProgressBar", "blendingLabel") instance=ExtResource("3_25cia")]
+machineType = 2
+blenderUI = NodePath("../MiniGameUI/BlenderUI")
+blendingProgressBar = NodePath("../MiniGameUI/BlenderUI/BlenderProgressbar")
+blendingLabel = NodePath("../MiniGameUI/BlenderUI/BlendingInstruction")
+
+[node name="Sprite2D" parent="BlenderMachine" index="0" unique_id=1522078674]
+modulate = Color(4.813075e-08, 0.5721783, 0.18850693, 1)
+
+[node name="Sprite2D" parent="BlenderMachine/OutputPoint/OutputItem" parent_id_path=PackedInt32Array(2051678513, 1068318048) index="0" unique_id=1620921805]
+modulate = Color(0.48133707, 0.4813372, 2.8878452e-07, 1)
+
+[node name="BottlingMachine" parent="." unique_id=650750150 instance=ExtResource("3_25cia")]
+machineType = 3
+
+[node name="Sprite2D" parent="BottlingMachine" index="0" unique_id=1522078674]
+modulate = Color(4.813075e-08, 0.5721783, 0.18850693, 1)
+
+[node name="MiniGameUI" type="CanvasLayer" parent="." unique_id=1706181536]
+
+[node name="CuttingProgressBar" type="ProgressBar" parent="MiniGameUI" unique_id=1301459880]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 35.0
+offset_right = 150.0
+offset_bottom = 65.0
+grow_horizontal = 2
+max_value = 10.0
+value = 10.0
+
+[node name="KeyIndicator" type="Panel" parent="MiniGameUI" unique_id=1259957165]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -269.0
+offset_right = 32.0
+offset_bottom = -229.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="SmallKeyCap" type="Sprite2D" parent="MiniGameUI/KeyIndicator" unique_id=742943934]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_o7em3")
+region_enabled = true
+region_rect = Rect2(113, 549, 287, 281)
+
+[node name="SmallKeyCapGlow" type="Sprite2D" parent="MiniGameUI/KeyIndicator" unique_id=51451479]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_o7em3")
+region_enabled = true
+region_rect = Rect2(41, 11, 485, 413)
+
+[node name="KeyLabel" type="Label" parent="MiniGameUI/KeyIndicator" unique_id=1949583430]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -41.0
+offset_right = -40.0
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+text = "F"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="instruction" type="Label" parent="MiniGameUI" unique_id=1033486597]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -132.5
+offset_top = 5.0
+offset_right = 132.5
+offset_bottom = 28.0
+grow_horizontal = 2
+text = "Press the button repeatedly to cut the tomato"
+
+[node name="CookingUI" type="Panel" parent="MiniGameUI" unique_id=2002826898]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TemperatureBarText" type="Label" parent="MiniGameUI/CookingUI" unique_id=1247867870]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.0
+offset_top = 93.0
+offset_right = 97.00116
+offset_bottom = 116.0
+grow_horizontal = 2
+text = "Temperature Bar"
+horizontal_alignment = 1
+
+[node name="TemperatureBar" type="Control" parent="MiniGameUI/CookingUI" unique_id=245191152]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 50.0
+offset_right = 210.0
+offset_bottom = 85.0
+grow_horizontal = 2
+
+[node name="ColdZone" type="ColorRect" parent="MiniGameUI/CookingUI/TemperatureBar" unique_id=2106264399]
+layout_mode = 0
+offset_right = 120.0
+offset_bottom = 35.0
+color = Color(0.23137255, 0.50980395, 0.8156863, 0)
+
+[node name="GoodZone" type="ColorRect" parent="MiniGameUI/CookingUI/TemperatureBar" unique_id=1275874415]
+layout_mode = 0
+offset_left = 120.0
+offset_right = 240.0
+offset_bottom = 35.0
+color = Color(0.29803923, 0.79607844, 0.41960785, 0)
+
+[node name="HotZone" type="ColorRect" parent="MiniGameUI/CookingUI/TemperatureBar" unique_id=1020630852]
+layout_mode = 0
+offset_left = 240.0
+offset_right = 360.0
+offset_bottom = 35.0
+color = Color(0.9019608, 0.3254902, 0.29411766, 0)
+
+[node name="CookingProgressBar" type="ProgressBar" parent="MiniGameUI/CookingUI" unique_id=1832250988]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -129.0
+offset_top = -196.0
+offset_right = 171.0011
+offset_bottom = -166.00034
+grow_horizontal = 2
+grow_vertical = 0
+max_value = 10.0
+value = 10.0
+
+[node name="KeyIndicator" type="Panel" parent="MiniGameUI/CookingUI" unique_id=1544697383]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -49.0
+offset_top = -136.0
+offset_right = 101.0
+offset_bottom = -106.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="KeyLabel" type="Label" parent="MiniGameUI/CookingUI/KeyIndicator" unique_id=40653229]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "SPACE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TemperatureBarText2" type="Label" parent="MiniGameUI/CookingUI" unique_id=894860380]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_top = 555.0
+offset_right = 100.0
+offset_bottom = 604.0
+grow_horizontal = 2
+text = " HOLD → HEAT
+ RELEASE → COOL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CookinginstructionText" type="Label" parent="MiniGameUI/CookingUI" unique_id=1371674026]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -143.999
+offset_top = 10.0
+offset_right = 205.00098
+offset_bottom = 33.0
+grow_horizontal = 2
+text = "KEEP THE TEMPERATURE IN THE GREEN ZONE"
+horizontal_alignment = 1
+
+[node name="TemparatureBarImage" type="Sprite2D" parent="MiniGameUI/CookingUI" unique_id=1734087805]
+position = Vector2(609.125, 66)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_hktsf")
+region_enabled = true
+region_rect = Rect2(229, 420, 1481, 240)
+
+[node name="TemperatureIndicator" type="Sprite2D" parent="MiniGameUI/CookingUI" unique_id=967102613]
+position = Vector2(453, 63)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_0fg35")
+region_enabled = true
+region_rect = Rect2(909, 404, 88, 170)
+
+[node name="BlenderUI" type="Panel" parent="MiniGameUI" unique_id=952020352]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BlenderProgressbar" type="ProgressBar" parent="MiniGameUI/BlenderUI" unique_id=1604143627]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 41.0
+offset_right = 150.0
+offset_bottom = 71.0
+grow_horizontal = 2
+max_value = 10.0
+value = 10.0
+
+[node name="BlendingInstruction" type="Label" parent="MiniGameUI/BlenderUI" unique_id=927070899]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -178.0
+offset_top = 10.0
+offset_right = 178.0
+offset_bottom = 33.0
+grow_horizontal = 2
+text = "BLENDING"
+horizontal_alignment = 1
+
+[node name="BlendingKeyIndicator" type="Panel" parent="MiniGameUI/BlenderUI" unique_id=518752928]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -49.0
+offset_top = -139.0
+offset_right = 101.0
+offset_bottom = -109.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="KeyLabel" type="Label" parent="MiniGameUI/BlenderUI/BlendingKeyIndicator" unique_id=237880588]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "SPACE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[editable path="CookingMachine"]
+[editable path="BlenderMachine"]
+[editable path="BottlingMachine"]
