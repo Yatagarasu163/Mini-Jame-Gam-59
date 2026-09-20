@@ -364,9 +364,14 @@ keyLabel = NodePath("../MiniGameUI/KeyIndicator/KeyLabel")
 instructionText = NodePath("../MiniGameUI/instruction")
 buttonGlow = NodePath("../MiniGameUI/KeyIndicator/SmallKeyCapGlow")
 
-[node name="CookingMachine" parent="." unique_id=1748030692 instance=ExtResource("8_73nn6")]
+[node name="CookingMachine" parent="." unique_id=1748030692 node_paths=PackedStringArray("cookingUI", "temperatureIndicator", "temperatureBar", "temperatureLabel", "cookingProgressBar") instance=ExtResource("8_73nn6")]
 position = Vector2(665, -8)
 machineType = 1
+cookingUI = NodePath("../MiniGameUI/CookingUI")
+temperatureIndicator = NodePath("../MiniGameUI/CookingUI/TemperatureIndicator")
+temperatureBar = NodePath("../MiniGameUI/CookingUI/TemparatureBarImage")
+temperatureLabel = NodePath("../MiniGameUI/CookingUI/TemperatureBarText")
+cookingProgressBar = NodePath("../MiniGameUI/CookingUI/CookingProgressBar")
 
 [node name="Sprite2D" parent="CookingMachine" index="0" unique_id=1522078674]
 modulate = Color(4.813075e-08, 0.5721783, 0.18850693, 1)
@@ -377,9 +382,12 @@ position = Vector2(3, 19)
 [node name="Sprite2D" parent="CookingMachine/OutputPoint/OutputItem" parent_id_path=PackedInt32Array(1748030692, 1068318048) index="0" unique_id=1620921805]
 modulate = Color(0, 0, 0, 1)
 
-[node name="BlenderMachine" parent="." unique_id=909720830 instance=ExtResource("8_73nn6")]
+[node name="BlenderMachine" parent="." unique_id=909720830 node_paths=PackedStringArray("blenderUI", "blendingProgressBar", "blendingLabel") instance=ExtResource("8_73nn6")]
 position = Vector2(1330, -16)
 machineType = 2
+blenderUI = NodePath("../MiniGameUI/BlenderUI")
+blendingProgressBar = NodePath("../MiniGameUI/BlenderUI/CuttingProgressBar")
+blendingLabel = NodePath("../MiniGameUI/BlenderUI/BlendingInstruction")
 
 [node name="Sprite2D" parent="BlenderMachine" index="0" unique_id=1522078674]
 modulate = Color(4.813075e-08, 0.5721783, 0.18850693, 1)
