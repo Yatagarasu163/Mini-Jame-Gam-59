@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0871n0blhxpm"
-path="res://.godot/imported/tomato filled w cap.png-f2eea202eafce9388a2eff8905fec78a.ctex"
+uid="uid://8huqkw17mmfo"
+path="res://.godot/imported/tomatoFilling.png-729a2f89dacbe1c812ed12c468d8e7fd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites and Shid/tomato filled w cap.png"
-dest_files=["res://.godot/imported/tomato filled w cap.png-f2eea202eafce9388a2eff8905fec78a.ctex"]
+source_file="res://Sprites and Shid/UI/tomatoFilling.png"
+dest_files=["res://.godot/imported/tomatoFilling.png-729a2f89dacbe1c812ed12c468d8e7fd.ctex"]
 
 [params]
 

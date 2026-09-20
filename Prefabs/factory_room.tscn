@@ -3,12 +3,12 @@
 [ext_resource type="Script" uid="uid://bccd1dirt4kia" path="res://Code-y Bits/factory_room.gd" id="1_1daii"]
 [ext_resource type="Texture2D" uid="uid://dkeri6jbh726r" path="res://Sprites and Shid/icon.svg" id="1_dhrwc"]
 [ext_resource type="PackedScene" uid="uid://nwbor2efjgho" path="res://Prefabs/test_machine.tscn" id="3_25cia"]
-[ext_resource type="Texture2D" uid="uid://byhctff70fcey" path="res://Sprites and Shid/Key Press Sprite.png" id="4_o7em3"]
-[ext_resource type="Texture2D" uid="uid://bshqkhaufs6h6" path="res://Sprites and Shid/TemperatureBar(Thermometer).png" id="5_hktsf"]
-[ext_resource type="Texture2D" uid="uid://by0krry537rax" path="res://Sprites and Shid/TemperatureIndicator.png" id="6_0fg35"]
-[ext_resource type="Texture2D" uid="uid://bt6v5fmi3w3ah" path="res://Sprites and Shid/Space Press Sprite.png" id="9_0fg35"]
-[ext_resource type="Texture2D" uid="uid://drtjdv6c86ndb" path="res://Sprites and Shid/tomato empty no cap(1).png" id="9_krrug"]
-[ext_resource type="Texture2D" uid="uid://djpstemlbiyvm" path="res://Sprites and Shid/tomatoFilling(1).png" id="10_d5jih"]
+[ext_resource type="Texture2D" uid="uid://byhctff70fcey" path="res://Sprites and Shid/UI/Key Press Sprite.png" id="4_o7em3"]
+[ext_resource type="Texture2D" uid="uid://bshqkhaufs6h6" path="res://Sprites and Shid/UI/TemperatureBar(Thermometer).png" id="5_hktsf"]
+[ext_resource type="Texture2D" uid="uid://by0krry537rax" path="res://Sprites and Shid/UI/TemperatureIndicator.png" id="6_0fg35"]
+[ext_resource type="Texture2D" uid="uid://bt6v5fmi3w3ah" path="res://Sprites and Shid/UI/Space Press Sprite.png" id="9_0fg35"]
+[ext_resource type="Texture2D" uid="uid://drtjdv6c86ndb" path="res://Sprites and Shid/UI/tomato empty no cap(1).png" id="9_krrug"]
+[ext_resource type="Texture2D" uid="uid://djpstemlbiyvm" path="res://Sprites and Shid/UI/tomatoFilling(1).png" id="10_d5jih"]
 [ext_resource type="Script" uid="uid://lvcpmi2l4wa3" path="res://Code-y Bits/tomato_collection.gd" id="10_krrug"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d5jih"]
@@ -545,7 +545,6 @@ ketchupFillBar = NodePath("../MiniGameUI/BottlingUI/KetchupFillBar")
 modulate = Color(4.813075e-08, 0.5721783, 0.18850693, 1)
 
 [node name="TomatoCollection" type="Node2D" parent="." unique_id=1180580663 node_paths=PackedStringArray("collectionProgressBar", "freshTomato")]
-position = Vector2(-405, 199)
 script = ExtResource("10_krrug")
 collectionTime = 1.0
 collectionProgressBar = NodePath("TomatoCollectionProgressBar")

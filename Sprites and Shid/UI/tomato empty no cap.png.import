@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byhctff70fcey"
-path="res://.godot/imported/Key Press Sprite.png-8d7fa6194a702d0f57bb06eaf708e776.ctex"
+uid="uid://82c06eqk04p4"
+path="res://.godot/imported/tomato empty no cap.png-521aff07dc2e136119b423f63d250790.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites and Shid/Key Press Sprite.png"
-dest_files=["res://.godot/imported/Key Press Sprite.png-8d7fa6194a702d0f57bb06eaf708e776.ctex"]
+source_file="res://Sprites and Shid/UI/tomato empty no cap.png"
+dest_files=["res://.godot/imported/tomato empty no cap.png-521aff07dc2e136119b423f63d250790.ctex"]
 
 [params]
 

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://btfpctxdvtv5u" path="res://Code-y Bits/player_script.gd" id="1_y6xdh"]
 [ext_resource type="Texture2D" uid="uid://dkeri6jbh726r" path="res://Sprites and Shid/icon.svg" id="2_5wxv7"]
+[ext_resource type="Script" uid="uid://bolj4uupefdsd" path="res://Code-y Bits/camera_zoom&shake.gd" id="2_y5hcb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_op1xx"]
 
@@ -23,10 +24,12 @@ size = Vector2(128, 129)
 script = ExtResource("1_y6xdh")
 _speed = 1000.0
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=949080167]
+script = ExtResource("2_y5hcb")
+enable_keyboard_testing = false
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1723264578]
 shape = SubResource("CircleShape2D_op1xx")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=65481844]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=868950767]
 sprite_frames = SubResource("SpriteFrames_op1xx")

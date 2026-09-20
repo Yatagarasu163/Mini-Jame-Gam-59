@@ -39,6 +39,7 @@ func _process(delta: float) -> void:
 		collectTomato()
 
 func interact():
+	GameManager.zoom_camera.emit(Vector2.ONE * 1.5)
 	if isCollecting:
 		return
 	
@@ -92,6 +93,7 @@ func _on_interaction_area_body_entered(body: Node2D) -> void:
 		collectionProgressBar.visible = true
 
 func _on_interaction_area_body_exited(body: Node2D) -> void:
+	GameManager.zoom_camera.emit(Vector2.ONE)
 	if body.name == "Player":
 		playerInRange = false
 		body.get_node("Interaction").notNearMachine()

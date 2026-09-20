@@ -17,6 +17,9 @@ var base_multiplier: float = 1.0
 # Total score saved for meta-progression or shop upgrades
 var total_score: float = 0.0
 
+signal camera_shake(strength: float)
+signal zoom_camera(target_zoom: Vector2, duration: float)
+
 func _ready() -> void:
 	start_new_shift()
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djpstemlbiyvm"
-path="res://.godot/imported/tomatoFilling(1).png-615e077bbdd97353b00b4661e83c7aa7.ctex"
+uid="uid://byhctff70fcey"
+path="res://.godot/imported/Key Press Sprite.png-ba10d1c90bb385deab19536979725072.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites and Shid/tomatoFilling(1).png"
-dest_files=["res://.godot/imported/tomatoFilling(1).png-615e077bbdd97353b00b4661e83c7aa7.ctex"]
+source_file="res://Sprites and Shid/UI/Key Press Sprite.png"
+dest_files=["res://.godot/imported/Key Press Sprite.png-ba10d1c90bb385deab19536979725072.ctex"]
 
 [params]
 
