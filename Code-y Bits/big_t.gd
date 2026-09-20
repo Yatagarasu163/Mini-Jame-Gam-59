@@ -12,11 +12,16 @@ extends CharacterBody2D
 var speed = 150
 var last_known_position: Vector2 = Vector2.ZERO
 var is_searching_last_location: bool = false
+var current_target_spot: Node2D = null
 
 #LOS check range requires manual changing of the Raycast2D x value in its prefab
 #Currently LOS checks a circle around BIG T can change if needed
 @onready var los: RayCast2D = $RayCast2D
 
+func _ready() -> void:
+# Wait a frame to ensure the tile generation script has finished spawning markers
+	await get_tree().process_frame
+	call_deferred("choose_random_spot")
 
 # Called every frame. Moves towards the target
 func _physics_process(_delta: float) -> void:
@@ -35,6 +40,7 @@ func _physics_process(_delta: float) -> void:
 		
 	if is_searching_last_location:
 		search_last_location()
+		
 	
 func move_towards_target(target_pos):
 	#part of code that moves BIG T to the last known player location/POI
@@ -47,10 +53,25 @@ func search_last_location():
 	move_towards_target(last_known_position)
 	
 	# Check if the enemy has arrived close enough to the last known location
-	if global_position.distance_to(last_known_position) < 10.0:
+	if global_position.distance_to(last_known_position) <= 30.0:
 		is_searching_last_location = false
 		velocity = Vector2.ZERO
 		# IDLE ANIMATION AND PATROL CODE NOT ADDED YET
+		choose_random_spot()
+
+func choose_random_spot() -> void:
+	# 1. Fetch all currently generated markers from the group
+	var spots: Array[Node] = get_tree().get_nodes_in_group("patrol_spots")
+	
+	if spots.is_empty():
+		return
+		
+	# 2. Pick a random one
+	var random_index: int = randi() % spots.size()
+	current_target_spot = spots[random_index] as Marker2D
+	
+	if current_target_spot:
+		last_known_position = current_target_spot.global_position
 
 func _process(delta: float) -> void:
 	#Code that scales BIG T's size as the game goes on
