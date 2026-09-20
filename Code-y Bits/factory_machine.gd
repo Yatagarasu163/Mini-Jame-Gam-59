@@ -14,8 +14,12 @@ var cookingProgress:float = 0.0
 
 # Blending Values
 var blendingProgress: float = 0.0
-@export var blendingTime: float = 5.0
 var blendingStarted = false
+@export var blendingTime: float = 5.0
+
+#Bottling Values
+var bottleFill: float = 0.0
+@export var bottleFillSpeed: float = 25.0
 
 #Cooking Mini Game Reference
 @export var minTemperature: float = 40.0
@@ -45,6 +49,9 @@ enum MachineType { CUTTER,COOKING,BLENDER,BOTTLING}
 @export var keyLabel: Label
 @export var instructionText: Label
 @export var buttonGlow: Sprite2D
+@export var cookingSpaceGlow: Sprite2D
+@export var blenderSpaceGlow: Sprite2D
+@export var bottlingSpaceGlow: Sprite2D
 @export var outputItem: Area2D
 
 # Cooking Mini Games UI References
@@ -54,10 +61,14 @@ enum MachineType { CUTTER,COOKING,BLENDER,BOTTLING}
 @export var temperatureLabel: Label
 @export var cookingProgressBar: ProgressBar
 
-#Blending Minin Games UI References
+#Blending Mini Games UI References
 @export var blenderUI: Control
 @export var blendingProgressBar: ProgressBar
 @export var  blendingLabel: Label
+
+#Bottling Mini Games UI Reference
+@export var bottlingUI: Panel
+@export var ketchupFillBar: TextureProgressBar
 
 
 func _ready():
@@ -74,6 +85,9 @@ func _ready():
 		
 	if machineType == MachineType.BLENDER:
 		blenderUI.visible = false
+		
+	if machineType == MachineType.BOTTLING:
+		bottlingUI.visible = false	
 		
 		
 		
@@ -99,6 +113,11 @@ func interact():
 		if machineType == MachineType.BLENDER:
 			if player.enough_cooked_tomatoes():
 				var carriedItem = player.get_node("CarryPoint/OutputItem")
+				
+				print("Removing item: ", carriedItem)
+				print("Children inside item: ", carriedItem.get_children())
+				print("Item position: ", carriedItem.global_position)
+				
 				carriedItem.reparent(get_parent().get_node("CookingMachine/OutputPoint"))
 				carriedItem.visible = false
 				startMiniGame()
@@ -137,7 +156,7 @@ func startCuttingGame():
 	cuttingProgressBar.visible = true
 	keyIndicator.visible = true
 	instructionText.visible = true
-	startGlowAnimation()
+	startGlowAnimation(buttonGlow)
 	buttonGlow.visible = true
 	
 	cuttingProgressBar.max_value = requiredPress
@@ -156,6 +175,9 @@ func startCookingGame():
 	cookingProgressBar.max_value = cookingTime
 	cookingProgressBar.value = 0
 	updateTemperatureIndicator()
+	cookingSpaceGlow.visible = true
+	startGlowAnimation(cookingSpaceGlow)
+	
 	
 func startBlenderGame():
 	blendingProgress = 0.0
@@ -164,25 +186,36 @@ func startBlenderGame():
 	blenderUI.visible = true
 	blendingProgressBar.max_value =  blendingTime
 	blendingProgressBar.value = 0
+	blenderSpaceGlow.visible = true
+	startGlowAnimation(blenderSpaceGlow)
+
 	print("Press SPACE to start blending")
 	
 func startBottlingGame():
-	completeMiniGame()
+	bottleFill = 0.0
+	bottlingUI.visible = true	
+	ketchupFillBar.min_value = 0
+	ketchupFillBar.max_value = 100
+	ketchupFillBar.value = 0
+	bottlingSpaceGlow.visible = true
+	startGlowAnimation(bottlingSpaceGlow)	
+
+	
 
 func chooseRandomKey():
 	selectedKeys = possibleKeys.pick_random()
 	
-func startGlowAnimation():
+func startGlowAnimation(glowSprite):
 	if glowTween:
 		glowTween.kill()
 	
-	buttonGlow.modulate.a = 1.0
+	glowSprite.modulate.a = 1.0
 	
 	glowTween = create_tween()
 	glowTween.set_loops()
 	
-	glowTween.tween_property(buttonGlow, "modulate:a", 0.2, 0.5)
-	glowTween.tween_property(buttonGlow, "modulate:a", 1.0, 0.5)
+	glowTween.tween_property(glowSprite, "modulate:a", 0.2, 0.5)
+	glowTween.tween_property(glowSprite, "modulate:a", 1.0, 0.5)
 	
 func _process(delta: float) -> void:
 	if playerNearOutput and outputItem.visible:
@@ -276,8 +309,15 @@ func updateBlendingGame(delta):
 		completeMiniGame()
 
 func updateBottlingGame(delta):
-	pass
-				
+	if Input.is_key_pressed(KEY_SPACE):
+		bottleFill += bottleFillSpeed * delta
+		bottleFill = clamp(bottleFill, 0.0, 100.0)
+		ketchupFillBar.value = bottleFill
+		
+		if bottleFill >= 100.0:
+			completeMiniGame()
+			
+
 func completeMiniGame():
 	machineActive = false
 	
@@ -304,6 +344,7 @@ func completeMiniGame():
 		
 	if machineType == MachineType.BOTTLING:
 		player.finish_bottling()
+		bottlingUI.visible = false
 		print("Bottling Complete")
 	
 	outputItem.reparent($OutputPoint)
