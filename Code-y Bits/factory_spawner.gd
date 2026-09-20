@@ -29,4 +29,6 @@ func SpawnFactory():
 		var selected_room_index = randi() % len(all_rooms)
 		all_rooms[selected_room_index].generate(i)
 		all_rooms.remove_at(selected_room_index)
+	for room in all_rooms:
+		room.clear_all()
 	
