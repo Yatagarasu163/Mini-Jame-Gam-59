@@ -17,6 +17,7 @@ config/icon="res://Sprites and Shid/icon.svg"
 
 [autoload]
 
+Global="*uid://5cek5fpvm1ov"
 GameManager="*uid://cyejorknxrv5a"
 GlobalWorldEnvironment="*uid://c1mxsmvbxpo7"
 CameraZoom_shake="*uid://bolj4uupefdsd"

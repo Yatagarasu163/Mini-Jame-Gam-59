@@ -5,10 +5,8 @@ var options_menu_instance: Node = null
 
 const OPTIONS_MENU_SCENE = preload("res://Scenes/options_menu.tscn")
 
-
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
-
 
 func _unhandled_input(event: InputEvent) -> void:
 	var current_scene = get_tree().current_scene
@@ -16,12 +14,11 @@ func _unhandled_input(event: InputEvent) -> void:
 	if current_scene == null:
 		return
 	
-	if current_scene.scene_file_path != "res://Scenes/main.tscn":
+	if current_scene.scene_file_path != "res://Scenes/main_game.tscn":
 		return
 	
 	if event.is_action_pressed("ui_cancel"):
 		toggle_options_menu()
-
 
 func toggle_options_menu() -> void:
 	is_menu_open = !is_menu_open
