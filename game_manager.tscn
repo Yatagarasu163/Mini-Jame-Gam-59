@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b6bccj6ig3ati"]
 
-[ext_resource type="Script" uid="uid://cyejorknxrv5a" path="res://Game Manager.gd" id="1_70yv6"]
+[ext_resource type="Script" uid="uid://bolj4uupefdsd" path="res://camera_zoom&shake.gd" id="1_70yv6"]
 
 [node name="Node2D" type="Node2D" unique_id=433224472]
 script = ExtResource("1_70yv6")
