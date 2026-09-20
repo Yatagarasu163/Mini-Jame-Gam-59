@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8huqkw17mmfo"
-path="res://.godot/imported/tomatoFilling.png-00a28ce1aa8373cb1bc48599b7861761.ctex"
+uid="uid://bshqkhaufs6h6"
+path="res://.godot/imported/TemperatureBar(Thermometer).png-2110f2ed0d65d3bfda61e266303a347b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites and Shid/tomatoFilling.png"
-dest_files=["res://.godot/imported/tomatoFilling.png-00a28ce1aa8373cb1bc48599b7861761.ctex"]
+source_file="res://Sprites and Shid/UI/TemperatureBar(Thermometer).png"
+dest_files=["res://.godot/imported/TemperatureBar(Thermometer).png-2110f2ed0d65d3bfda61e266303a347b.ctex"]
 
 [params]
 

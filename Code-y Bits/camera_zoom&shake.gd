@@ -33,6 +33,8 @@ var is_zoomed_in: bool = false
 
 func _ready() -> void:
 	zoom = default_zoom
+	GameManager.zoom_camera.connect(zoom_camera)
+	GameManager.camera_shake.connect(shake_camera)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not enable_keyboard_testing:

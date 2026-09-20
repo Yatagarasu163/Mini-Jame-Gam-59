@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by0krry537rax"
-path="res://.godot/imported/TemperatureIndicator.png-35bc5d473eb9bafe126f268f6b39bd5e.ctex"
+uid="uid://drtjdv6c86ndb"
+path="res://.godot/imported/tomato empty no cap(1).png-85078dc5daba61f742d71221ef091500.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites and Shid/TemperatureIndicator.png"
-dest_files=["res://.godot/imported/TemperatureIndicator.png-35bc5d473eb9bafe126f268f6b39bd5e.ctex"]
+source_file="res://Sprites and Shid/UI/tomato empty no cap(1).png"
+dest_files=["res://.godot/imported/tomato empty no cap(1).png-85078dc5daba61f742d71221ef091500.ctex"]
 
 [params]
 

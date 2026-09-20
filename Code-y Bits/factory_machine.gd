@@ -92,6 +92,7 @@ func _ready():
 		
 		
 func interact():
+	GameManager.zoom_camera.emit(Vector2.ONE * 1.5)
 	if machineActive == false:
 		
 		if machineType == MachineType.CUTTER:
@@ -263,6 +264,7 @@ func pickupOutput():
 	
 func updateCuttingGame():
 	if Input.is_action_just_pressed(selectedKeys):
+		GameManager.camera_shake.emit(1.0)
 		currentPress += 1
 		cuttingProgressBar.value = currentPress
 		print(currentPress, "/", requiredPress)
@@ -272,6 +274,7 @@ func updateCuttingGame():
 			
 func updateCookingGame(delta):
 	if Input.is_action_pressed("mash_space"):
+		GameManager.camera_shake.emit(0.01)
 		temperature += heatingSpeed * delta
 	else:
 		temperature -= coolingSpeed * delta
@@ -297,6 +300,7 @@ func updateBlendingGame(delta):
 	
 	if blendingStarted == false:
 		if Input.is_action_just_pressed ("mash_space") and playerInRange:
+			GameManager.camera_shake.emit(0.01)
 			blendingStarted = true
 			blendingLabel.text = "BLENDING....."
 			print(("Blending Started"))
@@ -310,6 +314,7 @@ func updateBlendingGame(delta):
 
 func updateBottlingGame(delta):
 	if Input.is_key_pressed(KEY_SPACE):
+		GameManager.camera_shake.emit(0.01)
 		bottleFill += bottleFillSpeed * delta
 		bottleFill = clamp(bottleFill, 0.0, 100.0)
 		ketchupFillBar.value = bottleFill
@@ -385,6 +390,7 @@ func _on_interaction_area_body_entered(body: Node2D) -> void:
 
 func _on_interaction_area_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
+		GameManager.zoom_camera.emit(Vector2.ONE)
 		playerInRange = false
 		body.get_node("Interaction").notNearMachine()
 		
