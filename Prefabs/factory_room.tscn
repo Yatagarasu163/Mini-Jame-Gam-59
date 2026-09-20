@@ -12,11 +12,17 @@
 [ext_resource type="Texture2D" uid="uid://djpstemlbiyvm" path="res://Sprites and Shid/UI/tomatoFilling(1).png" id="10_d5jih"]
 [ext_resource type="Script" uid="uid://lvcpmi2l4wa3" path="res://Code-y Bits/tomato_collection.gd" id="10_krrug"]
 [ext_resource type="Texture2D" uid="uid://b1gjf3p3w4et6" path="res://Sprites and Shid/Stations/Tomato Blending Station_.png" id="10_u31tl"]
+[ext_resource type="Texture2D" uid="uid://cumqy7cjg70gy" path="res://Sprites and Shid/Tomato_.png" id="11_fsstt"]
 [ext_resource type="Texture2D" uid="uid://q8ug524eue0e" path="res://Sprites and Shid/Stations/tomato sauce filling station.png" id="11_u31tl"]
+[ext_resource type="Texture2D" uid="uid://dirtkoomyyeoc" path="res://Sprites and Shid/Perfectly Cut Tomato.png" id="12_xn174"]
 [ext_resource type="Texture2D" uid="uid://cmwfyrsaee63u" path="res://Sprites and Shid/Stations/Tomato station_.png" id="13_g0utl"]
 [ext_resource type="Script" uid="uid://bwm044qe4ym54" path="res://Code-y Bits/deposit.gd" id="14_id3ko"]
+[ext_resource type="Texture2D" uid="uid://qvtbq3m5o1wl" path="res://Sprites and Shid/tomatoFilling.png" id="14_ovci6"]
 [ext_resource type="Script" uid="uid://cuj74ddjsul6b" path="res://Code-y Bits/exit.gd" id="15_qkbv4"]
+[ext_resource type="Texture2D" uid="uid://rxmwcvcb4wh" path="res://Sprites and Shid/Full Ketchup Bottle_.png" id="16_0rntw"]
 [ext_resource type="Texture2D" uid="uid://dbjm7gugwuc5y" path="res://Sprites and Shid/Stations/Disposing the Ketchup Station in This.png" id="16_6bhtk"]
+[ext_resource type="Texture2D" uid="uid://chwaigdyq5mgm" path="res://Sprites and Shid/TOMATO IN A BAG I THINK_.png" id="19_h4lnd"]
+[ext_resource type="Texture2D" uid="uid://bytgsy1lqnf4t" path="res://Sprites and Shid/Stations/Clock In Station_.png" id="23_adbi2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6bhtk"]
 texture = ExtResource("2_6gddi")
@@ -462,6 +468,9 @@ keyLabel = NodePath("../MiniGameUI/Cutting UI/KeyIndicator/KeyLabel")
 instructionText = NodePath("../MiniGameUI/Cutting UI/instruction")
 buttonGlow = NodePath("../MiniGameUI/Cutting UI/KeyIndicator/SmallKeyCapGlow")
 
+[node name="Sprite2D" parent="CutterMachine/OutputPoint/OutputItem" parent_id_path=PackedInt32Array(1877580678, 1068318048) index="0" unique_id=1620921805]
+texture = ExtResource("11_fsstt")
+
 [node name="CookingMachine" parent="." unique_id=760379608 node_paths=PackedStringArray("cookingSpaceGlow", "cookingUI", "temperatureIndicator", "temperatureBar", "cookingProgressBar") instance=ExtResource("3_25cia")]
 machineType = 1
 cookingSpaceGlow = NodePath("../MiniGameUI/CookingUI/CookingSpaceKey/SpaceKeyCapGlow")
@@ -477,6 +486,7 @@ offset = Vector2(3660, 1350)
 
 [node name="Sprite2D" parent="CookingMachine/OutputPoint/OutputItem" parent_id_path=PackedInt32Array(760379608, 1068318048) index="0" unique_id=1620921805]
 modulate = Color(0, 0, 0, 1)
+texture = ExtResource("12_xn174")
 
 [node name="BlenderMachine" parent="." unique_id=2051678513 node_paths=PackedStringArray("blenderSpaceGlow", "blenderUI", "blendingProgressBar", "blendingLabel") instance=ExtResource("3_25cia")]
 machineType = 2
@@ -490,6 +500,7 @@ texture = ExtResource("10_u31tl")
 
 [node name="Sprite2D" parent="BlenderMachine/OutputPoint/OutputItem" parent_id_path=PackedInt32Array(2051678513, 1068318048) index="0" unique_id=1620921805]
 modulate = Color(0.48133707, 0.4813372, 2.8878452e-07, 1)
+texture = ExtResource("14_ovci6")
 
 [node name="BottlingMachine" parent="." unique_id=650750150 node_paths=PackedStringArray("bottlingSpaceGlow", "bottlingUI", "ketchupFillBar") instance=ExtResource("3_25cia")]
 machineType = 3
@@ -499,6 +510,9 @@ ketchupFillBar = NodePath("../MiniGameUI/BottlingUI/KetchupFillBar")
 
 [node name="Sprite2D" parent="BottlingMachine" index="0" unique_id=1522078674]
 texture = ExtResource("11_u31tl")
+
+[node name="Sprite2D" parent="BottlingMachine/OutputPoint/OutputItem" parent_id_path=PackedInt32Array(650750150, 1068318048) index="0" unique_id=1620921805]
+texture = ExtResource("16_0rntw")
 
 [node name="TomatoCollection" type="Node2D" parent="." unique_id=1180580663 node_paths=PackedStringArray("collectionProgressBar", "freshTomato")]
 script = ExtResource("10_krrug")
@@ -531,7 +545,7 @@ visible = false
 [node name="Sprite2D" type="Sprite2D" parent="TomatoCollection/OutputPoint/FreshTomato" unique_id=1815802129]
 modulate = Color(0.703298, 0.08088096, 0.23440266, 1)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_dhrwc")
+texture = ExtResource("19_h4lnd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TomatoCollection/OutputPoint/FreshTomato" unique_id=167014123]
 scale = Vector2(3, 3)
@@ -563,7 +577,7 @@ shape = SubResource("RectangleShape2D_op1xx")
 script = ExtResource("15_qkbv4")
 
 [node name="Sprite2D" type="Sprite2D" parent="Exit" unique_id=1692719226]
-texture = ExtResource("1_dhrwc")
+texture = ExtResource("23_adbi2")
 
 [node name="Interaction" type="Area2D" parent="Exit" unique_id=293340197]
 
@@ -579,6 +593,7 @@ shape = SubResource("RectangleShape2D_op1xx")
 [connection signal="body_entered" from="Exit/Interaction" to="Exit" method="_on_interaction_body_entered"]
 [connection signal="body_exited" from="Exit/Interaction" to="Exit" method="_on_interaction_body_exited"]
 
+[editable path="CutterMachine"]
 [editable path="CookingMachine"]
 [editable path="BlenderMachine"]
 [editable path="BottlingMachine"]
