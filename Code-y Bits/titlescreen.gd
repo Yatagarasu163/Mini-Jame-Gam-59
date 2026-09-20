@@ -10,7 +10,7 @@ extends CanvasLayer
 @onready var start_game: Button = %StartGame
 @onready var setting_button: Button = %SettingButton
 @onready var exit: Button = %ExitButton
-@onready var start_level = preload("res://Scenes/main_game.tscn") as PackedScene #put the main scene in this
+@onready var start_level = preload("res://Scenes/main_game.tscn") as PackedScene #put the main scene root in this line
 
 #endregion
 
