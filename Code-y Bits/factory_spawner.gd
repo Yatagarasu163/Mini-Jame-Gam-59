@@ -35,7 +35,7 @@ func SpawnFactory():
 			current_room.position = Vector2(new_x * x_multiplier, new_y * y_multiplier)
 			add_child(current_room)
 	# generate one copy of all the necessary rooms
-	for i in range(5):
+	for i in range(7):
 		var selected_room = randi() % len(rooms)
 		rooms[selected_room].generate(i - 1)
 		rooms.remove_at(selected_room)
