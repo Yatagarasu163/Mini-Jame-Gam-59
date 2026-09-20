@@ -25,7 +25,7 @@ size = Vector2(148, 127)
 
 [node name="Factory Spawner" type="Node2D" parent="." unique_id=65925981]
 script = ExtResource("1_l756w")
-factory_room = ExtResource("2_pu3va")
+factory_room_prefab = ExtResource("2_pu3va")
 
 [node name="Player" parent="." unique_id=1723161328 instance=ExtResource("3_0e3vx")]
 position = Vector2(-6, -12)
