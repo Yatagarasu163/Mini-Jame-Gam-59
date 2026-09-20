@@ -4,13 +4,13 @@ extends CanvasLayer
 
 #container
 @onready var main_menu: VBoxContainer = %MainMenu
-@onready var options_menu: OptionsMenu = $Options_Menu
+@onready var settings_menu: SettingsMenu = $Settings_menu
 
 #buttons
 @onready var start_game: Button = %StartGame
 @onready var setting_button: Button = %SettingButton
 @onready var exit: Button = %ExitButton
-@onready var start_level = preload("res://Scenes/main_game.tscn") as PackedScene #put the main scene in this
+@onready var start_level = preload("res://Scenes/main_game.tscn") as PackedScene #put the main scene root in this line
 
 #endregion
 
@@ -28,18 +28,18 @@ func start_new_game() -> void:
 
 func open_settings() -> void:
 	main_menu.visible = false
-	options_menu.set_process(true)
-	options_menu.visible = true
+	settings_menu.set_process(true)
+	settings_menu.visible = true
 
 func quit_game() -> void:
 	get_tree().quit()
 
 func on_exit_options_menu() -> void:
 	main_menu.visible = true 
-	options_menu.visible = false
+	settings_menu.visible = false
 
 func handle_connecting_signal() -> void:
 	start_game.button_down.connect( start_new_game )
 	setting_button.button_down.connect( open_settings )
 	exit.button_down.connect( quit_game )
-	options_menu.exit_option_menu.connect( on_exit_options_menu )
+	settings_menu.exit_option_menu.connect( on_exit_options_menu )
