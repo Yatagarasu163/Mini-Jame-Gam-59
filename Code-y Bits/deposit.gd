@@ -16,6 +16,8 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("interact") and player.deposit_bottled_tomatoes():
 		print("add progress")
+		var carriedItem = player.get_node("CarryPoint/OutputItem")
+		carriedItem.queue_free()
 		GameManager.add_progress(1)
 
 

@@ -485,7 +485,6 @@ texture = SubResource("CompressedTexture2D_rjtnv")
 offset = Vector2(3660, 1350)
 
 [node name="Sprite2D" parent="CookingMachine/OutputPoint/OutputItem" parent_id_path=PackedInt32Array(760379608, 1068318048) index="0" unique_id=1620921805]
-modulate = Color(0, 0, 0, 1)
 texture = ExtResource("12_xn174")
 
 [node name="BlenderMachine" parent="." unique_id=2051678513 node_paths=PackedStringArray("blenderSpaceGlow", "blenderUI", "blendingProgressBar", "blendingLabel") instance=ExtResource("3_25cia")]
@@ -499,7 +498,6 @@ blendingLabel = NodePath("../MiniGameUI/BlenderUI/BlendingInstruction")
 texture = ExtResource("10_u31tl")
 
 [node name="Sprite2D" parent="BlenderMachine/OutputPoint/OutputItem" parent_id_path=PackedInt32Array(2051678513, 1068318048) index="0" unique_id=1620921805]
-modulate = Color(0.48133707, 0.4813372, 2.8878452e-07, 1)
 texture = ExtResource("14_ovci6")
 
 [node name="BottlingMachine" parent="." unique_id=650750150 node_paths=PackedStringArray("bottlingSpaceGlow", "bottlingUI", "ketchupFillBar") instance=ExtResource("3_25cia")]

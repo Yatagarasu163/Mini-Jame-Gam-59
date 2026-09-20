@@ -54,7 +54,6 @@ enum MachineType { CUTTER,COOKING,BLENDER,BOTTLING}
 @export var bottlingSpaceGlow: Sprite2D
 @export var outputItem: Area2D
 
-
 # Cooking Mini Games UI References
 @export var cookingUI: Control
 @export var temperatureIndicator: Sprite2D
@@ -193,8 +192,6 @@ func startBottlingGame():
 	ketchupFillBar.value = 0
 	bottlingSpaceGlow.visible = true
 	startGlowAnimation(bottlingSpaceGlow)	
-
-	
 
 func chooseRandomKey():
 	selectedKeys = possibleKeys.pick_random()
