@@ -13,11 +13,19 @@
 [ext_resource type="Texture2D" uid="uid://b1gjf3p3w4et6" path="res://Sprites and Shid/Stations/Tomato Blending Station_.png" id="10_u31tl"]
 [ext_resource type="Texture2D" uid="uid://q8ug524eue0e" path="res://Sprites and Shid/Stations/tomato sauce filling station.png" id="11_u31tl"]
 [ext_resource type="Texture2D" uid="uid://cmwfyrsaee63u" path="res://Sprites and Shid/Stations/Tomato station_.png" id="13_g0utl"]
+[ext_resource type="Script" uid="uid://bwm044qe4ym54" path="res://Code-y Bits/deposit.gd" id="14_id3ko"]
+[ext_resource type="Script" uid="uid://cuj74ddjsul6b" path="res://Code-y Bits/exit.gd" id="15_qkbv4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d5jih"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u31tl"]
 size = Vector2(148, 127)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0utl"]
+size = Vector2(120, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_op1xx"]
+size = Vector2(250, 250)
 
 [node name="Factory Room" type="Node2D" unique_id=156863892 node_paths=PackedStringArray("_machines")]
 script = ExtResource("1_1daii")
@@ -504,10 +512,42 @@ shape = SubResource("CircleShape2D_d5jih")
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_u31tl")
 
+[node name="Deposit" type="StaticBody2D" parent="." unique_id=1861649953]
+script = ExtResource("14_id3ko")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deposit" unique_id=815442922]
+shape = SubResource("RectangleShape2D_g0utl")
+
+[node name="Sprite2D" type="Sprite2D" parent="Deposit" unique_id=2111121687]
+texture = ExtResource("1_dhrwc")
+
+[node name="Interaction" type="Area2D" parent="Deposit" unique_id=612363062]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deposit/Interaction" unique_id=524619033]
+shape = SubResource("RectangleShape2D_op1xx")
+
+[node name="Exit" type="StaticBody2D" parent="." unique_id=962007563]
+script = ExtResource("15_qkbv4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit" unique_id=346863456]
+shape = SubResource("RectangleShape2D_g0utl")
+
+[node name="Sprite2D" type="Sprite2D" parent="Exit" unique_id=1117608283]
+texture = ExtResource("1_dhrwc")
+
+[node name="Interaction" type="Area2D" parent="Exit" unique_id=773258307]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit/Interaction" unique_id=1179824991]
+shape = SubResource("RectangleShape2D_op1xx")
+
 [connection signal="body_entered" from="TomatoCollection/OutputPoint/FreshTomato" to="TomatoCollection" method="_on_fresh_tomato_body_entered"]
 [connection signal="body_exited" from="TomatoCollection/OutputPoint/FreshTomato" to="TomatoCollection" method="_on_fresh_tomato_body_exited"]
 [connection signal="body_entered" from="TomatoCollection/InteractionArea" to="TomatoCollection" method="_on_interaction_area_body_entered"]
 [connection signal="body_exited" from="TomatoCollection/InteractionArea" to="TomatoCollection" method="_on_interaction_area_body_exited"]
+[connection signal="body_entered" from="Deposit/Interaction" to="Deposit" method="_on_interaction_body_entered"]
+[connection signal="body_exited" from="Deposit/Interaction" to="Deposit" method="_on_interaction_body_exited"]
+[connection signal="body_entered" from="Exit/Interaction" to="Exit" method="_on_interaction_body_entered"]
+[connection signal="body_exited" from="Exit/Interaction" to="Exit" method="_on_interaction_body_exited"]
 
 [editable path="CookingMachine"]
 [editable path="BlenderMachine"]

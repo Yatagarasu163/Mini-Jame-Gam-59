@@ -16,7 +16,7 @@ var total_score: float = 0.0
 
 signal camera_shake(strength: float)
 signal zoom_camera(target_zoom: Vector2, duration: float)
-
+signal spawn_exit
 
 # --- TUTORIAL TRACKING FLAGS ---
 var has_picked_up_tomato: bool = false
@@ -61,6 +61,7 @@ func add_progress(amount: float) -> void:
 		enter_overtime()
 
 func enter_overtime() -> void:
+	spawn_exit.emit()
 	is_in_overtime = true
 	print("Quota Met! Overtime Started.")
 

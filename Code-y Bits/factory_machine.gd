@@ -380,7 +380,7 @@ func _on_interaction_area_body_entered(body: Node2D) -> void:
 
 func _on_interaction_area_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
-		GameManager.zoom_camera.emit(Vector2.ONE)
+		GameManager.zoom_camera.emit(Vector2.ZERO)
 		playerInRange = false
 		body.get_node("Interaction").notNearMachine()
 		

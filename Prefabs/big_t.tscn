@@ -1,26 +1,165 @@
 [gd_scene format=3 uid="uid://r7ogd04ro4av"]
 
 [ext_resource type="Script" uid="uid://biwiqo0hvptkd" path="res://Code-y Bits/big_t.gd" id="1_dk6jp"]
-[ext_resource type="Texture2D" uid="uid://dkeri6jbh726r" path="res://Sprites and Shid/icon.svg" id="2_k2lau"]
+[ext_resource type="Texture2D" uid="uid://bskywp0lnmp33" path="res://Sprites and Shid/Tomato Enemy/Idle/Idle_1.png" id="3_lewqf"]
+[ext_resource type="Texture2D" uid="uid://likmbw7f71tq" path="res://Sprites and Shid/Tomato Enemy/Idle/Idle_2.png" id="4_krgmn"]
+[ext_resource type="Texture2D" uid="uid://61la6isf757u" path="res://Sprites and Shid/Tomato Enemy/Idle/Idle_3.png" id="5_to13s"]
+[ext_resource type="Texture2D" uid="uid://mn8osysvc4ai" path="res://Sprites and Shid/Tomato Enemy/Idle/Idle_4.png" id="6_fhx2v"]
+[ext_resource type="Texture2D" uid="uid://bhhp5b604fjta" path="res://Sprites and Shid/Tomato Enemy/Idle/Idle_5.png" id="7_qmidx"]
+[ext_resource type="Texture2D" uid="uid://bib0wgsmiv0p" path="res://Sprites and Shid/Tomato Enemy/Idle/Idle_6.png" id="8_eos1p"]
+[ext_resource type="Texture2D" uid="uid://bvr51gsje6rug" path="res://Sprites and Shid/Tomato Enemy/Idle/Idle_7.png" id="9_jyumk"]
+[ext_resource type="Texture2D" uid="uid://b7mxl22mrv2tw" path="res://Sprites and Shid/Tomato Enemy/Idle/Idle_8.png" id="10_pe1ao"]
+[ext_resource type="Texture2D" uid="uid://cmqgk648guwui" path="res://Sprites and Shid/Tomato Enemy/Idle/Idle_9.png" id="11_f2rng"]
+[ext_resource type="Texture2D" uid="uid://3jgsv4d4vsoc" path="res://Sprites and Shid/Tomato Enemy/Attack/frame0013.png" id="12_qgkxq"]
+[ext_resource type="Texture2D" uid="uid://dv64p5hb17t1e" path="res://Sprites and Shid/Tomato Enemy/Attack/frame0014.png" id="13_j7d55"]
+[ext_resource type="Texture2D" uid="uid://bpsmnypfo3cor" path="res://Sprites and Shid/Tomato Enemy/Attack/frame0015.png" id="14_4fp2a"]
+[ext_resource type="Texture2D" uid="uid://b546gksghogdh" path="res://Sprites and Shid/Tomato Enemy/Attack/frame0016.png" id="15_vs01x"]
+[ext_resource type="Texture2D" uid="uid://cpwifbial12pv" path="res://Sprites and Shid/Tomato Enemy/Attack/frame0017.png" id="16_i34ow"]
+[ext_resource type="Texture2D" uid="uid://dwitqbftbs4hx" path="res://Sprites and Shid/Tomato Enemy/Attack/frame0018.png" id="17_swu3t"]
+[ext_resource type="Texture2D" uid="uid://b8m1ketp848em" path="res://Sprites and Shid/Tomato Enemy/Attack/frame0019.png" id="18_c5wnn"]
+[ext_resource type="Texture2D" uid="uid://bsbu74i6aqdii" path="res://Sprites and Shid/Tomato Enemy/Attack/frame0020.png" id="19_3v88k"]
+[ext_resource type="Texture2D" uid="uid://paydqm6bcjt5" path="res://Sprites and Shid/Tomato Enemy/Attack/frame0021.png" id="20_sdhu7"]
+[ext_resource type="Texture2D" uid="uid://dqd78dufenyih" path="res://Sprites and Shid/Tomato Enemy/Attack/frame0022.png" id="21_8rvou"]
+[ext_resource type="Texture2D" uid="uid://mxm2wp7250yp" path="res://Sprites and Shid/Tomato Enemy/Anger/Tomato Anger Sign Sprite0000.png" id="22_pe1ao"]
+[ext_resource type="Texture2D" uid="uid://dao20gtf4refr" path="res://Sprites and Shid/Tomato Enemy/Attack/frame0023.png" id="22_tgien"]
+[ext_resource type="Texture2D" uid="uid://cmfakdlulkw2x" path="res://Sprites and Shid/Tomato Enemy/Anger/Tomato Anger Sign Sprite0001.png" id="23_f2rng"]
+[ext_resource type="Texture2D" uid="uid://dffp75qbn7ppk" path="res://Sprites and Shid/Tomato Enemy/Anger/Tomato Anger Sign Sprite0002.png" id="24_qgkxq"]
+[ext_resource type="Texture2D" uid="uid://cfhe3xuws0y74" path="res://Sprites and Shid/Tomato Enemy/Anger/Tomato Anger Sign Sprite0003.png" id="25_j7d55"]
+[ext_resource type="Texture2D" uid="uid://dvghn7uglot5m" path="res://Sprites and Shid/Tomato Enemy/Anger/Tomato Anger Sign Sprite0004.png" id="26_4fp2a"]
+[ext_resource type="Texture2D" uid="uid://c8g2mkmmf6jqh" path="res://Sprites and Shid/Tomato Enemy/Anger/Tomato Anger Sign Sprite0005.png" id="27_vs01x"]
+[ext_resource type="Texture2D" uid="uid://dd07edaca7gnf" path="res://Sprites and Shid/Tomato Enemy/Anger/Tomato Anger Sign Sprite0006.png" id="28_i34ow"]
+[ext_resource type="Texture2D" uid="uid://kx6lpfvacny3" path="res://Sprites and Shid/Tomato Enemy/Anger/Tomato Anger Sign Sprite0007.png" id="29_swu3t"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f6npk"]
-size = Vector2(127, 128)
+[sub_resource type="CircleShape2D" id="CircleShape2D_bj6cu"]
+radius = 60.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5bstm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_qgkxq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_j7d55")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_4fp2a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_vs01x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_i34ow")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_swu3t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_c5wnn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_3v88k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_sdhu7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_8rvou")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_tgien")
+}],
+"loop": 1,
+"name": &"Attack",
+"speed": 25.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_lewqf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_krgmn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_to13s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fhx2v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qmidx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_eos1p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_jyumk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_pe1ao")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_f2rng")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 15.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hj8ng"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_pe1ao")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_f2rng")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_qgkxq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_j7d55")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_4fp2a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_vs01x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_i34ow")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_swu3t")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 15.0
+}]
 
 [node name="Big_T" type="CharacterBody2D" unique_id=1200286190]
 script = ExtResource("1_dk6jp")
-quota = 10
-level = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1355679159]
-modulate = Color(0.86782765, 0, 0.11770063, 1)
-texture = ExtResource("2_k2lau")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1405162466]
 position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_f6npk")
+shape = SubResource("CircleShape2D_bj6cu")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=683632267]
 debug_enabled = true
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1438382110]
 target_position = Vector2(500, 0)
+
+[node name="Main Sprite" type="AnimatedSprite2D" parent="." unique_id=1939050796]
+position = Vector2(56, -35)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_5bstm")
+animation = &"Attack"
+frame_progress = 0.00981469
+
+[node name="Anger Sprite" type="AnimatedSprite2D" parent="." unique_id=722969224]
+position = Vector2(-54, -52)
+scale = Vector2(0.02, 0.02)
+sprite_frames = SubResource("SpriteFrames_hj8ng")
+frame_progress = 0.7010029

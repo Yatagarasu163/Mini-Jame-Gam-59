@@ -11,9 +11,11 @@ class_name factory_spawner
 @onready var world_neg_x: StaticBody2D = $WorldBorder_left
 @onready var world_pos_y: StaticBody2D = $WorldBorder_bottom
 @onready var world_neg_y: StaticBody2D = $WorldBorder_top
+@onready var nav_polygon: NavigationRegion2D = $NavigationRegion2D
 
 func _ready() -> void:
 	SpawnFactory()
+	call_deferred("bake_with_aidan")
 
 func _process(_delta: float) -> void:
 	pass
@@ -33,11 +35,13 @@ func SpawnFactory():
 			var new_y = y - y_diff
 			current_room.position = Vector2(new_x * x_multiplier, new_y * y_multiplier)
 			all_rooms.append(current_room)
-			add_child(current_room)
+			nav_polygon.add_child(current_room)
 	for i in range(5):
 		var selected_room_index = randi() % len(all_rooms)
 		all_rooms[selected_room_index].generate(i)
 		all_rooms.remove_at(selected_room_index)
 	for room in all_rooms:
 		room.clear_all()
-	
+
+func bake_with_aidan():
+	nav_polygon.bake_navigation_polygon()

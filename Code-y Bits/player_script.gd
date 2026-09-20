@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name player_script
 
 @export var _speed: float = 500.0
 
@@ -38,8 +39,11 @@ func enough_cooked_tomatoes():
 func enough_blended_tomatoes():
 	return _tomato_blended >= 1
 
-func enough_bottled_tomatoes():
-	return _tomato_bottled >= 1
+func deposit_bottled_tomatoes():
+	if _tomato_bottled >= 1:
+		_tomato_bottled -= 1
+		return true
+	return false
 
 func add_fresh_tomato():
 	if _tomato_fresh < _max_tomatoes:
@@ -71,7 +75,6 @@ func add_blended_tomato():
 	_tomato_blended += 1
 	print("Blended Tomatoes: ", _tomato_blended)
 
-
 func finish_bottling():
 	_tomato_blended -= 1
 	print("Blended Tomatoes: ", _tomato_blended)
@@ -79,6 +82,6 @@ func finish_bottling():
 func add_bottled_tomato():
 	_tomato_bottled += 1
 	print("Bottled Tomatoes: ", _tomato_bottled)
-	
+
 func _on_hurt_box_body_entered(body: Node2D) -> void:
 	print(body.name) 

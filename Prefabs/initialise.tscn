@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://8fwkwbey4cdn" path="res://Prefabs/player(IGNORE).tscn" id="3_qvyoy"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ql73s"]
-vertices = PackedVector2Array(90.71875, 559, 89.27344, 88.07031, 436.5, 88.36719, 436.5, 322.5, 450.5, 559, 450.5, 322.5, 821.5, 322.5, 821.5, 88.71094, 1063.8594, 88.921875, 1063.1406, 559, 687.5, 559, 687.5, 322.5)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(0, 2, 3), PackedInt32Array(4, 0, 3), PackedInt32Array(4, 3, 5), PackedInt32Array(6, 7, 8), PackedInt32Array(6, 8, 9), PackedInt32Array(6, 9, 10), PackedInt32Array(6, 10, 11)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-1, -2, 1, 649, 1153, 649, 1154, -1)])
+vertices = PackedVector2Array(90.59375, 559, 88.40625, 89.921875, 184.59375, 89.84375, 450.5, 559, 436.5, 89.61719, 436.5, 322.5, 450.5, 322.5, 821.5, 89.28125, 1063.8594, 89.07031, 1063.1406, 559, 821.5, 322.5, 687.5, 559, 687.5, 322.5)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 0, 2), PackedInt32Array(2, 4, 5), PackedInt32Array(3, 2, 5), PackedInt32Array(3, 5, 6), PackedInt32Array(7, 8, 9), PackedInt32Array(10, 7, 9), PackedInt32Array(10, 9, 11), PackedInt32Array(10, 11, 12)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-2, 0, 1, 649, 1153, 649, 1154, -1)])
 sample_partition_type = 1
 agent_radius = 90.0
 

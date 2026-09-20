@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://wvrul5mdgnfg"]
 
+[ext_resource type="Script" uid="uid://c11xvawxrrlmh" path="res://Code-y Bits/main_game.gd" id="1_6y7pd"]
 [ext_resource type="Script" uid="uid://bgovbshf1om1s" path="res://Code-y Bits/factory_spawner.gd" id="1_l756w"]
 [ext_resource type="PackedScene" uid="uid://optjhhdpek3c" path="res://Prefabs/factory_room.tscn" id="2_pu3va"]
 [ext_resource type="PackedScene" uid="uid://dytw8ksyhuym" path="res://Prefabs/player.tscn" id="3_0e3vx"]
@@ -19,7 +20,14 @@ normal = Vector2(0, 1)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_r0mdn"]
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_op1xx"]
+vertices = PackedVector2Array(1508.2109, -1501.2422, 1514.7813, 1500.7813, -1493.1797, 1494.2109, -1498.8125, -1508.7422)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1599, -1609, 1608, -1601, 1615, 1601, -1593, 1594)])
+agent_radius = 100.0
+
 [node name="Main Game" type="Node2D" unique_id=425826221]
+script = ExtResource("1_6y7pd")
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=533744617]
 stream = ExtResource("8_6y7pd")
@@ -50,6 +58,9 @@ shape = SubResource("WorldBoundaryShape2D_73nn6")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Factory Spawner/WorldBorder_bottom" unique_id=1331567991]
 shape = SubResource("WorldBoundaryShape2D_r0mdn")
 
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Factory Spawner" unique_id=585333738]
+navigation_polygon = SubResource("NavigationPolygon_op1xx")
+
 [node name="Player" parent="." unique_id=1723161328 instance=ExtResource("3_0e3vx")]
 position = Vector2(-6, -12)
 
@@ -63,4 +74,5 @@ script = ExtResource("5_6y7pd")
 position = Vector2(0, -75)
 
 [node name="Big_T" parent="." unique_id=1200286190 node_paths=PackedStringArray("target") instance=ExtResource("7_18r40")]
+position = Vector2(-1504, 1502)
 target = NodePath("../Player")
