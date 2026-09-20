@@ -27,6 +27,7 @@ texture = ExtResource("1_dhrwc")
 [node name="MiniGameUI" type="CanvasLayer" parent="." unique_id=1706181536]
 
 [node name="CuttingProgressBar" type="ProgressBar" parent="MiniGameUI" unique_id=1301459880]
+modulate = Color(0.7607843, 0.16078432, 0.14117648, 1)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -37,6 +38,7 @@ offset_bottom = 65.0
 grow_horizontal = 2
 max_value = 10.0
 value = 10.0
+show_percentage = false
 
 [node name="KeyIndicator" type="Panel" parent="MiniGameUI" unique_id=1259957165]
 visible = false
@@ -512,12 +514,13 @@ position = Vector2(3, 19)
 [node name="Sprite2D" parent="CookingMachine/OutputPoint/OutputItem" parent_id_path=PackedInt32Array(760379608, 1068318048) index="0" unique_id=1620921805]
 modulate = Color(0, 0, 0, 1)
 
-[node name="BlenderMachine" parent="." unique_id=2051678513 node_paths=PackedStringArray("blenderSpaceGlow", "blenderUI", "blendingProgressBar", "blendingLabel") instance=ExtResource("3_25cia")]
+[node name="BlenderMachine" parent="." unique_id=2051678513 node_paths=PackedStringArray("blenderSpaceGlow", "blenderUI", "blendingProgressBar", "blendingLabel", "blenderSpaceKey") instance=ExtResource("3_25cia")]
 machineType = 2
 blenderSpaceGlow = NodePath("../MiniGameUI/BlenderUI/BlenderSpaceKey/SpaceKeyCapGlow")
 blenderUI = NodePath("../MiniGameUI/BlenderUI")
 blendingProgressBar = NodePath("../MiniGameUI/BlenderUI/BlenderProgressbar")
 blendingLabel = NodePath("../MiniGameUI/BlenderUI/BlendingInstruction")
+blenderSpaceKey = NodePath("../MiniGameUI/BlenderUI/BlenderSpaceKey")
 
 [node name="Sprite2D" parent="BlenderMachine" index="0" unique_id=1522078674]
 modulate = Color(4.813075e-08, 0.5721783, 0.18850693, 1)

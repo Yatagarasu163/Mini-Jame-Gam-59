@@ -66,6 +66,7 @@ enum MachineType { CUTTER,COOKING,BLENDER,BOTTLING}
 @export var blenderUI: Control
 @export var blendingProgressBar: ProgressBar
 @export var  blendingLabel: Label
+@export var blenderSpaceKey: Control
 
 #Bottling Mini Games UI Reference
 @export var bottlingUI: Panel
@@ -295,6 +296,7 @@ func updateBlendingGame(delta):
 		if Input.is_action_just_pressed ("mash_space") and playerInRange:
 			blendingStarted = true
 			blendingLabel.text = "BLENDING....."
+			blenderSpaceKey.visible = false
 			print(("Blending Started"))
 		return
 		
@@ -358,6 +360,13 @@ func showMiniGameUI():
 		
 	if machineType == MachineType.COOKING:
 		cookingUI.visible = true
+		
+	if machineType == MachineType.BLENDER:
+		if blendingStarted == false:
+			blenderUI.visible = true
+			
+	if machineType == MachineType.BOTTLING:
+		bottlingUI.visible = true
 
 func hideMiniGameUI():
 	if machineType == MachineType.CUTTER:
@@ -367,6 +376,13 @@ func hideMiniGameUI():
 	
 	if machineType == MachineType.COOKING:
 		cookingUI.visible = false 
+		
+	if machineType == MachineType.BLENDER:
+		if blendingStarted == false:
+			blenderUI.visible = false
+			
+	if machineType == MachineType.BOTTLING:
+		bottlingUI.visible = false
 
 func _on_interaction_area_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
