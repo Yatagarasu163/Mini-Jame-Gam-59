@@ -26,6 +26,10 @@ GlobalWorldEnvironment="*uid://c1mxsmvbxpo7"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[global_group]
+
+patrol_spots=""
+
 [input]
 
 move_left={

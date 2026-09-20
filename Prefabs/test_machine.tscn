@@ -46,6 +46,8 @@ texture = ExtResource("2_bj6cu")
 scale = Vector2(3, 3)
 shape = SubResource("CircleShape2D_xrivr")
 
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1252844350 groups=["patrol_spots"]]
+
 [connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
 [connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]
 [connection signal="body_entered" from="OutputPoint/OutputItem" to="." method="_on_output_item_body_entered"]

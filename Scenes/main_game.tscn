@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dytw8ksyhuym" path="res://Prefabs/player.tscn" id="3_0e3vx"]
 [ext_resource type="Script" uid="uid://brw3klbb2dtxv" path="res://Code-y Bits/Health.gd" id="4_mgc0q"]
 [ext_resource type="Script" uid="uid://bij4x7ec50bix" path="res://Code-y Bits/machineInteraction.gd" id="5_6y7pd"]
-[ext_resource type="PackedScene" uid="uid://cvrejer7q53ep" path="res://Prefabs/test_enemy.tscn" id="7_6y7pd"]
+[ext_resource type="PackedScene" uid="uid://r7ogd04ro4av" path="res://Prefabs/big_t.tscn" id="7_18r40"]
 [ext_resource type="AudioStream" uid="uid://cg8vhn45pf6q2" path="res://Can You Ketchup Theme Song.mp3" id="8_6y7pd"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_18r40"]
@@ -20,6 +20,11 @@ normal = Vector2(0, 1)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_r0mdn"]
 
 [node name="Main Game" type="Node2D" unique_id=425826221]
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=533744617]
+stream = ExtResource("8_6y7pd")
+autoplay = true
+bus = &"Music"
 
 [node name="Factory Spawner" type="Node2D" parent="." unique_id=65925981]
 script = ExtResource("1_l756w")
@@ -57,10 +62,5 @@ script = ExtResource("5_6y7pd")
 [node name="CarryPoint" type="Node2D" parent="Player" unique_id=1909432068]
 position = Vector2(0, -75)
 
-[node name="TestEnemy" parent="." unique_id=1308011806 instance=ExtResource("7_6y7pd")]
-position = Vector2(205, -9)
-
-[node name="Music" type="AudioStreamPlayer" parent="." unique_id=533744617]
-stream = ExtResource("8_6y7pd")
-autoplay = true
-bus = &"Music"
+[node name="Big_T" parent="." unique_id=1200286190 node_paths=PackedStringArray("target") instance=ExtResource("7_18r40")]
+target = NodePath("../Player")

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://r7ogd04ro4av"]
 
-[ext_resource type="Script" uid="uid://biwiqo0hvptkd" path="res://Prefabs/big_t.gd" id="1_dk6jp"]
+[ext_resource type="Script" uid="uid://biwiqo0hvptkd" path="res://Code-y Bits/big_t.gd" id="1_dk6jp"]
 [ext_resource type="Texture2D" uid="uid://dkeri6jbh726r" path="res://Sprites and Shid/icon.svg" id="2_k2lau"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f6npk"]

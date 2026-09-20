@@ -16,6 +16,8 @@ var total_score: float = 0.0
 
 signal camera_shake(strength: float)
 signal zoom_camera(target_zoom: Vector2, duration: float)
+
+
 # --- TUTORIAL TRACKING FLAGS ---
 var has_picked_up_tomato: bool = false
 var has_cut_tomato: bool = false
