@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dvo2tatodna1t" path="res://Code-y Bits/factory_machine.gd" id="1_o1jb7"]
 [ext_resource type="Texture2D" uid="uid://dkeri6jbh726r" path="res://Sprites and Shid/icon.svg" id="2_bj6cu"]
+[ext_resource type="Texture2D" uid="uid://byhctff70fcey" path="res://Sprites and Shid/Key Press Sprite.png" id="3_pl7mn"]
+[ext_resource type="FontFile" uid="uid://ddu3nk32psljp" path="res://Font/Sauce Tomato.otf" id="4_u2dob"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b1lj4"]
 size = Vector2(120, 120)
@@ -9,7 +11,7 @@ size = Vector2(120, 120)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_njqwk"]
 size = Vector2(250, 250)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xrivr"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pl7mn"]
 
 [node name="TestMachine" type="StaticBody2D" unique_id=1877580678 node_paths=PackedStringArray("outputItem")]
 script = ExtResource("1_o1jb7")
@@ -28,19 +30,131 @@ shape = SubResource("RectangleShape2D_b1lj4")
 shape = SubResource("RectangleShape2D_njqwk")
 
 [node name="OutputPoint" type="Node2D" parent="." unique_id=634750472]
+z_index = 20
 position = Vector2(-130, 0)
 
 [node name="OutputItem" type="Area2D" parent="OutputPoint" unique_id=1068318048]
-visible = false
-modulate = Color(0.9935445, 0.36186796, 0.1403706, 1)
+self_modulate = Color(0.99215686, 0.36078432, 0.14117648, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="OutputPoint/OutputItem" unique_id=1620921805]
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_bj6cu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OutputPoint/OutputItem" unique_id=1556947714]
-scale = Vector2(3, 3)
-shape = SubResource("CircleShape2D_xrivr")
+scale = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_pl7mn")
+
+[node name="PickUpPrompt" type="Node2D" parent="OutputPoint/OutputItem" unique_id=1492325668]
+visible = false
+position = Vector2(-26, -34)
+
+[node name="KeyCaps" type="Node2D" parent="OutputPoint/OutputItem/PickUpPrompt" unique_id=2109524642]
+position = Vector2(-8, 2.3841858e-07)
+scale = Vector2(0.35, 0.35)
+
+[node name="SmallKeyCap" type="Sprite2D" parent="OutputPoint/OutputItem/PickUpPrompt/KeyCaps" unique_id=1345944804]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_pl7mn")
+region_enabled = true
+region_rect = Rect2(113, 549, 287, 281)
+
+[node name="SmallKeyCapGlow" type="Sprite2D" parent="OutputPoint/OutputItem/PickUpPrompt/KeyCaps" unique_id=1096778871]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_pl7mn")
+region_enabled = true
+region_rect = Rect2(41, 11, 485, 413)
+
+[node name="KeyLabel" type="Label" parent="OutputPoint/OutputItem/PickUpPrompt/KeyCaps" unique_id=1590336552]
+modulate = Color(0.95686275, 1, 0.85882354, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.000008
+offset_top = -26.0
+offset_right = 2.9999924
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+theme_override_fonts/font = ExtResource("4_u2dob")
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PickUptext" type="Label" parent="OutputPoint/OutputItem/PickUpPrompt" unique_id=1099303646]
+modulate = Color(0.95686275, 1, 0.85882354, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -9.000001
+offset_right = 100.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+theme_override_fonts/font = ExtResource("4_u2dob")
+text = "PICK UP     "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InteractPromptPoint" type="Node2D" parent="." unique_id=2007177341]
+z_index = 25
+position = Vector2(0, -80)
+
+[node name="InteractPrompt" type="Node2D" parent="InteractPromptPoint" unique_id=13064305]
+visible = false
+position = Vector2(-26, -1)
+
+[node name="KeyCaps" type="Node2D" parent="InteractPromptPoint/InteractPrompt" unique_id=1593340730]
+position = Vector2(-8, 2.3841858e-07)
+scale = Vector2(0.35, 0.35)
+
+[node name="SmallKeyCap" type="Sprite2D" parent="InteractPromptPoint/InteractPrompt/KeyCaps" unique_id=456255196]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_pl7mn")
+region_enabled = true
+region_rect = Rect2(113, 549, 287, 281)
+
+[node name="SmallKeyCapGlow" type="Sprite2D" parent="InteractPromptPoint/InteractPrompt/KeyCaps" unique_id=1818944613]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_pl7mn")
+region_enabled = true
+region_rect = Rect2(41, 11, 485, 413)
+
+[node name="KeyLabel" type="Label" parent="InteractPromptPoint/InteractPrompt/KeyCaps" unique_id=92665859]
+modulate = Color(0.95686275, 1, 0.85882354, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.000008
+offset_top = -26.0
+offset_right = 2.9999924
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+theme_override_fonts/font = ExtResource("4_u2dob")
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Interactiontext" type="Label" parent="InteractPromptPoint/InteractPrompt" unique_id=849529892]
+modulate = Color(0.95686275, 1, 0.85882354, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -9.000001
+offset_right = 100.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+theme_override_fonts/font = ExtResource("4_u2dob")
+text = "INTERACT"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
 [connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

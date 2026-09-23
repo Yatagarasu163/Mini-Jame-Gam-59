@@ -7,6 +7,12 @@ var player = null
 var currentPress = 0
 var requiredPress = 0
 var glowTween: Tween
+var messageID: int = 0
+
+#Interaction prompt 
+@export var interactPrompt: Node2D
+@export var pickupPrompt: Node2D
+@export var interactionText: Label
 
 # Cooking Values
 var temperature: float = 20.0
@@ -67,6 +73,10 @@ enum MachineType { CUTTER,COOKING,BLENDER,BOTTLING}
 
 func _ready():
 	
+	outputItem.visible = false
+	outputItem.monitoring = false
+	pickupPrompt.visible = false
+	
 	if machineType == MachineType.CUTTER:
 		cuttingProgressBar.visible = false
 		keyIndicator.visible = false
@@ -93,7 +103,7 @@ func interact():
 				player.get_node("CarryPoint/FreshTomato").visible = false
 				startMiniGame()
 			else:
-				print("You need 5 tomatoes!")
+				showMessage("YOU NEED 5 TOMATOES!")
 		
 		if machineType == MachineType.COOKING:
 			if player.enough_cut_tomatoes():
@@ -102,7 +112,7 @@ func interact():
 				carriedItem.queue_free()
 				startMiniGame()
 			else:
-				print("You need a Cut Tomato!")
+				showMessage("YOU NEED CUT TOMATOES !")
 			
 		if machineType == MachineType.BLENDER:
 			if player.enough_cooked_tomatoes():
@@ -111,7 +121,7 @@ func interact():
 				carriedItem.queue_free()
 				startMiniGame()
 			else:
-				print("You need a Cooked Tomato!")
+				showMessage("YOU NEED COOKED TOMATOES!")
 			
 		if machineType == MachineType.BOTTLING:
 			if player.enough_blended_tomatoes():
@@ -120,10 +130,13 @@ func interact():
 				carriedItem.queue_free()
 				startMiniGame()
 			else:
-				print("You need a Blended Tomato!")
+				showMessage("YOU NEED BLENDED TOMATOES!")
 			
 func startMiniGame():
+	messageID += 1
+	instructionText.visible = false
 	machineActive = true
+	interactPrompt.visible = false
 	
 	match machineType:
 		MachineType.CUTTER:
@@ -142,6 +155,7 @@ func startCuttingGame():
 	currentPress = 0
 	requiredPress = randi_range(minPresses,maxPresses)
 	chooseRandomKey()
+	instructionText.text = "PRESS THE BUTTON REPEATEDLY TO CUT THE TOMATO"
 	cuttingProgressBar.visible = true
 	keyIndicator.visible = true
 	instructionText.visible = true
@@ -248,6 +262,7 @@ func pickupOutput():
 	outputItem.monitoring = false
 	
 	playerNearOutput = false
+	pickupPrompt.visible = false
 	print("Output Picked Up")
 	
 func updateCuttingGame():
@@ -357,6 +372,7 @@ func completeMiniGame():
 	outputItem.visible = true
 	outputItem.monitoring = true
 	
+	
 	print("Machine Complete!")
 	
 func showMiniGameUI():
@@ -397,6 +413,9 @@ func _on_interaction_area_body_entered(body: Node2D) -> void:
 		player = body
 		body.get_node("Interaction").setNearbyMachine(self)
 		
+		if machineActive == false:
+			interactPrompt.visible = true
+		
 		if machineActive:
 			showMiniGameUI()
 			
@@ -406,7 +425,8 @@ func _on_interaction_area_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
 		playerInRange = false
 		body.get_node("Interaction").notNearMachine()
-		
+		interactPrompt.visible = false
+			
 		if machineActive:
 			hideMiniGameUI()
 
@@ -415,7 +435,24 @@ func _on_output_item_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		playerNearOutput = true
 		player = body
+		pickupPrompt.visible = true
+		
+
 
 func _on_output_item_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
 		playerNearOutput = false
+		pickupPrompt.visible = false
+
+func showMessage(message):
+	messageID += 1
+	var currentMessageID = messageID
+	
+	instructionText.visible = false
+	instructionText.text = message
+	instructionText.visible = true
+	
+	await get_tree().create_timer(3.0).timeout
+	
+	if currentMessageID == messageID and machineActive == false:
+		instructionText.visible = false

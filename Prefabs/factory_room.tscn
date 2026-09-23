@@ -14,8 +14,7 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d5jih"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u31tl"]
-size = Vector2(148, 127)
+[sub_resource type="CircleShape2D" id="CircleShape2D_u2dob"]
 
 [node name="Factory Room" type="Node2D" unique_id=156863892 node_paths=PackedStringArray("_machines")]
 script = ExtResource("1_1daii")
@@ -32,9 +31,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -150.0
-offset_top = 35.0
+offset_top = 42.0
 offset_right = 150.0
-offset_bottom = 65.0
+offset_bottom = 72.0
 grow_horizontal = 2
 max_value = 10.0
 value = 10.0
@@ -84,7 +83,7 @@ text = "F"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="instruction" type="Label" parent="MiniGameUI" unique_id=1033486597]
+[node name="Instruction" type="Label" parent="MiniGameUI" unique_id=1033486597]
 modulate = Color(0.95686275, 1, 0.85882354, 1)
 anchors_preset = 5
 anchor_left = 0.5
@@ -509,16 +508,23 @@ text = "SPACE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CutterMachine" parent="." unique_id=1877580678 node_paths=PackedStringArray("cuttingProgressBar", "keyIndicator", "keyLabel", "instructionText", "buttonGlow") instance=ExtResource("3_25cia")]
+[node name="CutterMachine" parent="." unique_id=1877580678 node_paths=PackedStringArray("interactPrompt", "pickupPrompt", "interactionText", "cuttingProgressBar", "keyIndicator", "keyLabel", "instructionText", "buttonGlow") instance=ExtResource("3_25cia")]
 position = Vector2(10, 0)
+interactPrompt = NodePath("InteractPromptPoint/InteractPrompt")
+pickupPrompt = NodePath("OutputPoint/OutputItem/PickUpPrompt")
+interactionText = NodePath("../MiniGameUI/Instruction")
 cuttingProgressBar = NodePath("../MiniGameUI/CuttingProgressBar")
 keyIndicator = NodePath("../MiniGameUI/KeyIndicator")
 keyLabel = NodePath("../MiniGameUI/KeyIndicator/KeyLabel")
-instructionText = NodePath("../MiniGameUI/instruction")
+instructionText = NodePath("../MiniGameUI/Instruction")
 buttonGlow = NodePath("../MiniGameUI/KeyIndicator/SmallKeyCapGlow")
 
-[node name="CookingMachine" parent="." unique_id=760379608 node_paths=PackedStringArray("cookingSpaceGlow", "cookingUI", "temperatureIndicator", "temperatureBar", "temperatureLabel", "cookingProgressBar") instance=ExtResource("3_25cia")]
+[node name="CookingMachine" parent="." unique_id=760379608 node_paths=PackedStringArray("interactPrompt", "pickupPrompt", "interactionText", "instructionText", "cookingSpaceGlow", "cookingUI", "temperatureIndicator", "temperatureBar", "temperatureLabel", "cookingProgressBar") instance=ExtResource("3_25cia")]
+interactPrompt = NodePath("InteractPromptPoint/InteractPrompt")
+pickupPrompt = NodePath("OutputPoint/OutputItem/PickUpPrompt")
+interactionText = NodePath("../MiniGameUI/Instruction")
 machineType = 1
+instructionText = NodePath("../MiniGameUI/Instruction")
 cookingSpaceGlow = NodePath("../MiniGameUI/CookingUI/CookingSpaceKey/SpaceKeyCapGlow")
 cookingUI = NodePath("../MiniGameUI/CookingUI")
 temperatureIndicator = NodePath("../MiniGameUI/CookingUI/TemperatureIndicator")
@@ -535,8 +541,12 @@ position = Vector2(3, 19)
 [node name="Sprite2D" parent="CookingMachine/OutputPoint/OutputItem" parent_id_path=PackedInt32Array(760379608, 1068318048) index="0" unique_id=1620921805]
 modulate = Color(0, 0, 0, 1)
 
-[node name="BlenderMachine" parent="." unique_id=2051678513 node_paths=PackedStringArray("blenderSpaceGlow", "blenderUI", "blendingProgressBar", "blendingLabel", "blenderSpaceKey") instance=ExtResource("3_25cia")]
+[node name="BlenderMachine" parent="." unique_id=2051678513 node_paths=PackedStringArray("interactPrompt", "pickupPrompt", "interactionText", "instructionText", "blenderSpaceGlow", "blenderUI", "blendingProgressBar", "blendingLabel", "blenderSpaceKey") instance=ExtResource("3_25cia")]
+interactPrompt = NodePath("InteractPromptPoint/InteractPrompt")
+pickupPrompt = NodePath("OutputPoint/OutputItem/PickUpPrompt")
+interactionText = NodePath("../MiniGameUI/Instruction")
 machineType = 2
+instructionText = NodePath("../MiniGameUI/Instruction")
 blenderSpaceGlow = NodePath("../MiniGameUI/BlenderUI/BlenderSpaceKey/SpaceKeyCapGlow")
 blenderUI = NodePath("../MiniGameUI/BlenderUI")
 blendingProgressBar = NodePath("../MiniGameUI/BlenderUI/BlenderProgressbar")
@@ -549,8 +559,12 @@ modulate = Color(4.813075e-08, 0.5721783, 0.18850693, 1)
 [node name="Sprite2D" parent="BlenderMachine/OutputPoint/OutputItem" parent_id_path=PackedInt32Array(2051678513, 1068318048) index="0" unique_id=1620921805]
 modulate = Color(0.48133707, 0.4813372, 2.8878452e-07, 1)
 
-[node name="BottlingMachine" parent="." unique_id=650750150 node_paths=PackedStringArray("bottlingSpaceGlow", "bottlingUI", "ketchupFillBar") instance=ExtResource("3_25cia")]
+[node name="BottlingMachine" parent="." unique_id=650750150 node_paths=PackedStringArray("interactPrompt", "pickupPrompt", "interactionText", "instructionText", "bottlingSpaceGlow", "bottlingUI", "ketchupFillBar") instance=ExtResource("3_25cia")]
+interactPrompt = NodePath("InteractPromptPoint/InteractPrompt")
+pickupPrompt = NodePath("OutputPoint/OutputItem/PickUpPrompt")
+interactionText = NodePath("../MiniGameUI/Instruction")
 machineType = 3
+instructionText = NodePath("../MiniGameUI/Instruction")
 bottlingSpaceGlow = NodePath("../MiniGameUI/BottlingUI/BottlingSpaceKey/SpaceKeyCapGlow")
 bottlingUI = NodePath("../MiniGameUI/BottlingUI")
 ketchupFillBar = NodePath("../MiniGameUI/BottlingUI/KetchupFillBar")
@@ -558,12 +572,14 @@ ketchupFillBar = NodePath("../MiniGameUI/BottlingUI/KetchupFillBar")
 [node name="Sprite2D" parent="BottlingMachine" index="0" unique_id=1522078674]
 modulate = Color(4.813075e-08, 0.5721783, 0.18850693, 1)
 
-[node name="TomatoCollection" type="Node2D" parent="." unique_id=1180580663 node_paths=PackedStringArray("collectionProgressBar", "freshTomato")]
-position = Vector2(-405, 199)
+[node name="TomatoCollection" type="Node2D" parent="." unique_id=1180580663 node_paths=PackedStringArray("collectionProgressBar", "freshTomato", "interactionPrompt", "pickupPrompt")]
+position = Vector2(-452, 199)
 script = ExtResource("10_krrug")
 collectionTime = 1.0
 collectionProgressBar = NodePath("TomatoCollectionProgressBar")
 freshTomato = NodePath("OutputPoint/FreshTomato")
+interactionPrompt = NodePath("InteractionArea/InteractPromptPoint/InteractPrompt")
+pickupPrompt = NodePath("OutputPoint/FreshTomato/PickUpPrompt")
 
 [node name="Sprite2D" type="Sprite2D" parent="TomatoCollection" unique_id=360887388]
 modulate = Color(0.7051975, 0.09830607, 0.22591418, 1)
@@ -573,10 +589,10 @@ texture = ExtResource("1_dhrwc")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -60.0
-offset_top = -100.0
-offset_right = 70.0
-offset_bottom = -73.0
+offset_left = -64.0
+offset_top = -97.0
+offset_right = 66.0
+offset_bottom = -70.0
 grow_horizontal = 2
 grow_vertical = 2
 show_percentage = false
@@ -596,11 +612,121 @@ texture = ExtResource("1_dhrwc")
 scale = Vector2(3, 3)
 shape = SubResource("CircleShape2D_d5jih")
 
+[node name="PickUpPrompt" type="Node2D" parent="TomatoCollection/OutputPoint/FreshTomato" unique_id=883379853]
+position = Vector2(-26, -34)
+
+[node name="KeyCaps" type="Node2D" parent="TomatoCollection/OutputPoint/FreshTomato/PickUpPrompt" unique_id=2050284367]
+position = Vector2(-8, 2.3841858e-07)
+scale = Vector2(0.35, 0.35)
+
+[node name="SmallKeyCap" type="Sprite2D" parent="TomatoCollection/OutputPoint/FreshTomato/PickUpPrompt/KeyCaps" unique_id=1686735788]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_o7em3")
+region_enabled = true
+region_rect = Rect2(113, 549, 287, 281)
+
+[node name="SmallKeyCapGlow" type="Sprite2D" parent="TomatoCollection/OutputPoint/FreshTomato/PickUpPrompt/KeyCaps" unique_id=1963778069]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_o7em3")
+region_enabled = true
+region_rect = Rect2(41, 11, 485, 413)
+
+[node name="KeyLabel" type="Label" parent="TomatoCollection/OutputPoint/FreshTomato/PickUpPrompt/KeyCaps" unique_id=1822181875]
+modulate = Color(0.95686275, 1, 0.85882354, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.000008
+offset_top = -26.0
+offset_right = 2.9999924
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+theme_override_fonts/font = ExtResource("4_d5jih")
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PickUptext" type="Label" parent="TomatoCollection/OutputPoint/FreshTomato/PickUpPrompt" unique_id=605623881]
+modulate = Color(0.95686275, 1, 0.85882354, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -9.000001
+offset_right = 100.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+theme_override_fonts/font = ExtResource("4_d5jih")
+text = "PICK UP     "
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="InteractionArea" type="Area2D" parent="TomatoCollection" unique_id=169299845]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TomatoCollection/InteractionArea" unique_id=1112421332]
-scale = Vector2(2, 2)
-shape = SubResource("RectangleShape2D_u31tl")
+scale = Vector2(10, 10)
+shape = SubResource("CircleShape2D_u2dob")
+
+[node name="InteractPromptPoint" type="Node2D" parent="TomatoCollection/InteractionArea" unique_id=74385248]
+position = Vector2(0, -83)
+
+[node name="InteractPrompt" type="Node2D" parent="TomatoCollection/InteractionArea/InteractPromptPoint" unique_id=585051270]
+visible = false
+position = Vector2(-26, -1)
+
+[node name="KeyCaps" type="Node2D" parent="TomatoCollection/InteractionArea/InteractPromptPoint/InteractPrompt" unique_id=893250534]
+position = Vector2(-8, 2.3841858e-07)
+scale = Vector2(0.35, 0.35)
+
+[node name="SmallKeyCap" type="Sprite2D" parent="TomatoCollection/InteractionArea/InteractPromptPoint/InteractPrompt/KeyCaps" unique_id=2035414270]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_o7em3")
+region_enabled = true
+region_rect = Rect2(113, 549, 287, 281)
+
+[node name="SmallKeyCapGlow" type="Sprite2D" parent="TomatoCollection/InteractionArea/InteractPromptPoint/InteractPrompt/KeyCaps" unique_id=811646844]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_o7em3")
+region_enabled = true
+region_rect = Rect2(41, 11, 485, 413)
+
+[node name="KeyLabel" type="Label" parent="TomatoCollection/InteractionArea/InteractPromptPoint/InteractPrompt/KeyCaps" unique_id=281409214]
+modulate = Color(0.95686275, 1, 0.85882354, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.000008
+offset_top = -26.0
+offset_right = 2.9999924
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+theme_override_fonts/font = ExtResource("4_d5jih")
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Interactiontext" type="Label" parent="TomatoCollection/InteractionArea/InteractPromptPoint/InteractPrompt" unique_id=174343546]
+modulate = Color(0.95686275, 1, 0.85882354, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -9.000001
+offset_right = 100.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+theme_override_fonts/font = ExtResource("4_d5jih")
+text = "COLLECT"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="TomatoCollection/OutputPoint/FreshTomato" to="TomatoCollection" method="_on_fresh_tomato_body_entered"]
 [connection signal="body_exited" from="TomatoCollection/OutputPoint/FreshTomato" to="TomatoCollection" method="_on_fresh_tomato_body_exited"]
